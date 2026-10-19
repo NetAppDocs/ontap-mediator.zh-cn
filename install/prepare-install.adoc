@@ -1,0 +1,313 @@
+---
+permalink: install/prepare-install.html 
+sidebar: sidebar 
+keywords: ontap mediator, install requirements, mediator requirements 
+summary: 要安装 ONTAP Mediator，您必须确保满足所有先决条件，获取安装包并在主机上运行安装程序。 
+---
+= 准备安装 ONTAP Mediator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要安装 ONTAP Mediator，您需要满足所有先决条件，下载安装包，并在主机上运行安装程序。
+
+[NOTE]
+====
+* 要将 ONTAP Mediator 升级到新版本，请参阅 link:../administer/upgrade-ontap-mediator-task.html["升级 ONTAP Mediator"]。
+* 如果需要升级主机操作系统，并在此过程中重新安装或升级 ONTAP Mediator，请参阅link:../administer/upgrade-host-os-mediator-task.html["升级主机操作系统和 ONTAP Mediator"]。
+
+
+====
+
+
+[[installation-requirements]]
+== 安装要求
+
+安装 ONTAP Mediator 之前，请查看以下要求。
+
+[NOTE]
+====
+* ONTAP Mediator 1.8 及更早版本与 Red Hat Enterprise Linux （RHEL） FIPS 模式不兼容，并会导致其无法成功安装。您可以使用  `fips-mode-setup --check` 命令检查是否启用了 FIPS 模式。您可以使用  `fips-mode-setup --disable` 命令禁用 FIPS 模式。禁用 FIPS 模式后重新启动，以成功安装 ONTAP Mediator 1.8 或更早版本。
+* 如果安装失败，您可能需要尝试更新版本的 ONTAP Mediator。
+* 从 2025 年 6 月 15 日起，您无法安装或升级 ONTAP Mediator 1.9 和 1.8，因为它们的代码签名证书已过期。如果安装失败，请改用 ONTAP Mediator 1.9.1 补丁版本。
+
+
+====
+* 如果安装  `yum-utils` 软件包，您可以使用  `needs-restarting` 命令。
+* 从 ONTAP Mediator 1.11 开始，MetroCluster IP 配置支持 IPv6。
+
+
+
+
+[[https-and-iscsi-installation-options-for-ontap-mediator]]
+[[https-iscsi-installation]]
+=== 适用于 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项
+
+在安装 ONTAP Mediator 之前，请查看以下信息：
+
+* 在 ONTAP Mediator 中，SCST 包用于为 MetroCluster IP 配置中的通信提供 iSCSI。SCST 包是在安装过程中编译的内核模块。从 ONTAP 9.19.1 和 Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 监控 MetroCluster IP 配置的 ONTAP Mediator。
+* 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以选择安装支持 iSCSI 和 HTTPS 的 ONTAP Mediator，或仅支持 HTTPS。如果您选择安装仅支持 HTTPS 的 ONTAP Mediator，则不会安装 SCST 软件包。
+* 如果您从安装了 SCST 的 ONTAP Mediator 1.11 或更早版本升级，并且在升级期间选择了 HTTPS only 选项，则会卸载 SCST 包，并且新的 ONTAP Mediator 版本不包含 SCST 包。
+* 如果您计划使用 ONTAP Mediator 来监控多个 MetroCluster IP 配置，则支持取决于您的 Mediator 类型、ONTAP 版本和操作系统。有关详细信息，请参见link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html#mediator-multiple-mccip["使用 ONTAP Mediator 监控多个 MetroCluster IP 配置"^]。
+* 仅对以下用例支持安装支持 HTTPS 的 ONTAP Mediator：
++
+** 您计划仅使用 ONTAP Mediator 来监控您的 SnapMirror 活动同步集群。
+** 您计划使用 HTTPS 配置 ONTAP Mediator 以监视一个或多个 MetroCluster IP 配置。
+
+
+* 在以下情况下，必须安装支持 iSCSI 和 HTTPS 的 ONTAP Mediator：
++
+** 您计划使用 iSCSI 配置 ONTAP Mediator 以监视一个或多个 MetroCluster IP 配置。
+
+
+
+
+
+
+[[host-requirements]]
+== 主机要求
+
+在安装 RHEL 或 Rocky Linux 并配置关联的存储库时，请遵循这些要求。
+
+[NOTE]
+====
+如果修改安装或配置过程，则可能需要执行其他步骤。
+
+====
+.Linux 发行版要求
+* 根据 Red Hat 的最佳实践安装 RHEL 或 Rocky Linux。由于 CentOS 8.x 已结束生命周期，因此不建议使用 CentOS 8.x 的兼容版本。
+* 在安装 ONTAP Mediator 时，确保系统可以访问所需的存储库，以便安装程序可以检索并安装所有必需的软件依赖项。
+* 要使 yum 安装程序能够在 RHEL 存储库中查找依赖软件，请在安装期间或之后使用有效的 Red Hat 订阅注册系统。
++
+[NOTE]
+====
+有关详细信息，请参见 Red Hat Subscription Manager 文档。
+
+====
+
+
+
+
+[[firewall-and-networking-requirements]]
+== 防火墙和网络要求
+
+ONTAP Mediator 使用多个端口与特定服务进行通信。
+
+* 如果您使用的是第三方防火墙：
++
+** 必须启用 HTTPS 访问。
+** 必须将其配置为允许在端口 31784 和 3260 上进行访问。
++
+使用默认的 Red Hat 或 CentOS 防火墙时，会在 Mediator 安装过程中自动配置防火墙。
+
+
+
+* 对于无法访问互联网的 Linux 主机，请确保在本地存储库中提供所需的软件包。
++
+如果在 Linux 环境中使用链路聚合控制协议（LACP），请配置内核并将 `sysctl net.ipv4.conf.all.arp_ignore`设置为 `2`。
+
+
+
+下表列出了必须在防火墙中允许的端口：
+
+[NOTE]
+====
+* 仅在 MetroCluster IP 配置中需要 iSCSI 端口。
+* 正常操作不需要 22/tcp 端口，但您可以暂时启用它进行维护，并在维护会话完成后禁用它。
+
+
+====
+|===
+
+
+| 端口/服务 | 源 | 方向 | 目标 | 目的 
+
+
+ a| 
+22/tcp
+ a| 
+管理主机
+ a| 
+入站
+ a| 
+ONTAP 调解器
+ a| 
+（可选）SSH / ONTAP Mediator 管理
+
+
+
+ a| 
+31784/tcp
+ a| 
+集群管理和节点管理 LIF
+ a| 
+入站
+ a| 
+ONTAP Mediator Web 服务器
+ a| 
+（必需）REST API（HTTPS）
+
+
+
+ a| 
+3260/tcp
+ a| 
+节点管理 LIF
+ a| 
+入站
+ a| 
+ONTAP Mediator iSCSI 目标
+ a| 
+（MetroCluster IP 配置需要）邮箱的 iSCSI 数据连接
+
+|===
+
+NOTE: 对于使用 HTTPS 进行通信的 SnapMirror 活动同步或 MetroCluster IP ONTAP Mediator，ONTAP 不需要启用或连接端口 3260。
+
+
+
+[[os-requirements]]
+== OS 要求
+
+您的操作系统必须满足以下要求：
+
+* 64 位物理安装或虚拟机
+* 8 GB 内存
+* 1 GB 磁盘空间（用于应用程序安装、服务器日志和数据库）
+* 用户：root 访问
+
+
+查看 link:../release-notes/support-matrix.html["操作系统支持矩阵"]，了解每个版本的 ONTAP Mediator 支持的操作系统。
+
+.操作系统所需软件包
+ONTAP Mediator 需要以下软件包：
+
+
+NOTE: 软件包由 ONTAP Mediator 安装程序预安装或自动安装。
+
+[cols="25,25,25,25"]
+|===
+
+
+| 所有 RHEL/CentOS 版本 | RHEL 10.x / Rocky Linux 10 的附加软件包 | RHEL 9.x / Rocky Linux 9 的附加软件包 | RHEL 8.x / Rocky Linux 8 的附加软件包 
+
+
+ a| 
+* openssl
+* openssl-devel
+* kernel-devel-$ (uname -r)
+* gcc
+* make
+* libselinux-utils
+* 补丁
+* bzip2
+* perl-Data-Dumper
+* perl-ExtUtils-MakeMaker
+* efibootmgr
+* mokutil
+
+ a| 
+* python3.12
+* python3.12-devel
+
+ a| 
+* elfutils-libelf-devel
+* policycoreutils-python-utils
+* python3
+* python3-devel
+
+ a| 
+* elfutils-libelf-devel
+* policycoreutils-python-utils
+* redhat-lsb-core
+* python39
+* python39-devel
+
+
+|===
+Mediator 安装包是一个自解压缩的压缩 tar 文件，其中包括：
+
+* 包含无法从受支持版本的存储库获取的所有依赖项的 RPM 文件。
+* 安装脚本。
+
+
+建议使用有效的 SSL 证书。
+
+[NOTE]
+====
+* 内核版本必须与操作系统版本相匹配。
+* 请勿将内核升级到超过您的 ONTAP Mediator 版本所支持的操作系统版本，因为经过测试的 SCST 模块可能无法正常工作。
+
+
+====
+
+
+[[install-ontap-mediator-when-uefi-secure-boot-is-enabled]]
+== 启用 UEFI 安全启动时安装 ONTAP Mediator
+
+ONTAP Mediator 可以安装在启用或未启用 UEFI 安全启动的系统上。
+
+.关于此任务
+* 如果不需要，或者正在排除 ONTAP Mediator 安装问题，您可以选择在安装 ONTAP Mediator 之前禁用 UEFI 安全启动。从您的计算机设置中禁用 UEFI 安全启动选项。
+* 如果您安装了仅支持 HTTPS 的 ONTAP Mediator 1.12 或更高版本，则未安装 SCST 包，您可以跳过此任务。
+
+
+[NOTE]
+====
+有关禁用 UEFI 安全启动的详细说明，请参见主机操作系统的文档。
+
+====
+要安装启用了 UEFI 安全启动的 ONTAP Mediator，您必须先注册安全密钥，然后才能启动服务。密钥在 SCST 安装的编译步骤中生成，并保存为机器上的私钥和公钥对。使用 `mokutil` 实用程序将公钥作为机器所有者密钥（MOK）添加到您的 UEFI 固件中，使系统能够信任并加载已签名的模块。将 `mokutil` 密码短语保存在安全的位置，因为在重新启动系统以激活 MOK 时需要使用它。
+
+.步骤
+. [[step_1_uefi]]检查您的系统是否已启用 UEFI 安全启动：
++
+[source, cli]
+----
+mokutil --sb-state
+----
++
+结果表明此系统是否启用了 UEFI 安全引导。
+
++
+[cols="40,60"]
+|===
+
+
+| 条件 | 转到…… 
+
+
+ a| 
+UEFI 安全启动已启用
+ a| 
+
+
+
+
+ a| 
+UEFI 安全启动已禁用
+ a| 
+link:enable-access-repos-task.html["为 ONTAP Mediator 安装提供存储库访问权限"]
+
+|===
++
+[NOTE]
+====
+** 系统会提示您创建一个必须存储在安全位置的密码短语。您需要此密码短语才能在 UEFI 引导管理器中启用密钥。
+** ONTAP Mediator 1.2.0 及更早版本不支持此模式。
+
+
+====
+. [[step_2_uefi]] 如果未安装  `mokutil` 实用程序，请运行以下命令：
++
+[source, cli]
+----
+yum install mokutil
+----
++
+.下一步是什么？
+link:enable-access-repos-task.html["为 ONTAP Mediator 安装提供存储库访问权限"]
+
+

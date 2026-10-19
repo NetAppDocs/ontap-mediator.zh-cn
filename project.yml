@@ -1,0 +1,78 @@
+---
+settings:
+  name: ONTAP Mediator
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: zh-cn,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-tw
+sidebar:
+  entries:
+  - title: ONTAP Mediator 文档
+    url: "/index.html"
+  - title: 发行说明
+    entries:
+    - title: ONTAP Mediator 中的新增功能
+      url: "/release-notes/whats-new-in-ontap-mediator.html"
+    - title: 支持矩阵
+      url: "/release-notes/support-matrix.html"
+  - title: 开始使用
+    entries:
+    - title: 了解 ONTAP Mediator
+      url: "/learn-about.html"
+    - title: 快速入门
+      url: "/quick-start.html"
+  - title: 安装和设置
+    entries:
+    - title: 工作流
+      url: "/install/workflow-summary.html"
+    - title: 准备安装
+      url: "/install/prepare-install.html"
+    - title: 启用对存储库的访问
+      url: "/install/enable-access-repos-task.html"
+    - title: 下载安装包
+      url: "/install/download-install-pkg-task.html"
+    - title: 验证代码签名
+      url: "/install/verify-code-signature-task.html"
+    - title: 安装 ONTAP Mediator 软件包
+      url: "/install/install-mediator-pkg-task.html"
+    - title: 验证安装
+      url: "/install/verify-install-task.html"
+  - title: 使用 ONTAP Mediator
+    entries:
+    - title: 使用 ONTAP 调解器进行 SnapMirror 活动同步和 MetroCluster IP
+      url: "/use-mediator-snapmirror-metrocluster-task.html"
+  - title: 管理 ONTAP 调解器
+    entries:
+    - title: 升级 ONTAP Mediator
+      entries:
+      - title: 升级 ONTAP Mediator
+        url: "/administer/upgrade-ontap-mediator-task.html"
+      - title: 升级主机操作系统和 ONTAP Mediator
+        url: "/administer/upgrade-host-os-mediator-task.html"
+    - title: 配置 ONTAP Mediator 属性
+      url: "/administer/configure-ontap-mediator-attributes.html"
+    - title: 更改 ONTAP Mediator 用户名和密码
+      url: "/administer/change-username-password-task.html"
+    - title: 启动或停止 ONTAP Mediator
+      url: "/administer/start-stop-mediator-task.html"
+    - title: 验证 ONTAP Mediator 运行状况
+      url: "/administer/verify-mediator-health-task.html"
+    - title: 管理证书
+      entries:
+      - title: 重新生成临时自签名证书
+        url: "/administer/regenerate-self-signed-certificate-task.html"
+      - title: 用可信证书替换自签名证书
+        url: "/administer/replace-self-signed-certificates-task.html"
+      - title: 对证书相关问题进行故障排除
+        url: "/administer/troubleshoot-certificate-issues-task.html"
+    - title: 主机操作系统维护
+      url: "/administer/host-maintenance-task.html"
+    - title: 卸载 ONTAP Mediator
+      url: "/administer/uninstall-mediator-task.html"
+  - title: 法律声明
+    url: "/legal-notices.html"
+product-family:
+  name: ONTAP
+  repo: ontap-family

@@ -1,0 +1,36 @@
+---
+indexpage:
+  title: ONTAP Mediator 文档
+  summary: ONTAP Mediator 支持 ONTAP 功能，为高可用性（HA）元数据提供持久且隔离的存储，提供同步节点运行状况查询功能以帮助确定仲裁，并充当控制器存活状态的
+    ping 代理。
+  keywords: mediator, ONTAP, high-availability, HA, metadata, quorum, controller,
+    liveliness, smbc, metrocluster, snapmirrror active sync
+  lead: ONTAP Mediator 支持 SnapMirror 主动同步和 MetroCluster IP，为高可用性（HA）元数据提供持久且隔离的存储，提供同步节点健康查询功能以帮助确定仲裁，并充当控制器活跃度的
+    ping 代理。
+  tiles:
+  - title: 开始使用
+    links:
+    - title: 了解 ONTAP Mediator
+      url: "/learn-about.html"
+    - title: 快速入门
+      url: "/quick-start.html"
+    - title: 发行说明
+      url: "/release-notes/whats-new-in-ontap-mediator.html"
+  - title: 安装、升级和配置
+    links:
+    - title: 安装 ONTAP Mediator
+      url: "/install/workflow-summary.html"
+    - title: 升级 ONTAP Mediator
+      url: "/administer/upgrade-ontap-mediator-task.html"
+    - title: 使用 ONTAP 调解器进行 SnapMirror 活动同步和 MetroCluster IP
+      url: "/use-mediator-snapmirror-metrocluster-task.html"
+  - title: 更多资源
+    links:
+    - title: ONTAP 9 文档
+      url: https://docs.netapp.com/us-en/ontap/
+    - title: MetroCluster 文档
+      url: https://docs.netapp.com/us-en/ontap-metrocluster/
+    - title: ONTAP REST API 参考
+      url: https://docs.netapp.com/us-en/ontap-restapi/
+    - title: ONTAP CLI 参考
+      url: https://docs.netapp.com/us-en/ontap-cli/

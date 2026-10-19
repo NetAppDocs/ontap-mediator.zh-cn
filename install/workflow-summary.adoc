@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: install/workflow-summary.html 
+keywords: cluster, setup, set up get started, workflow, summary 
+summary: NetApp 建议您使用 System Manager 设置新的集群。System Manager 为集群设置提供了一个简单易用的工作流程，包括分配节点管理 IP 地址和初始化集群。 
+---
+= ONTAP Mediator 安装工作流程摘要
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安装 ONTAP Mediator 包括准备安装、提供对存储库的访问、下载安装包、验证代码签名以及安装 ONTAP Mediator 包。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:prepare-install.html["准备安装 ONTAP Mediator"]
+[role="quick-margin-para"]
+要安装 ONTAP Mediator，您必须确保满足所有先决条件。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]link:enable-access-repos-task.html["提供存储库访问"]
+[role="quick-margin-para"]
+您应该启用对存储库的访问权限，以便 ONTAP Mediator 可以在安装过程中访问所需的软件包。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]link:download-install-pkg-task.html["下载 ONTAP Mediator 安装包"]
+[role="quick-margin-para"]
+从 ONTAP Mediator 下载页面下载 ONTAP Mediator 安装包。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]link:verify-code-signature-task.html["验证 ONTAP Mediator 安装包的代码签名"]
+[role="quick-margin-para"]
+NetApp 建议在安装 ONTAP Mediator 安装包之前验证 ONTAP Mediator 代码签名。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]link:install-mediator-pkg-task.html["安装 ONTAP Mediator 安装包"]
+[role="quick-margin-para"]
+下载安装包并在主机上运行安装程序。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]link:verify-install-task.html["验证 ONTAP Mediator 安装"]
+[role="quick-margin-para"]
+安装 ONTAP Mediator 后，请验证其是否正在成功运行。

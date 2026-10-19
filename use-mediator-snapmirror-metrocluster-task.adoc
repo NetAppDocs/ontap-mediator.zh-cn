@@ -1,0 +1,50 @@
+---
+permalink: use-mediator-snapmirror-metrocluster-task.html 
+sidebar: sidebar 
+keywords: ONTAP, mediator, SnapMirror active sync, MetroCluster IP, quorum witness, MAUSO 
+summary: 了解 ONTAP Mediator 如何监控 SnapMirror 活动同步关系和 MetroCluster IP 配置，以及单个实例可以同时监控多少个此类关系和配置。 
+---
+= 使用 ONTAP 调解器进行 SnapMirror 活动同步和 MetroCluster IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP Mediator 在第三故障域中的 Linux 主机上运行，与您的 ONTAP 集群分开，为高可用性（HA）元数据提供持久的隔离存储。ONTAP 使用此存储以及 Mediator 的节点健康查询和 ping 代理功能，来监控 SnapMirror 活动同步关系和 MetroCluster IP 配置。
+
+
+NOTE: 本文档指的是本地版本的 ONTAP Mediator。有关从 ONTAP 9.17.1 开始提供的 ONTAP Cloud Mediator 的信息，请参见 link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["SnapMirror 活动同步文档"^]。
+
+
+
+[[monitor-snapmirror-active-sync-relationships]]
+== 监控 SnapMirror 活动同步关系
+
+SnapMirror 主动同步使用 ONTAP Mediator 作为一致性组中主副本和镜像副本的被动见证。如果发生网络分区或某个副本不可用，SnapMirror 主动同步将查询 ONTAP Mediator 以确定哪个副本继续提供 I/O 服务，并停止另一个副本上的 I/O。
+
+从 ONTAP 9.8 开始，您可以使用任何版本的 ONTAP Mediator 来监控 SnapMirror 活动同步关系。
+
+
+NOTE: 有关单个 ONTAP Mediator 实例可以监视的 SnapMirror 活动同步群集对数量的限制，请参见 link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/limits-reference.html["ONTAP SnapMirror 活动同步的对象限制"^]。
+
+link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/mediator-install-task.html["配置 ONTAP 调解器以进行 SnapMirror 活动同步"^]
+
+
+
+[[monitor-metrocluster-ip-configurations]]
+== 监控 MetroCluster IP 配置
+
+在 MetroCluster IP 配置中，ONTAP 调解器在邮箱 LUN 中存储有关 MetroCluster 节点的状态信息，并在发生灾难或特定故障情形时协助节点进行调解器辅助的自动计划外切换（MAUSO）。
+
+从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 进行通信的 ONTAP Mediator 来监控您的 MetroCluster IP 配置。当您使用 iSCSI 协议配置 ONTAP Mediator 时，您可以使用任何版本的 ONTAP Mediator 来监控 MetroCluster IP 配置。
+
+
+NOTE: 有关单个 ONTAP Mediator 实例可以监控的 MetroCluster IP 配置数量的限制，请参阅 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html#mediator-multiple-mccip["使用 ONTAP Mediator 监控多个 MetroCluster IP 配置"^]
+
+link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["为 MetroCluster IP 配置配置 ONTAP 调解器"^]
+
+.相关信息
+* link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/architecture-concept.html["ONTAP SnapMirror 主动同步架构"^]
+* link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["了解 ONTAP Mediator 对 MetroCluster IP 配置中自动计划外切换的支持"^]
+

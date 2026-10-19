@@ -1,0 +1,70 @@
+---
+permalink: administer/start-stop-mediator-task.html 
+sidebar: sidebar 
+keywords: mediator, start, stop, service, systemctl 
+summary: 在主机上启动或停止 ONTAP Mediator 和 SCST。 
+---
+= 启动和停止 ONTAP Mediator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+需要维护主机或重新启用服务时，停止或重新启动 ONTAP Mediator 和 SCST。
+
+
+
+[[stop-ontap-mediator]]
+== 停止 ONTAP Mediator
+
+要停止 ONTAP Mediator，请执行以下步骤：
+
+.步骤
+. 停止 ONTAP Mediator：
++
+[source, cli]
+----
+systemctl stop ontap_mediator
+----
+. 停止 SCST：
++
+[source, cli]
+----
+systemctl stop mediator-scst
+----
+. 禁用 ONTAP 调解器和 SCST：
++
+[source, cli]
+----
+systemctl disable ontap_mediator mediator-scst
+----
+
+
+
+
+[[start-ontap-mediator]]
+== 启动 ONTAP Mediator
+
+要重新启用 ONTAP Mediator，请执行以下步骤：
+
+.步骤
+. 启用 ONTAP 调解器和 SCST：
++
+[source, cli]
+----
+systemctl enable ontap_mediator mediator-scst
+----
+. 启动 SCST：
++
+[source, cli]
+----
+systemctl start mediator-scst
+----
+. 启动 ONTAP Mediator：
++
+[source, cli]
+----
+systemctl start ontap_mediator
+----
+

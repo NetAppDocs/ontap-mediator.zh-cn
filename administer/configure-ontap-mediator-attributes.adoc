@@ -1,0 +1,264 @@
+---
+permalink: administer/configure-ontap-mediator-attributes.html 
+sidebar: sidebar 
+keywords: mediator, configuration, attributes, ssl, certificates 
+summary: 配置 ONTAP Mediator 属性，包括与证书相关的设置和主机端配置覆盖。 
+---
+= 配置 ONTAP Mediator 属性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以配置 ONTAP Mediator 主机端属性，包括与证书相关的设置和配置覆盖。
+
+
+
+[[ontap-mediator-configurable-settings]]
+== ONTAP Mediator 可配置设置
+
+ONTAP Mediator 支持多种可配置设置。这些设置的默认值在 `low_space_threshold_mib: 10`只读文件中提供。该文件位于：
+
+`/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.user_config.yaml`
+
+放置在 `ontap_mediator.user_config.yaml`中的所有值将覆盖默认值，并在所有 ONTAP Mediator 升级中保留。
+
+修改 `ontap_mediator.user_config.yaml`后，重新启动 ONTAP Mediator：
+
+[source, cli]
+----
+systemctl restart ontap_mediator
+----
+如果需要，可以修改本节中介绍的 ONTAP Mediator 属性。
+
+
+NOTE:  `ontap_mediator.config.yaml` 中的其他默认值不应更改，因为在 ONTAP Mediator 升级期间不会保留修改后的值。
+
+您可以通过将所需变量复制到 `ontap_mediator.user_config.yaml`文件以覆盖默认设置来修改 ONTAP Mediator 属性。
+
+
+
+[[install-third-party-ssl-certificates]]
+== 安装第三方 SSL 证书
+
+您可以通过修改 ONTAP Mediator 配置文件，将默认自签名证书替换为第三方 SSL 证书。
+
+要将默认自签名证书替换为第三方 SSL 证书，请修改以下文件中的某些属性：
+
+* `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.config.yaml`
+* `/opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini`
+
+
+这些文件中的变量用于控制 ONTAP Mediator 使用的证书文件。
+
+[role="tabbed-block"]
+====
+.ONTAP Mediator 1.9 及更高版本
+--
+ `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.config.yaml` 文件中包含下表列出的默认变量。
+
+[cols="2*"]
+|===
+| 变量 | 路径 
+
+
+| `cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt` 
+
+
+| `key_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key` 
+
+
+| `ca_cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/intermediate.crt` 
+
+
+| `ca_key_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/intermediate.key` 
+
+
+| `ca_serial_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/intermediate.srl` 
+
+
+| `cert_valid_days` | `1095` 
+
+
+| `x509_passin_pwd` | `pass:ontap` 
+|===
+* `cert_valid_days` 用于设置客户端证书的到期时间。最大值为三年（1095 天）。
+* `x509_passin_pwd` 是已签名客户端证书的密码短语。
+
+
+下表列出的默认变量包含在  `/opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini` 文件中。
+
+[cols="2*"]
+|===
+| 变量 | 路径 
+
+
+| `mediator_cert` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt` 
+
+
+| `mediator_key` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key` 
+
+
+| `ca_cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/intermediate.crt` 
+|===
+--
+.ONTAP Mediator 1.8 及更早版本
+--
+ `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.config.yaml` 文件中包含下表列出的默认变量。
+
+[cols="2*"]
+|===
+| 变量 | 路径 
+
+
+| `cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt` 
+
+
+| `key_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key` 
+
+
+| `ca_cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.crt` 
+
+
+| `ca_key_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.key` 
+
+
+| `ca_serial_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.srl` 
+
+
+| `cert_valid_days` | `1095` 
+
+
+| `x509_passin_pwd` | `pass:ontap` 
+|===
+* `cert_valid_days` 用于设置客户端证书的到期时间。最大值为三年（1095 天）。
+* `x509_passin_pwd` 是已签名客户端证书的密码短语。
+
+
+下表列出的默认变量包含在  `/opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini` 文件中。
+
+[cols="2*"]
+|===
+| 变量 | 路径 
+
+
+| `mediator_cert` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt` 
+
+
+| `mediator_key` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key` 
+
+
+| `ca_cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.crt` 
+|===
+--
+====
+如果修改这些属性，请重新启动 ONTAP Mediator 以应用更改。有关如何使用第三方证书替换默认证书的详细说明，请参阅 link:replace-self-signed-certificates-task.html["用受信任的第三方证书替换自签名证书"]。
+
+
+
+[[configure-password-attack-protection]]
+== 配置密码攻击防护
+
+以下设置可提供针对暴力破解密码猜测攻击的保护。
+
+要启用该功能，请设置 `window_seconds`和 `retry_limit`的值。
+
+.示例：
+--
+* 提供 5 分钟的猜测窗口，然后将计数重置为零失败：
++
+`authentication_lock_window_seconds: 300`
+
+* 如果在窗口期内发生五次失败，请锁定帐户：
++
+`authentication_retry_limit: 5`
+
+* 通过设置在拒绝每次尝试之前发生的延迟来降低暴力密码猜测攻击的影响，从而减缓攻击速度。
++
+`authentication_failure_delay_seconds: 5`
+
++
+....
+authentication_failure_delay_seconds: 0   # seconds (float) to delay failed auth attempts prior to response, 0 = no delay
+authentication_lock_window_seconds: null  # seconds (int) since the oldest failure before resetting the retry counter, null = no window
+authentication_retry_limit: null          # number of retries to allow before locking API access, null = unlimited
+....
+
+
+--
+
+
+[[configure-password-complexity-rules]]
+== 配置密码复杂性规则
+
+以下字段控制 ONTAP Mediator API 用户帐户的密码复杂性规则。
+
+....
+password_min_length: 8
+
+password_max_length: 64
+
+password_uppercase_chars: 0    # min. uppercase characters
+
+password_lowercase_chars: 1    # min. lowercase character
+
+password_special_chars: 1      # min. non-letter, non-digit
+
+password_nonletter_chars: 2    # min. non-letter characters (digits, specials, anything)
+....
+配置 ONTAP Mediator 磁盘和日志空间设置，包括可用空间阈值和保留的日志空间。
+
+
+
+[[configure-the-free-space-threshold]]
+== 配置可用空间阈值
+
+有一些设置可以控制 `/opt/netapp/lib/ontap_mediator`磁盘上所需的可用空间。
+
+如果空间低于设置的阈值，则服务将发出警告事件。
+
+....
+low_space_threshold_mib: 10
+....
+
+
+[[configure-reserved-log-space]]
+== 配置预留日志空间
+
+该 `RESERVE_LOG_SPACE`功能由特定设置控制。默认情况下，ONTAP Mediator 安装会为日志创建一个单独的磁盘空间。安装程序会创建一个总计 700MB 磁盘空间的固定大小新文件，专门用于 ONTAP Mediator 日志记录。
+
+要禁用此功能并使用默认磁盘空间，请执行以下步骤：
+
+. 在以下文件中，将 RESERVE_LOG_SPACE 的值从 1 更改为 0：
++
+`/opt/netapp/lib/ontap_mediator/tools/mediator_env`
+
++
+.. 运行以下命令：
++
+[source, cli]
+----
+cat /opt/netapp/lib/ontap_mediator/tools/mediator_env | grep "RESERVE_LOG_SPACE"
+----
++
+....
+RESERVE_LOG_SPACE=0
+....
+.. 重新启动 ONTAP Mediator：
++
+[source, cli]
+----
+systemctl restart ontap_mediator
+----
+
+
+
+
+--
+要重新启用此功能，请将值从 0 更改为 1，然后重新启动 Mediator。
+
+
+NOTE: 在磁盘空间之间切换不会清除现有日志。切换并重新启动 Mediator 后，将备份所有以前的日志，然后将其移动到当前磁盘空间。
+
+--

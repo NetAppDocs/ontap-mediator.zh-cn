@@ -1,0 +1,181 @@
+---
+permalink: install/verify-code-signature-task.html 
+sidebar: sidebar 
+keywords: mediator, new, release, update, install, verify, code, signature 
+summary: 在安装 Mediator 安装包之前，您应该验证 ONTAP Mediator 代码签名。 
+---
+= 验证 ONTAP Mediator 代码签名
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp 建议在安装前验证 ONTAP Mediator 代码签名。此步骤为可选步骤。
+
+.开始之前
+在验证 ONTAP Mediator 代码签名之前，请确保您的系统满足这些需求。
+
+[NOTE]
+====
+* 从 2025 年 6 月 15 日起，您无法安装或升级到 ONTAP Mediator 1.9 和 1.8，因为代码签名验证证书已过期。相反，请安装或升级到 ONTAP Mediator 1.10 或更高版本。
+* 如果系统不符合以下要求，则无需执行验证流程，您可以直接前往 link:install-mediator-pkg-task.html["安装 ONTAP Mediator 安装包"]。
+
+
+====
+* openssl 版本 1.0.2 至 3.0 用于基本验证
+* openssl 版本 1.1.0 或更高版本，用于时间戳管理机构（TSA）操作
+* 用于 OCSP 验证的公共 Internet 访问
+
+
+下载包包含以下文件：
+
+[cols="50,50"]
+|===
+
+
+| 文件 | 问题描述 
+
+
+ a| 
+`ONTAP-Mediator-production.pub`
+ a| 
+用于验证签名的公钥
+
+
+
+ a| 
+`csc-prod-chain-ONTAP-Mediator.pem`
+ a| 
+公共认证 CA 信任链
+
+
+
+ a| 
+`csc-prod-ONTAP-Mediator.pem`
+ a| 
+用于生成密钥的证书
+
+
+
+ a| 
+`ontap-mediator-1.12.1`
+ a| 
+1.12 版本的产品安装可执行文件
+
+
+
+ a| 
+`ontap-mediator-1.12.1.sig`
+ a| 
+经过 SHA-256 哈希处理，然后使用 csc-prod 密钥进行 RSA 签名的安装程序签名
+
+
+
+ a| 
+`ontap-mediator-1.12.1.sig.tsr`
+ a| 
+OCSCP 用于安装程序签名的吊销请求
+
+
+
+ a| 
+`ontap-mediator-1.12.1.tsr`
+ a| 
+时间戳签名请求文件
+
+
+
+ a| 
+`tsa-prod-ONTAP-Mediator.pem`
+ a| 
+TSR 的公共证书
+
+
+
+ a| 
+`tsa-prod-chain-ONTAP-Mediator.pem`
+ a| 
+TSR 的公共证书 CA 链
+
+|===
+.步骤
+. 使用在线证书状态协议（OCSP）对 `csc-prod-ONTAP-Mediator.pem`执行吊销检查。
++
+.. 查找证书的 OCSP URL。开发人员证书可能不提供 URI：
++
+[source, cli]
+----
+openssl x509 -noout -ocsp_uri -in csc-prod-chain-ONTAP-Mediator.pem
+----
+.. 为证书生成 OCSP 请求。
++
+[source, cli]
+----
+openssl ocsp -issuer csc-prod-chain-ONTAP-Mediator.pem -CAfile csc-prod-chain-ONTAP-Mediator.pem -cert csc-prod-ONTAP-Mediator.pem  -reqout req.der
+----
+.. 连接到 OCSP 管理器以发送 OCSP 请求：
++
+[source, cli]
+----
+openssl ocsp -issuer csc-prod-chain-ONTAP-Mediator.pem -CAfile csc-prod-chain-ONTAP-Mediator.pem -cert csc-prod-ONTAP-Mediator.pem  -url ${ocsp_uri} -resp_text -respout resp.der -verify_other csc-prod-chain-ONTAP-Mediator.pem
+----
+
+
+. 针对本地主机验证 CSC 的信任链和到期日期：
++
+[source, cli]
+----
+openssl verify
+----
++
+
+NOTE: 来自 PATH 的 `openssl`版本必须具有有效的 `cert.pem`（非自签名）。
+
++
+[source, cli]
+----
+openssl verify -untrusted csc-prod-chain-ONTAP-Mediator.pem -CApath ${OPENSSLDIR} csc-prod-ONTAP-Mediator.pem
+openssl verify -untrusted tsa-prod-chain-ONTAP-Mediator.pem -CApath ${OPENSSLDIR} tsa-prod-ONTAP-Mediator.pem
+----
++
+如果代码签名检查证书或时间戳证书已过期或无效，则命令失败。下载较新版本的 ONTAP Mediator。
+
+. 使用关联证书验证  `ontap-mediator-1.12.1.sig.tsr` 和  `ontap-mediator-1.12.1.tsr` 文件：
++
+[role="tabbed-block"]
+====
+.OpenSSL 3.x
+--
+[source, cli]
+----
+openssl ts -verify -data ontap-mediator-1.12.1.sig -in ontap-mediator-1.12.1.sig.tsr -CAfile tsa-prod-chain-ONTAP-Mediator.pem -untrusted tsa-prod-ONTAP-Mediator.pem
+----
+--
+.OpenSSL 1.x
+--
+[source, cli]
+----
+openssl ts -verify -data ontap-mediator-1.12.1 -in ontap-mediator-1.12.1.tsr -CAfile tsa-prod-chain-ONTAP-Mediator.pem -partial_chain
+----
+--
+====
++
+
+NOTE: `.tsr` 文件包含与安装程序和代码签名相关联的时间戳响应。处理确认时间戳具有 TSA 的有效签名，并且您的输入文件未更改。您的机器在本地执行验证。您无需访问 TSA 服务器。
+
+. 根据密钥验证签名：
++
+[source, cli]
+----
+openssl -dgst -verify
+----
++
+[source, cli]
+----
+openssl dgst -sha256 -verify ONTAP-Mediator-production.pub -signature ontap-mediator-1.12.1.sig ontap-mediator-1.12.1
+----
+
+
+.下一步是什么？
+link:install-mediator-pkg-task.html["安装 ONTAP Mediator 安装包"]

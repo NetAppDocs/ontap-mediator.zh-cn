@@ -1,0 +1,43 @@
+---
+permalink: administer/uninstall-mediator-task.html 
+sidebar: sidebar 
+keywords: mediator, uninstall, remove, delete 
+summary: 从主机中删除 ONTAP Mediator。 
+---
+= 卸载 ONTAP Mediator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如有必要，请在断开与 ONTAP 的连接后卸载 ONTAP Mediator。
+
+.开始之前
+必须先断开 ONTAP Mediator 与 ONTAP 的连接，然后才能将其删除。
+
+.关于此任务
+在已安装 ONTAP Mediator 的 Linux 主机上执行此任务。
+
+如果无法访问此命令，则可能需要使用完整路径运行该命令，如以下示例中所示：
+
+`/usr/local/bin/uninstall_ontap_mediator`
+
+.步骤
+. 卸载 ONTAP Mediator：
++
+[source, cli]
+----
+uninstall_ontap_mediator
+----
++
+....
+ [root@mediator-host ~]# uninstall_ontap_mediator
+
+ ONTAP Mediator: Self Extracting Uninstaller
+
+ + Removing ONTAP Mediator. (Log: /tmp/ontap_mediator.GmRGdA/uninstall_ontap_mediator/remove.log)
+ + Remove successful.
+ [root@mediator-host ~]#
+....
+

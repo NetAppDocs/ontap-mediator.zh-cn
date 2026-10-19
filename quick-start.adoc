@@ -1,0 +1,33 @@
+---
+permalink: quick-start.html 
+sidebar: sidebar 
+keywords: ONTAP, mediator, install, download, package 
+summary: 了解 ONTAP Mediator。 
+---
+= ONTAP Mediator 快速入门
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+要开始使用 ONTAP Mediator，请安装该软件并将其配置为与您的 ONTAP 环境配合使用。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 安装 ONTAP Mediator
+[role="quick-margin-para"]
+link:install/workflow-summary.html["安装 ONTAP Mediator"] 在您的系统上，并确保满足所有必需的依赖项。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 验证 ONTAP Mediator 安装
+[role="quick-margin-para"]
+link:install/verify-install-task.html["确认 ONTAP Mediator 安装成功"]通过查看服务状态并检查日志中是否有任何错误或警告。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 为您的 ONTAP 环境配置 ONTAP 调解器
+[role="quick-margin-para"]
+根据您是否要link:use-mediator-snapmirror-metrocluster-task.html["将 ONTAP 调解器用于 MetroCluster IP、SnapMirror 主动同步或两者"]，请执行相应的配置步骤，以确保正确应用所有必需的设置。
+
+
+
+[[whats-next]]
+== 下一步是什么？
+
+您现在可以使用 ONTAP Mediator 来监控 MetroCluster IP 配置、SnapMirror 活动同步配置或两者。有关详细信息，请参见link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["SnapMirror 活动同步文档"^]和link:https://docs.netapp.com/us-en/ontap-metrocluster/index.html["MetroCluster 文档"^]。

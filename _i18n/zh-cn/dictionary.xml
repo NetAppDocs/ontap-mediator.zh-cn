@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
+  <block id="cbfd7219fd814c56c9349bea1cd0273f" category="list-text">从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以选择安装支持 iSCSI 和 HTTPS 的 ONTAP Mediator，或仅支持 HTTPS。如果您选择安装仅支持 HTTPS 的 ONTAP Mediator，则不会安装 SCST 软件包。</block>
+  <block id="0575e131726193c75dc0eb99beb88ea3" category="list-text">如果您从安装了 SCST 的 ONTAP Mediator 1.11 或更早版本升级，并且在升级期间选择了 HTTPS only 选项，则会卸载 SCST 包，并且新的 ONTAP Mediator 版本不包含 SCST 包。</block>
+  <block id="c2cbdc82e4189820757400b0b29fe4e3" category="inline-link-macro">使用 ONTAP Mediator 监控多个 MetroCluster IP 配置</block>
+  <block id="442806089728577c5b60cf2b841585f0" category="list-text">如果您计划使用 ONTAP Mediator 来监控多个 MetroCluster IP 配置，则支持取决于您的 Mediator 类型、ONTAP 版本和操作系统。有关详细信息，请参见<block ref="23c736ffefe2c88d617ae89ae44b32de" category="inline-link-macro-rx"></block>。</block>
+  <block id="b9fc3e6281faea5f565f838d0ad8ac27" category="list-text">仅对以下用例支持安装支持 HTTPS 的 ONTAP Mediator：</block>
+  <block id="22ebf50baa22eca107164392e48fabe5" category="list-text">您计划仅使用 ONTAP Mediator 来监控您的 SnapMirror 活动同步集群。</block>
+  <block id="600eacd6fe25558a0c82252384d81f42" category="list-text">您计划使用 HTTPS 配置 ONTAP Mediator 以监视一个或多个 MetroCluster IP 配置。</block>
+  <block id="5c0107c7074b648b29cf8ffe18d6c548" category="list-text">在以下情况下，必须安装支持 iSCSI 和 HTTPS 的 ONTAP Mediator：</block>
+  <block id="bfe28f43d7920f3b051733daec7239a9" category="list-text">您计划使用 iSCSI 配置 ONTAP Mediator 以监视一个或多个 MetroCluster IP 配置。</block>
+  <block id="81a351229b28c8dda23ec54f5e12b053" category="summary">更改 ONTAP Mediator 用户名和密码。</block>
+  <block id="ffd4e84b0c713b5d306a8604b70684ad" category="doc">更改 ONTAP Mediator 用户名和密码</block>
+  <block id="9b74280bb338bd9b9e107eaebe5ffa9e" category="paragraph">从安装了 ONTAP Mediator 的 Linux 主机更改 ONTAP Mediator 用户名或密码。</block>
+  <block id="c83d74305ef42bd4af6545e82f5fe9de" category="section-title">更改用户名</block>
+  <block id="8680e9191aca7e5a1ea025ee0ab3b1ac" category="paragraph">可以使用以下步骤更改用户名。</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">关于此任务</block>
+  <block id="d9ad92650bab84bc917500672a9e9b4a" category="paragraph">在已安装 ONTAP Mediator 的 Linux 主机上执行此任务。</block>
+  <block id="e3bdaded12d38863b3e782d2277f8891" category="paragraph">如果无法访问此命令，则可能需要使用完整路径运行该命令，如以下示例中所示：</block>
+  <block id="6b650cfd5a5122af7703db2cfff2b455" category="paragraph"><block ref="92d0578e497049745d0c01a458589875" prefix="" category="inline-code"></block></block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="paragraph-title">步骤</block>
+  <block id="493069b37797535af86a5daa9bd2e352" category="paragraph">通过选择以下选项之一更改用户名：</block>
+  <block id="db1bf0163f01878ecdb6508c5a1963a8" category="list-text">*选项 (a)*：运行命令<block ref="bcb7a5e5c3c1afa1dc68fdb6a8454578" prefix=" " category="inline-code"></block>并响应提示，如下例所示：</block>
+  <block id="02f05e79b3d0e82a5234e1a84fa7513b" category="list-text">*选项（b）*：运行以下命令：</block>
+  <block id="b41c8853c66915bd8a05346255719968" category="paragraph"><block ref="58f165e9498e1484664fdb063b7e6a5d" prefix="" category="inline-code"></block></block>
+  <block id="879a24c528558b692532fbee190699f3" category="section-title">更改密码</block>
+  <block id="dad372818931af8f6b039297072eecf9" category="paragraph">您可以使用以下步骤更改密码。</block>
+  <block id="183b2aa3a5eb88aeb88e71147b8bcf77" category="paragraph"><block ref="ba521b806beb44396f87bbc58c6fcd4d" prefix="" category="inline-code"></block></block>
+  <block id="0fea72913528353e02baddfe85a03e5e" category="paragraph">通过选择以下选项之一更改密码：</block>
+  <block id="76766dc9febdc808b65c4d6c09dcd445" category="list-text">*选项（a）*：运行<block ref="a312499e3a816ecc68bdb7b49bea6e87" prefix=" " category="inline-code"></block>命令并响应提示，如以下示例所示：</block>
+  <block id="9aa5de2139a053a72ab617fb5e3c11fe" category="paragraph"><block ref="98f6e1466fd4a2b0eab60035322554df" prefix="" category="inline-code"></block></block>
+  <block id="de736e5e212b3386a25bc3c67f2f84d4" category="paragraph">示例显示密码从“mediator1”更改为“mediator2”。</block>
+  <block id="2730bf83f7e580f95a8a41fbc88580d3" category="summary">配置 ONTAP Mediator 属性，包括与证书相关的设置和主机端配置覆盖。</block>
+  <block id="551115cc1e16b044befb6a3243ac9e1a" category="doc">配置 ONTAP Mediator 属性</block>
+  <block id="e157cb939ce87b5c3ae877bd0d947e52" category="paragraph">您可以配置 ONTAP Mediator 主机端属性，包括与证书相关的设置和配置覆盖。</block>
+  <block id="e9a1e6efbcb08097f04a06af109c2bee" category="section-title">ONTAP Mediator 可配置设置</block>
+  <block id="ec3e1b1fc1be2a3dee9811cb41dc4365" category="paragraph">ONTAP Mediator 支持多种可配置设置。这些设置的默认值在<block ref="e3f1d2df1657c34833364a52d4b29d60" prefix=" " category="inline-code"></block>只读文件中提供。该文件位于：</block>
+  <block id="cdfebc1d2257e18b26403478e4a7ef13" category="paragraph"><block ref="27a6b24601b63526ffca2fd1c5f9a5c4" prefix="" category="inline-code"></block></block>
+  <block id="d41105b4b1c23e8032ba635977fa7cbe" category="paragraph">放置在<block ref="e69236eb2aa5b1455dc0f88753a8a1a2" prefix=" " category="inline-code"></block>中的所有值将覆盖默认值，并在所有 ONTAP Mediator 升级中保留。</block>
+  <block id="ee1ed33eed3c77405d3c2e44814e71dc" category="paragraph">修改<block ref="e69236eb2aa5b1455dc0f88753a8a1a2" prefix=" " category="inline-code"></block>后，重新启动 ONTAP Mediator：</block>
+  <block id="b20afa451962a4a89f44f6efe4b1f663" category="paragraph">如果需要，可以修改本节中介绍的 ONTAP Mediator 属性。</block>
+  <block id="9abd5e5d8c92b77e89fe99d6a22f9fb4" category="admonition"><block ref="5b85df10091f3a4731397680ace5150b" prefix=" " category="inline-code"></block> 中的其他默认值不应更改，因为在 ONTAP Mediator 升级期间不会保留修改后的值。</block>
+  <block id="647e170e473051ea5251319743869311" category="paragraph">您可以通过将所需变量复制到<block ref="e69236eb2aa5b1455dc0f88753a8a1a2" prefix=" " category="inline-code"></block>文件以覆盖默认设置来修改 ONTAP Mediator 属性。</block>
+  <block id="629b314391c0b713d93f2b13fe348e3a" category="section-title">安装第三方 SSL 证书</block>
+  <block id="597fd96e2f0c623d144b4e32f6fbd7b2" category="paragraph">您可以通过修改 ONTAP Mediator 配置文件，将默认自签名证书替换为第三方 SSL 证书。</block>
+  <block id="ef6b5d23136b7b42218ed88b623442fa" category="paragraph">要将默认自签名证书替换为第三方 SSL 证书，请修改以下文件中的某些属性：</block>
+  <block id="2bb880432559be9984bc0c72699ae3e3" category="list-text"><block ref="91f698a7212f808ea1123f2fea7d684b" prefix="" category="inline-code"></block></block>
+  <block id="1565ae452cd6adb2eb24f8753ed243ad" category="list-text"><block ref="ea8a01a633dad65525408f18e3468ce8" prefix="" category="inline-code"></block></block>
+  <block id="344ff8a01d6a0d72ad69850ba2c0e366" category="paragraph">这些文件中的变量用于控制 ONTAP Mediator 使用的证书文件。</block>
+  <block id="edb7de5345c0e13b445ca56a1ac41e47" category="open-title">ONTAP Mediator 1.9 及更高版本</block>
+  <block id="79ffbf47d40a281743c65e59441d38ed" category="paragraph"><block ref="91f698a7212f808ea1123f2fea7d684b" prefix=" " category="inline-code"></block> 文件中包含下表列出的默认变量。</block>
+  <block id="47c14840d8e15331fa420b9b2f757cd9" category="cell">变量</block>
+  <block id="ac70412e939d72a9234cdebb1af5867b" category="cell">路径</block>
+  <block id="bf8325bce10f222020fd7b8d4602d4d3" category="cell"><block ref="57ec7fe7e85d1196b9f133d14ea5b50d" prefix="" category="inline-code"></block></block>
+  <block id="897f4bfa411b4245ae31bc8e3d1d88b8" category="cell"><block ref="943f304d27c96449b074acfef39d133e" prefix="" category="inline-code"></block></block>
+  <block id="22e1cde3232327f36bc921263d0a8c9d" category="cell"><block ref="0df75c07b8443071d006ab81cad1a19d" prefix="" category="inline-code"></block></block>
+  <block id="2758e25f0b8bb3de5a3c30b8ce4525a6" category="cell"><block ref="c65e9f7c554af033c2b73c5a83f1e7fa" prefix="" category="inline-code"></block></block>
+  <block id="262749066af01f516214278e050ef02c" category="cell"><block ref="b8cd01813c5850a747e7a03c9dcb43ed" prefix="" category="inline-code"></block></block>
+  <block id="79cdeee005ca5064a450aa9ef1ae18df" category="cell"><block ref="8ee42ff393569e4c87640afe7ad72eb9" prefix="" category="inline-code"></block></block>
+  <block id="49dbcc7bd23f4e4f0144c51341c44036" category="cell"><block ref="a93e5ca6615891464275e325959beec1" prefix="" category="inline-code"></block></block>
+  <block id="6f6695649f9b6014c70f92c313fd8013" category="cell"><block ref="65d1d0dc2a1684b55d4b2d5d90847b82" prefix="" category="inline-code"></block></block>
+  <block id="a780fb5a6e2df4b430ec43aadd19d88f" category="cell"><block ref="432981cc26072c8b71f348991372737a" prefix="" category="inline-code"></block></block>
+  <block id="1edc7128a431d68241f38ade1ac2fefb" category="cell"><block ref="de46684e29a8704962ca37c4b05c343b" prefix="" category="inline-code"></block></block>
+  <block id="7ed69a1af9eb2ba26fdfd574a10acbab" category="cell"><block ref="3eb6e362d6ee628d7e79b5f4c7d79b93" prefix="" category="inline-code"></block></block>
+  <block id="88b2037a4b0dc9513d3aace604e4c310" category="cell"><block ref="d6723e7cd6735df68d1ce4c704c29a04" prefix="" category="inline-code"></block></block>
+  <block id="8f416b7fc29226a6ec9a0edb5bc3a378" category="cell"><block ref="4deedfabe1bb050cf3ccf7940dd2299c" prefix="" category="inline-code"></block></block>
+  <block id="1b3ed17a5da4568b1e74752551893220" category="cell"><block ref="1a86fe500b18ed2639445da5d84f32b3" prefix="" category="inline-code"></block></block>
+  <block id="8c78455e7853a5805ba377f212a3d2cd" category="list-text"><block ref="3eb6e362d6ee628d7e79b5f4c7d79b93" prefix="" category="inline-code"></block> 用于设置客户端证书的到期时间。最大值为三年（1095 天）。</block>
+  <block id="123ff385092339630627508baaba29b5" category="list-text"><block ref="4deedfabe1bb050cf3ccf7940dd2299c" prefix="" category="inline-code"></block> 是已签名客户端证书的密码短语。</block>
+  <block id="6b3a15758e109c232a26b3fda20a66f8" category="paragraph">下表列出的默认变量包含在 <block ref="ea8a01a633dad65525408f18e3468ce8" prefix=" " category="inline-code"></block> 文件中。</block>
+  <block id="1a8d14801d9b2bf482cb845b57500ad9" category="cell"><block ref="80eec318a13ef13c13e489b6b09462cd" prefix="" category="inline-code"></block></block>
+  <block id="e01c4ad98ac71439b1798b8a6f289dcd" category="cell"><block ref="8521272c5e36e1911c5d65be9dd77b78" prefix="" category="inline-code"></block></block>
+  <block id="924f0dc2963f2e4930b13d461565e506" category="open-title">ONTAP Mediator 1.8 及更早版本</block>
+  <block id="97c30e4ac53088a286f42d19ee9d9073" category="cell"><block ref="9f6e24bb776ac0c6a5b1dd6b9562153e" prefix="" category="inline-code"></block></block>
+  <block id="503ad3e0a576a09c22b6feba7d66cf56" category="cell"><block ref="b1bbabc3962f067d7560bf21dde6f309" prefix="" category="inline-code"></block></block>
+  <block id="cb134f392c4d0aa6710f4456a02bc961" category="cell"><block ref="3992f7b26c8265ef3170e116f4cecf97" prefix="" category="inline-code"></block></block>
+  <block id="a8682e40084aff131c1879da3c28f925" category="inline-link-macro">用受信任的第三方证书替换自签名证书</block>
+  <block id="b432cbc63f8f23dd766bb934f8061c0e" category="paragraph">如果修改这些属性，请重新启动 ONTAP Mediator 以应用更改。有关如何使用第三方证书替换默认证书的详细说明，请参阅 <block ref="19d6c597abdd80f79976f4da429b7478" category="inline-link-macro-rx"></block>。</block>
+  <block id="a8715bc71bf10ffa141c96014e6e1b5a" category="section-title">配置密码攻击防护</block>
+  <block id="f3b19cb494ae5805e5d432a2c68e2762" category="paragraph">以下设置可提供针对暴力破解密码猜测攻击的保护。</block>
+  <block id="62fba1aa669809e97f238fe69df1a130" category="paragraph">要启用该功能，请设置<block ref="4b3ac529a0322730fbd4caa88ac35504" prefix=" " category="inline-code"></block>和<block ref="6652a2fd00b5788d986853f4ca1177da" prefix=" " category="inline-code"></block>的值。</block>
+  <block id="fd05d7f6bfc90e815087880e8e915b43" category="open-title">示例：</block>
+  <block id="e68a1c38a1c3725bc0a540b95c3e6573" category="list-text">提供 5 分钟的猜测窗口，然后将计数重置为零失败：</block>
+  <block id="fb58a56b46c01a608befa2320220edce" category="paragraph"><block ref="40638591ab864bfd323b9a6bae832cec" prefix="" category="inline-code"></block></block>
+  <block id="0f22d3ab47fbb2e64b5f8308303a3f91" category="list-text">如果在窗口期内发生五次失败，请锁定帐户：</block>
+  <block id="48d73da8f79a72cf25d5b784709f63d0" category="paragraph"><block ref="82aa509ee4d1aefe835dee48b9e85a9d" prefix="" category="inline-code"></block></block>
+  <block id="d3f45699c3cca0360355653eadd9e8b2" category="list-text">通过设置在拒绝每次尝试之前发生的延迟来降低暴力密码猜测攻击的影响，从而减缓攻击速度。</block>
+  <block id="1313dde9f6f7cbcf96c9b7d2d2c55b00" category="paragraph"><block ref="8331e69d84dce846e983d6fb853c0efe" prefix="" category="inline-code"></block></block>
+  <block id="8eee9530f18fd4502c14333a8fa634c2" category="section-title">配置密码复杂性规则</block>
+  <block id="8538f5516c3390d120f112ba785c0d5e" category="paragraph">以下字段控制 ONTAP Mediator API 用户帐户的密码复杂性规则。</block>
+  <block id="05a0f4a9cdd230da8ed1dd3c9ccf21c6" category="paragraph">配置 ONTAP Mediator 磁盘和日志空间设置，包括可用空间阈值和保留的日志空间。</block>
+  <block id="e6673f4ba313ad7b30ea0265b8648fb7" category="section-title">配置可用空间阈值</block>
+  <block id="7e5b0f4794c111d0d1ed355bfe658ef7" category="paragraph">有一些设置可以控制<block ref="830cb05a6559165dbc1304e2037166d6" prefix=" " category="inline-code"></block>磁盘上所需的可用空间。</block>
+  <block id="7c7ba4e1165c7da971891c8211786847" category="paragraph">如果空间低于设置的阈值，则服务将发出警告事件。</block>
+  <block id="1b976038e0ada2a588befcd87f7f2b5f" category="section-title">配置预留日志空间</block>
+  <block id="57a1637486addcd7d582355818b2e5f9" category="paragraph">该<block ref="4f65be6f3118139f91d1a99a0e2970a7" prefix=" " category="inline-code"></block>功能由特定设置控制。默认情况下，ONTAP Mediator 安装会为日志创建一个单独的磁盘空间。安装程序会创建一个总计 700MB 磁盘空间的固定大小新文件，专门用于 ONTAP Mediator 日志记录。</block>
+  <block id="483a161e3c550a0200596eaf01e55c98" category="paragraph">要禁用此功能并使用默认磁盘空间，请执行以下步骤：</block>
+  <block id="c2ce45175ca8950f883e67704883e279" category="list-text">在以下文件中，将 RESERVE_LOG_SPACE 的值从 1 更改为 0：</block>
+  <block id="6d62667a25ff374fde5ee10b46a460a8" category="paragraph"><block ref="560d71441d77d911d67d928e865ecf68" prefix="" category="inline-code"></block></block>
+  <block id="337d79852891a37d41285c9101c3fff4" category="list-text">运行以下命令：</block>
+  <block id="a6ed2a36dc066a9b96c5467179bda3e7" category="list-text">重新启动 ONTAP Mediator：</block>
+  <block id="a34161761c8f5f134f2b6fe0550fb4b1" category="paragraph">要重新启用此功能，请将值从 0 更改为 1，然后重新启动 Mediator。</block>
+  <block id="3657da51f66de8aea117e931c518357d" category="admonition">在磁盘空间之间切换不会清除现有日志。切换并重新启动 Mediator 后，将备份所有以前的日志，然后将其移动到当前磁盘空间。</block>
+  <block id="cc783e4faca71ddaebf128bb0a6f3a71" category="summary">定期维护 ONTAP Mediator 的主机操作系统，以获得最佳性能。</block>
+  <block id="59c90bc71e61fe6255d6a090dfe0f055" category="doc">维护 ONTAP Mediator 的主机操作系统</block>
+  <block id="3a6bd4cbd727b091e7d6329da745bf6f" category="paragraph">确保 ONTAP Mediator 的主机操作系统定期维护，以实现最佳性能。</block>
+  <block id="9d7c242d76c4dae57d49c3855b53c743" category="section-title">重新启动主机</block>
+  <block id="3aa35da732912373b020bb8dd0e16c65" category="paragraph">仅在集群运行状况良好时重新启动主机。ONTAP Mediator 脱机时，集群无法响应故障。在重新启动之前设置维护时间。</block>
+  <block id="c2d40c9ee1899f7a284a35ed8adbfd0f" category="paragraph">ONTAP Mediator 在重新启动期间自动恢复，并重新进入先前配置的与 ONTAP 集群的关系。</block>
+  <block id="5756c6081356e49ce79efa81861a034c" category="section-title">主机包更新</block>
+  <block id="d0f7da7fbac9ea5d94713fef96fc7a53" category="paragraph">更新除内核之外的任何库或 yum 软件包。如果需要使更改生效，请重新启动主机。在重新启动主机之前，请安排一个服务窗口。</block>
+  <block id="b1e6166ef4d368ef1387afdcc88f4209" category="paragraph">如果安装<block ref="964ff658eeb150fa1ca6d823c1c0c1a7" prefix=" " category="inline-code"></block>软件包，请使用<block ref="1af4b6d809a2f3d882d975f4b893400f" prefix=" " category="inline-code"></block>命令检测是否有任何软件包更改需要重新启动。</block>
+  <block id="2b5b303cbf870be224133429b788c867" category="paragraph">更新 ONTAP Mediator 依赖项后重新启动，因为更改不会立即生效。</block>
+  <block id="140bb4303ab896a9bcf9adc269119ad5" category="section-title">升级主机 OS 内核</block>
+  <block id="54e056e21182615e81de8ba30b967eea" category="paragraph">必须为您正在使用的内核编译 SCST。要更新操作系统，您需要安排维护时间。</block>
+  <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">开始之前</block>
+  <block id="cda6042617dc27a0f8e468ab324f9f81" category="paragraph">使用 ONTAP Mediator 安装 SCST 包时，适用以下要求。</block>
+  <block id="a5de7cc43792f40cfbb1b622b1f0f043" category="list-text">您可以更新除内核之外的所有库包，但可能需要重新启动才能在 ONTAP Mediator 中应用更改。如果需要重新启动，请安排停机时间。</block>
+  <block id="6a567d6ab1c0238448ba2ccad80fc386" category="inline-link-macro">ONTAP Mediator 版本矩阵</block>
+  <block id="a3a2ec40d2b4e76162e6af6e724f932e" category="list-text">您应该使操作系统内核保持最新。请将内核核心升级到 <block ref="389c1fb641d3aaf401923546abbc22e9" category="inline-link-macro-rx"></block> 中列出的受支持版本。您必须重新启动系统，因此请为停机规划维护时段。</block>
+  <block id="bfc2082df312f1a20bbf56b3e8cccd56" category="list-text">请在重新启动之前卸载 SCST 内核模块，然后重新安装。</block>
+  <block id="d9efd5d2185a2134d2f488a0f6aad1f2" category="list-text">在开始内核操作系统升级之前，请准备好要重新安装的受支持的 SCST 版本。</block>
+  <block id="6d02a1136ef56b4443c2cbbd411daa36" category="admonition">如果您安装了仅支持 HTTPS 的 ONTAP Mediator 1.12 或更高版本，则不会安装 SCST 包，并且可以升级主机操作系统内核，而不会影响 ONTAP Mediator。有关升级说明，请参阅主机操作系统文档。</block>
+  <block id="a2431719c27ad3c402a4477b9ea4adda" category="paragraph">按照以下步骤升级主机操作系统内核。</block>
+  <block id="d278aad9be542d15b42d2b30e3ac0701" category="inline-link-macro">操作系统支持矩阵</block>
+  <block id="b6063dac41de2d52ed474e4d9fabe0bd" category="admonition">在升级内核之前，请检查操作系统和 ONTAP Mediator 版本是否兼容。有关受支持的版本，请参见<block ref="058749601eb54e478aa450c293860a26" category="inline-link-macro-rx"></block>。</block>
+  <block id="79d1d486e26a453a1c5f215947272048" category="list-text">停止 ONTAP Mediator。</block>
+  <block id="9fb88e0364e94d0aa278c673a3a8cab2" category="list-text">卸载 SCST 包，请参见<block ref="e56523834199041052b3698f535ddc03" category="inline-xref-macro-rx"></block>。（SCST 不提供升级机制。）</block>
+  <block id="78b70bd60c1bade2bbb1fb773ce8757e" category="list-text">升级操作系统，然后重新启动。</block>
+  <block id="553a12407d542c9c7043358d944be5f4" category="list-text">重新安装 SCST 软件包。</block>
+  <block id="1e72d86d10efb6ebdd1b36e23e0cc427" category="list-text">重新启用 ONTAP Mediator。</block>
+  <block id="06a506684cb2c3bfd5061f1fe42cd4e1" category="section-title">执行主机维护</block>
+  <block id="5c112c71d95d5039637bd2f6418a13f4" category="paragraph">升级 VM 内核可能会导致与 SCST 模块的兼容性问题。手动卸载并重新安装 SCST。</block>
+  <block id="a978fb84a573d0649748dbda2fe3917d" category="admonition">如果您安装了仅支持 HTTPS 的 ONTAP Mediator 1.12 或更高版本，则未安装 SCST 包，您可以跳过此任务。</block>
+  <block id="c9c46624787ac272453436f8dc37bccb" category="section-title">步骤 1：卸载 SCST</block>
+  <block id="78174c183f41ff3908f8d5d7d5471eca" category="paragraph">要卸载 SCST，请使用适用于您的 ONTAP Mediator 版本的 tar 捆绑包。</block>
+  <block id="ae1c2adc256b05ae24ceb4904f3a194e" category="list-text">下载相应的 SCST 捆绑包（如下表所示）并进行解压缩。</block>
+  <block id="644527e9d9c1a8bb90a8f8a39545cffa" category="cell">对于此版本……</block>
+  <block id="b276107c9d73049059267e1d24384dfc" category="cell">使用此 tar 捆绑包……</block>
+  <block id="807c8ea4ce44aafe8182c967e6cb3009" category="paragraph">ONTAP Mediator 1.12.1</block>
+  <block id="74ce5c6b8baa0bd670dbd1088b4b1d8b" category="paragraph">scst-3.10.tar.gz</block>
+  <block id="7babcd6c4640d6743d1d48f5ebf033ba" category="paragraph">ONTAP Mediator 1.12</block>
+  <block id="292c47135b1e053b7a4f5bc4dc7aebe6" category="paragraph">ONTAP Mediator 1.11</block>
+  <block id="b95953786a64a5657ba5f60dfefb49f9" category="paragraph">scst-3.9.tar.gz</block>
+  <block id="608fc56e87abfaa82d44d7681baa229c" category="paragraph">ONTAP Mediator 1.10</block>
+  <block id="b24bb37649c6604fb9286ec5a196e2a2" category="paragraph">ONTAP Mediator 1.9.1</block>
+  <block id="622247fa57d791be9f00522e1c9ce4f7" category="paragraph">scst-3.8.0.tar.bz2</block>
+  <block id="65e29e624ae972c250adba95d719e611" category="paragraph">ONTAP Mediator 1.9</block>
+  <block id="a88346cb59bbb38033cc3f7631b6e8ad" category="paragraph">ONTAP Mediator 1.8</block>
+  <block id="8cbd490b0f2e835ef4e1645dc4707d94" category="paragraph">ONTAP Mediator 1.7</block>
+  <block id="4f285c03dc70e26d8b8e7412c5bdc560" category="paragraph">scst-3.7.0.tar.bz2</block>
+  <block id="0c21ff608448410826399ad92d205830" category="paragraph">ONTAP Mediator 1.6</block>
+  <block id="c5d7de55c34e668641e1a528a37b6436" category="paragraph">ONTAP Mediator 1.5</block>
+  <block id="09b297a1a4bcca67652dedc57df1e202" category="paragraph">scst-3.6.0.tar.bz2</block>
+  <block id="21b1af0acdaa98f7c573b54a229cef88" category="paragraph">ONTAP Mediator 1.4</block>
+  <block id="2efaff17f9f038bd5fee7667c4108632" category="paragraph">ONTAP Mediator 1.3</block>
+  <block id="2ee3187dff8a572a21ab1372b84d56de" category="paragraph">scst-3.5.0.tar.bz2</block>
+  <block id="c165c61d0648f135a001e9e856403475" category="paragraph">ONTAP Mediator 1.1</block>
+  <block id="b8ae26a58e496434fcb2936bd1835ca2" category="paragraph">scst-3.4.0.tar.bz2</block>
+  <block id="0e458c5773568b59ce235d487e83fed4" category="paragraph">ONTAP Mediator 1.0</block>
+  <block id="da02a9a3a48ef89c860cd295ea9d498e" category="paragraph">scst-3.3.0.tar.bz2</block>
+  <block id="6bc6f3bb34973f06e2944152e06b3e57" category="inline-link-macro">SCST sourceforge 下载</block>
+  <block id="83d381c65682ea10a3c5cb2ea4039419" category="list-text">从<block ref="01e2d9408f7c9eaee7ff8a3ac55816e7" category="inline-link-macro-rx"></block>访问开源软件包。</block>
+  <block id="e38a0a20f45973c886cd2a9fb8801de3" category="list-text">选择*下载已发布的版本*。</block>
+  <block id="64ec64425c8d283a8cb03364513f8b18" category="list-text">将捆绑包提取到您的 VM。</block>
+  <block id="295383c5bd4aaac8973af7107aed6abe" category="list-text">在 <block ref="e61b996e82eb1138ee09c1f3d9d7fe5c" prefix=" " category="inline-code"></block> 目录中运行以下卸载命令：</block>
+  <block id="8593afb42fff6936fbbfeccc0ab49aab" category="list-text"><block ref="06a9e7c972b3c74893e99636e502b737" prefix="" category="inline-code"></block></block>
+  <block id="a8410b860b63d17f89061e1e28036877" category="list-text"><block ref="1334f64f34ef689863389bf1052589e3" prefix="" category="inline-code"></block></block>
+  <block id="f870e7c10088703a9737f928794c4407" category="list-text"><block ref="f542261f75ac52008cd7c93b22095159" prefix="" category="inline-code"></block></block>
+  <block id="510e52bce66f7c7182ea060d2ce27766" category="list-text"><block ref="c1d27a6f6981a5a429653f5fed110eab" prefix="" category="inline-code"></block></block>
+  <block id="7e1b9a49ba57aa1bde00fe09f716ef2d" category="list-text"><block ref="fa35632194ce8b583801f20ab41b1e99" prefix="" category="inline-code"></block></block>
+  <block id="07520f190e3e2a2eafd27e363c80ebac" category="list-text"><block ref="7cf7958feb71acb49afb343b4d4d79b2" prefix="" category="inline-code"></block></block>
+  <block id="59d3d0e6555886f1ade3687218842cd3" category="section-title">步骤 2：安装 SCST</block>
+  <block id="a0daba2143953e8c062cfa7c0ed9710c" category="inline-xref">SCST 表</block>
+  <block id="e84f09c1950fdbb6fa633ab80e98c9d2" category="paragraph">要手动安装 SCST，您需要用于已安装版本的 ONTAP Mediator 的 SCST tar 捆绑包（请参阅 <block ref="7df230741ad687ff62210ec23c02b714" category="inline-xref-macro-rx"></block>）。</block>
+  <block id="3c1b791c2302f702e882dbddffcd8e0c" category="list-text">在安装 ONTAP Mediator 之前，请执行此步骤。如果您使用的 SCST 版本高于 ONTAP Mediator 安装程序捆绑的版本，则安装程序将跳过此步骤。</block>
+  <block id="df877f9ba2a64b9c65a9ebce87d47895" category="list-text">在某些情况下，由于升级后的操作系统需要修补程序，因此在升级后的操作系统上默认安装 SCST 可能会失败。</block>
+  <block id="1cdf890a814b27389ca73efb6ef1b2a0" category="paragraph">从 ONTAP Mediator 1.12.1 开始，如果安装失败，您可以使用位于<block ref="711a32ad400471be43668bfcda3244b2" prefix=" " category="inline-code"></block>的 SCST 修复工具来修复安装。</block>
+  <block id="cbaf49dde1c8c8a64598acebeddd8885" category="paragraph">如果升级后的操作系统需要修补程序，则该工具将包含在 ONTAP Mediator 软件包中附带的 SCST 版本中。该<block ref="60141085cb46333d90d906cb4f6b2bed" prefix=" " category="inline-code"></block>工具是一个独立的工具，与主安装程序分开，并打包在 ONTAP Mediator<block ref="05d1190d81e37d06607cc19e21f63ea7" prefix=" " category="inline-code"></block>文件中。它不会影响 ONTAP Mediator 的安装或升级路径。</block>
+  <block id="af237f12f033ed7a1541ed09941bd49a" category="list-text">在<block ref="e61b996e82eb1138ee09c1f3d9d7fe5c" prefix=" " category="inline-code"></block> 目录中运行以下 install 命令：</block>
+  <block id="219be29168daa439833c6dec3204ab8a" category="list-text"><block ref="15b729bfacb674677c02d36e67cccd31" prefix="" category="inline-code"></block></block>
+  <block id="d62b340c8804af5b986f34042c421807" category="list-text"><block ref="7b0b9f99b1782da526b64f9c7d2cbfda" prefix="" category="inline-code"></block></block>
+  <block id="035c4c41a051e50df34e008a35f193c3" category="list-text"><block ref="de45ef00651d6d63e4b3d70e555aeb96" prefix="" category="inline-code"></block></block>
+  <block id="51bf1342c02a1aa7f473006f5c4e03dd" category="list-text"><block ref="eb27a945bae77a00e7110a9d66641ad3" prefix="" category="inline-code"></block></block>
+  <block id="9bb2fdee7568658389f23ffceb122d2b" category="list-text"><block ref="4257f02e0cc0cdc1a062518badc38798" prefix="" category="inline-code"></block></block>
+  <block id="03f148fb355081942edbed6cacd558ef" category="paragraph">如果您要执行首次安装并希望预安装 ONTAP Mediator，请在继续执行下一步之前运行以下命令：</block>
+  <block id="87055910cc61d08f9e025801764f05db" category="paragraph"><block ref="ef04324829dcd0814b9758eddb1cdef3" prefix="" category="inline-code"></block></block>
+  <block id="bd7d101a7e592e89568ef4a3a9e6854c" category="list-text"><block ref="337c365bf15e4037b2d44f1d33bf8b42" prefix="" category="inline-code"></block></block>
+  <block id="24071e7a1bd2a0c2b695eb49e38c2cf3" category="list-text"><block ref="cc05e5a8166865ea5604111743b13c0f" prefix="" category="inline-code"></block></block>
+  <block id="f1654e0e0503cd7c2bb9fe4aa5a1e585" category="admonition">如果在首次安装期间在 ONTAP Mediator 之前预安装 SCST，请跳过此步骤。安装程序将应用相关的 SCST 修补程序。</block>
+  <block id="87bf5adc2c3567a5a481065537a8a6c5" category="list-text">（可选）如果启用了安全启动，请在重新启动之前执行以下步骤：</block>
+  <block id="3c057675c20e59ed95b565b162d77abe" category="list-text">确定 <block ref="cc96446bbab924b6866fde0c8bc3afda" prefix=" " category="inline-code"></block>、<block ref="e61b996e82eb1138ee09c1f3d9d7fe5c" prefix=" " category="inline-code"></block> 和 <block ref="941fd93c7fd820c94b632750866d5069" prefix=" " category="inline-code"></block> 模块的每个文件名：</block>
+  <block id="f3f1f01c7600a99d9ae5ff3385707568" category="list-text">确定内核版本：</block>
+  <block id="186531353ecb000c1f2fe442a51e6875" category="list-text">使用内核对每个模块文件进行签名：</block>
+  <block id="34ae6a6ef163543442224fb0ceb8d288" category="list-text">使用固件安装 UEFI 密钥。</block>
+  <block id="a1447b47ea4085f23bc9d607d9c14ca4" category="paragraph">安装 UEFI 密钥的说明位于：</block>
+  <block id="099fd32c4706f1e8a51d4db6a91e066b" category="paragraph"><block ref="ba63683ba255fd905f17b826e9f54ffc" prefix="" category="inline-code"></block></block>
+  <block id="f41b1dc94c3aba47479be014a28c177f" category="paragraph">生成的 UEFI 密钥位于：</block>
+  <block id="b7c392ffdd9cf474a112f06afa55aae0" category="paragraph"><block ref="9810e5358ed1383c40727cce3f3461f6" prefix="" category="inline-code"></block></block>
+  <block id="dd5f279d7429dfef139125512e345a36" category="list-text">重新启动系统：</block>
+  <block id="a0aba6ae1d604e993dbdc4de925448a0" category="paragraph"><block ref="2b755b30293f2f9f79ec1c86ab0943f2" prefix="" category="inline-code"></block></block>
+  <block id="cded85f36d484db29e116f6a9a8e01ed" category="section-title">主机更改主机名或 IP</block>
+  <block id="44ffcd7d55d0d07a3d3b0f89b0ee9761" category="list-text">仅在安装 ONTAP Mediator 后，主机名或 IP 地址发生变化，因此自签名证书不再有效时才执行此操作。</block>
+  <block id="54bcd9cb0a4155f6f26f22c8451d8f3b" category="list-text">将临时自签名证书替换为受信任的第三方证书后，请不要使用此任务重新生成证书。如果没有自签名证书，则无法使用此过程。</block>
+  <block id="48c7c41b72e1d678923ce3571aa65b2d" category="paragraph-title">步骤</block>
+  <block id="b00b7c9c02e0327f24065677de5525f2" category="paragraph">为当前主机创建临时自签名证书：</block>
+  <block id="05ed664a4c02ae9ac2b15dfab017e810" category="paragraph"><block ref="2511bb06268eb4b527117280c3871164" prefix="" category="inline-code"></block></block>
+  <block id="ecb59f9593697a45aed1640c4de73429" category="summary">当主机名或 IP 地址更改时，重新生成临时自签名证书。</block>
+  <block id="2d8cdd73cc8da78b74df80aa1652ba34" category="doc">重新生成 ONTAP Mediator 主机的临时自签名证书</block>
+  <block id="ea10d4fdf639b3decb3b2c9bca5136ba" category="paragraph">当主机名或 IP 地址更改使现有证书无效时，为当前主机重新生成临时自签名证书。</block>
+  <block id="5bca328affb656481bc77c4e8c48f53a" category="admonition">此过程仅在运行 ONTAP Mediator 1.7 或更高版本的系统上受支持。</block>
+  <block id="e46aded5b2472eb9faebc8cb2cf98373" category="list-text">只有在安装 ONTAP Mediator 后，由于主机的主机名或 IP 地址发生更改而导致生成的自签名证书过时，您才能执行此任务。</block>
+  <block id="bbfce4a0935459743e38b520fec810c3" category="list-text">临时自签名证书被受信任的第三方证书替换后，请不要使用此任务重新生成证书。缺少自签名证书将导致此过程失败。</block>
+  <block id="7eac04f7b7766b6a33a6a26d981f6c59" category="paragraph">要为当前主机重新生成新的临时自签名证书，请执行以下步骤：</block>
+  <block id="0a8fdf83e28a8dc39e912c474334b44e" category="summary">用可信证书替换 ONTAP Mediator 自签名证书。</block>
+  <block id="6b87026f6cb12ce4bf41f8ed3268e6c8" category="doc">将 ONTAP Mediator 自签名证书替换为受信任的第三方证书</block>
+  <block id="983451d7831507a3bbf97015d5d34eb5" category="paragraph">如果环境支持，请将自签名证书替换为由证书颁发机构颁发的可信证书。</block>
+  <block id="45c66c3c0ef652ff0c9b5c1f5d00aa71" category="inline-link-macro">NetApp Bugs Online Bug ID CONTAP-243278</block>
+  <block id="9362ebfda0513d76c1ef6259b6c66ad2" category="list-text">仅从 ONTAP 9.16.1 开始以及在某些较早的 ONTAP 补丁版本中支持第三方证书。请参阅<block ref="c3f5363ff997720d7b052ed0f3c93792" category="inline-link-macro-rx"></block>。</block>
+  <block id="859dae41a742318e640253da8c4ed08d" category="list-text">仅在运行 ONTAP Mediator 1.7 或更高版本的系统上支持第三方证书。</block>
+  <block id="fdb6703b425f6ed6b89d5f9e5f0e440d" category="list-text">如果需要将生成的自签名证书替换为从受信任的从属证书颁发机构（CA）获得的证书，则可以执行此任务。为了实现这一点，您应该有权访问受信任的公钥基础设施（PKI）机构。</block>
+  <block id="a26ccd79220ab4360a7a81457547dc13" category="list-text">下图显示了每个 ONTAP Mediator 证书的用途。</block>
+  <block id="94e806de183ce500a0629f347038b0fe" category="inline-image-macro">ONTAP Mediator 证书用途</block>
+  <block id="73d48dee74134ef6c6aecc8f5c9cbb91" category="paragraph"><block ref="73d48dee74134ef6c6aecc8f5c9cbb91" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d66b2a29817b16bdbbb8d71c79897999" category="list-text">下图显示了 Web 服务器设置和 ONTAP Mediator 设置的配置。</block>
+  <block id="19d6c22739385d66614ac5b0e48dc967" category="inline-image-macro">Web 服务器设置和 ONTAP Mediator 设置配置</block>
+  <block id="f7551ad44e63bc48cc0dac80c95a7f55" category="paragraph"><block ref="f7551ad44e63bc48cc0dac80c95a7f55" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dba666eb7025fd9dfe4c84f5a8e0e54e" category="section-title">步骤 1：从颁发 CA 证书的第三方获取证书</block>
+  <block id="f0d6329976f366cd4f00549b59ca848f" category="paragraph">您可以通过以下步骤从 PKI 机构获取证书。</block>
+  <block id="e9d98eada7bb032e2bccc5d63028b931" category="paragraph">以下示例演示了将自签名证书参与者替换为位于<block ref="881d8f2cbcd6ad648cada905bdcf8f06" prefix=" " category="inline-code"></block>的第三方证书参与者。</block>
+  <block id="c9956fa1c0a791ae05a571b2df4050dd" category="paragraph">本示例说明了 ONTAP Mediator 所需证书的必要标准。您可以通过与此过程不同的方式从 PKI 机构获取证书。请根据您的业务需求调整此过程。</block>
+  <block id="3b805c009116852ea35624254e9b001f" category="list-text">创建一个私钥<block ref="af1e9ae0e498fd55e57eee6b13df7e90" prefix=" " category="inline-code"></block>和一个配置文件<block ref="b63fc2fe55e71700434cd5dded845bbe" prefix=" " category="inline-code"></block>，供 PKI 机构用于生成证书。</block>
+  <block id="078654b98ff43f835605ec78f6adb0be" category="list-text">生成私钥<block ref="af1e9ae0e498fd55e57eee6b13df7e90" prefix=" " category="inline-code"></block>：</block>
+  <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="paragraph-title">示例</block>
+  <block id="6fab83b9d1c9427f391dafe409e73cb9" category="paragraph"><block ref="60beaf4a3e4e76ba2e0b5199e966b4a5" prefix="" category="inline-code"></block></block>
+  <block id="f6d17dedd790171d3abb0c639b3d74af" category="list-text">配置文件<block ref="b63fc2fe55e71700434cd5dded845bbe" prefix=" " category="inline-code"></block>（位于<block ref="603163ce5e8659fa810255687a12d61f" prefix=" " category="inline-code"></block>）定义了生成的证书必须具有的属性。</block>
+  <block id="1877dfd2b98048327da6bbcc3eb9d209" category="list-text">使用私钥和配置文件创建证书签名请求<block ref="04c87081fa56c700d4ba49025b161bc8" prefix=" " category="inline-code"></block>：</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph-title">示例：</block>
+  <block id="69d199a7c8145036757b6867017a48f9" category="paragraph"><block ref="45f5019e4e2a45f13b8879039781e0ea" prefix="" category="inline-code"></block></block>
+  <block id="bbb3450060c68da2b55513c4d4183554" category="list-text">将证书签名请求<block ref="04c87081fa56c700d4ba49025b161bc8" prefix=" " category="inline-code"></block>发送给 PKI 机构进行签名。</block>
+  <block id="49061425c8c421638894d4c46acccff9" category="paragraph">PKI 机构验证请求并对<block ref="6888bcca92c1656b9638da22d1c88a83" prefix=" " category="inline-code"></block>进行签名，从而生成证书<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>。此外，您还需要从 PKI 机构获取对<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>证书进行签名的<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block>证书。</block>
+  <block id="cab2ce77875f7b918e94536e619c0d8c" category="inline-link-macro">为 SnapMirror 活动同步配置 ONTAP 调解器和集群</block>
+  <block id="f193834bd92e229bc0f4dabb3e14b64b" category="inline-link-macro">为 MetroCluster IP 配置配置 ONTAP Mediator</block>
+  <block id="f4df551a174de171c7ab796a88be6440" category="admonition">对于使用配置了 HTTPS 的 ONTAP Mediator 的 SnapMirror 活动同步集群和 MetroCluster IP 配置，您必须将<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>和<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block>证书添加到 ONTAP 集群。请参阅<block ref="969d110dc2acd5c775ecdf40865c816b" category="inline-link-macro-rx"></block>和<block ref="17fdc58adf7488af5cac0a397597b31a" category="inline-link-macro-rx"></block>。</block>
+  <block id="0e8039485c980e9122c09d51876bf864" category="list-text">创建私钥<block ref="006bb7652a42584eed616d6cab6b5942" prefix=" " category="inline-code"></block>和配置文件<block ref="b63fc2fe55e71700434cd5dded845bbe" prefix=" " category="inline-code"></block>，供 PKI 机构用来生成证书。</block>
+  <block id="6e1407359fec929f717684929f6b4257" category="list-text">生成私钥<block ref="006bb7652a42584eed616d6cab6b5942" prefix=" " category="inline-code"></block>：</block>
+  <block id="a8d490bade5ae1bf3adce74e8a81f7a3" category="paragraph"><block ref="6db526989015dac4a4325b5b6a3b7ba2" prefix="" category="inline-code"></block></block>
+  <block id="0a33f290561c82221dfda732ba7c8bb7" category="list-text">使用私钥和配置文件创建证书签名请求<block ref="740015385df511c8015f75b5c6069152" prefix=" " category="inline-code"></block>：</block>
+  <block id="86117ec4fb14b54878d13941affd978b" category="list-text">将证书签名请求<block ref="740015385df511c8015f75b5c6069152" prefix=" " category="inline-code"></block>发送给 PKI 机构进行签名。</block>
+  <block id="6e5b4b37bdceed4d2bb7ef87ea444a99" category="paragraph">PKI 机构验证请求并对<block ref="6888bcca92c1656b9638da22d1c88a83" prefix=" " category="inline-code"></block>进行签名，从而生成证书<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>。此外，您还需要从 PKI 机构获取对<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>证书进行签名的<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block>证书。</block>
+  <block id="35406e31af2f4f3839350d4b14955d79" category="admonition">对于 SnapMirror 活动同步集群，必须将<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>和<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block>证书添加到 ONTAP 集群。请参阅<block ref="969d110dc2acd5c775ecdf40865c816b" category="inline-link-macro-rx"></block>。</block>
+  <block id="056a80f7d7d413f4f924266b3128c6ea" category="section-title">步骤 2：通过使用第三方 CA 证书签名来生成服务器证书</block>
+  <block id="0c65a7f7bfe735e5466712884856bba1" category="paragraph">服务器证书必须由私钥<block ref="af1e9ae0e498fd55e57eee6b13df7e90" prefix=" " category="inline-code"></block>和第三方证书<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>签名。此外，配置文件<block ref="84cb52bb17b32e87a0316b550e728d41" prefix=" " category="inline-code"></block>包含某些属性，这些属性指定由 OpenSSL 颁发的服务器证书所需的属性。</block>
+  <block id="5762acaab0546d38c14fded50d8851b0" category="paragraph">以下命令可以生成服务器证书。</block>
+  <block id="5b597d33ee913b4dd82df326a9a0df99" category="list-text">要生成服务器证书签名请求（CSR），请从 <block ref="d1310db41b53a4ee6e7ef6b2111028ed" prefix=" " category="inline-code"></block> 文件夹中运行以下命令：</block>
+  <block id="beaa867526f567c96f6b3a81806a5014" category="paragraph"><block ref="80383e076d8d43cb8f3d687ea7d86718" prefix="" category="inline-code"></block></block>
+  <block id="d7bbf2a9256f7a93507c182af62bdba7" category="list-text">[[step_2_intermediate_info_v9]]要从 CSR 生成服务器证书，请从 <block ref="d1310db41b53a4ee6e7ef6b2111028ed" prefix=" " category="inline-code"></block> 文件夹中运行以下命令：</block>
+  <block id="901fe5a6df712b84b225bb7dd8d3c951" category="admonition">这些文件是从 PKI 机构获得的。如果使用不同的证书名称，请将<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>和<block ref="af1e9ae0e498fd55e57eee6b13df7e90" prefix=" " category="inline-code"></block>替换为相关文件名。</block>
+  <block id="9a7b7618cc37cc5e828264dec6ce253a" category="paragraph"><block ref="722c3b45efbfda611e47611e4899aaf2" prefix="" category="inline-code"></block></block>
+  <block id="cc1e839f1c6e83b66a14b6fef505f123" category="list-text">该<block ref="877efcd6cbcff5bef5736a55041d38cf" prefix=" " category="inline-code"></block>选项用于生成<block ref="41799a9f1cb27f52842c90e3f9f9efdf" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="2becae461be61f9e490c5f374223162b" category="paragraph">服务器证书必须由私钥<block ref="006bb7652a42584eed616d6cab6b5942" prefix=" " category="inline-code"></block>和第三方证书<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>签名。此外，配置文件<block ref="84cb52bb17b32e87a0316b550e728d41" prefix=" " category="inline-code"></block>包含某些属性，这些属性指定由 OpenSSL 颁发的服务器证书所需的属性。</block>
+  <block id="d2e434afaca634f2f0aeaad1469acad4" category="list-text">[[step_2_intermediate_info_v8]]要从 CSR 生成服务器证书，请从 <block ref="d1310db41b53a4ee6e7ef6b2111028ed" prefix=" " category="inline-code"></block> 文件夹中运行以下命令：</block>
+  <block id="590640d89a0fa21e04be87bd7b642332" category="admonition">这些文件是从 PKI 机构获得的。如果使用不同的证书名称，请将<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>和<block ref="006bb7652a42584eed616d6cab6b5942" prefix=" " category="inline-code"></block>替换为相关文件名。</block>
+  <block id="9f7f816da9d37c41376b5880935464ad" category="paragraph"><block ref="22a542367f1f4e0cd4ac3c474904c66d" prefix="" category="inline-code"></block></block>
+  <block id="66c4ef86c3be5a6ace692d41b16bb6a0" category="list-text">该<block ref="877efcd6cbcff5bef5736a55041d38cf" prefix=" " category="inline-code"></block>选项用于生成<block ref="6d9cf61db5ec1375b2846eaf8102c57d" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="41b00f5e0e569d9d5e875f54e250641b" category="section-title">步骤 3：在 ONTAP Mediator 配置中替换新的第三方 CA 证书和服务器证书</block>
+  <block id="7dc4da8261ee50ff7c7bd7944a06d779" category="open-title">ONTAP Mediator 1.10 及更高版本</block>
+  <block id="6e64583261c5e7e30a02df50cd97906f" category="paragraph">证书配置在位于<block ref="91f698a7212f808ea1123f2fea7d684b" prefix=" " category="inline-code"></block>的配置文件中提供给 ONTAP Mediator。该文件包含以下属性：</block>
+  <block id="14b1bc5827810cb6388615660e9ef5e3" category="list-text"><block ref="57ec7fe7e85d1196b9f133d14ea5b50d" prefix="" category="inline-code"></block> 和 <block ref="0df75c07b8443071d006ab81cad1a19d" prefix=" " category="inline-code"></block> 是服务器证书变量。</block>
+  <block id="3a4b60bb708e08a08669aba534057841" category="list-text"><block ref="b8cd01813c5850a747e7a03c9dcb43ed" prefix="" category="inline-code"></block>、<block ref="a93e5ca6615891464275e325959beec1" prefix=" " category="inline-code"></block>和<block ref="432981cc26072c8b71f348991372737a" prefix=" " category="inline-code"></block>是 CA 证书变量。</block>
+  <block id="a9b4025ad224a247e726fcf76662b617" category="list-text">将所有 <block ref="92ce94a27a4f217c948197cd04250986" prefix=" " category="inline-code"></block> 文件替换为第三方证书。</block>
+  <block id="31c0baa23b1af15a0d3a43d1b3ead845" category="list-text">从<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>和<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>证书创建证书链：</block>
+  <block id="8e5154ac6950f78c89d2755da310ae26" category="paragraph"><block ref="458477685a61800dcd4658fcf77d60a9" prefix="" category="inline-code"></block></block>
+  <block id="a2c8eb7ec6335fdb2105ec3728a7548f" category="list-text">更新<block ref="49345d1bd9b5d2feb6e514601b3dc8b7" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="9a01db6fec1b512e701b180f131d6ca2" category="paragraph">更新<block ref="3bd8168dce3c8a50e907ce3aa9da865f" prefix=" " category="inline-code"></block>、<block ref="361c4929fae81af747b192247e803d9c" prefix=" " category="inline-code"></block>和<block ref="9c1fc3b79d60bf04b6085fe46e62f1c9" prefix=" " category="inline-code"></block>的值：</block>
+  <block id="441da631466806866b84bbf585cebda6" category="paragraph"><block ref="3bd8168dce3c8a50e907ce3aa9da865f" prefix="" category="inline-code"></block>:<block ref="c65e9f7c554af033c2b73c5a83f1e7fa" prefix=" " category="inline-code"></block></block>
+  <block id="6f0a9ec41ae85f2ba2ea993c30486d8b" category="paragraph"><block ref="361c4929fae81af747b192247e803d9c" prefix="" category="inline-code"></block>:<block ref="65443649d2ad7f4ae3b991372ec6c8ce" prefix=" " category="inline-code"></block></block>
+  <block id="c94af72455438bfef22ce52ada3e551d" category="paragraph"><block ref="9c1fc3b79d60bf04b6085fe46e62f1c9" prefix="" category="inline-code"></block>:<block ref="facb85e3c9aed5e66abad45ae730b174" prefix=" " category="inline-code"></block></block>
+  <block id="90aff04b4f329338dab4a9e237950b47" category="list-text"><block ref="3bd8168dce3c8a50e907ce3aa9da865f" prefix=" " category="inline-code"></block> 值是 <block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block> 文件中的键路径，即 <block ref="c648fd44a08bf7204571b21b362d1b5b" prefix=" " category="inline-code"></block>。</block>
+  <block id="5cdd26074d389338639d49a748da994f" category="list-text"><block ref="361c4929fae81af747b192247e803d9c" prefix=" " category="inline-code"></block> 值是 <block ref="da456ebfdb87aa0422fa8f40c550835d" prefix=" " category="inline-code"></block> 文件的路径。</block>
+  <block id="c448b3f163e6395c472bd71c11adfe4c" category="list-text"><block ref="9c1fc3b79d60bf04b6085fe46e62f1c9" prefix=" " category="inline-code"></block> 值是 <block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block> 文件的路径。</block>
+  <block id="47632d3e542c2eaba8d5e3b109819af3" category="list-text">验证新生成的证书的以下属性设置是否正确：</block>
+  <block id="3bb1410f4281265568630f3742c3bc84" category="list-text">Linux 组所有者：<block ref="3708396f823b6893b07f7e5bed8892eb" prefix=" " category="inline-code"></block></block>
+  <block id="4e9878f5163e140c8537d7d2ecd6d5c9" category="list-text">Linux 权限：<block ref="d490d7b4576290fa60eb31b5fc917ad1" prefix=" " category="inline-code"></block></block>
+  <block id="f3af4c47233f0bd4b7c00261caab487d" category="paragraph"><block ref="d7c845acea8f4035787257ee9cfe470d" prefix="" category="inline-code"></block></block>
+  <block id="415e1820b840c0d0ede8420176bf56e2" category="open-title">ONTAP 调解器 1.9.1 和 1.9</block>
+  <block id="f2fdb1f293c88941864aeb4c956fd32b" category="list-text">更新<block ref="ea8a01a633dad65525408f18e3468ce8" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="bf14ed2bbe3378e58d49b7d21a6d1b11" category="paragraph">更新<block ref="80eec318a13ef13c13e489b6b09462cd" prefix=" " category="inline-code"></block>、<block ref="8521272c5e36e1911c5d65be9dd77b78" prefix=" " category="inline-code"></block>和<block ref="295f5667864643d817199e63c98ccbf6" prefix=" " category="inline-code"></block>的值：</block>
+  <block id="0649df909cdcd271bd4dbd108143f1b6" category="paragraph"><block ref="82ae415b080263fa26ac06124cc199b4" prefix="" category="inline-code"></block></block>
+  <block id="f51e176723c73018d1705c8a775dfe84" category="paragraph"><block ref="b39a99aaa7b7f40ba5ab3e91f3f508b1" prefix="" category="inline-code"></block></block>
+  <block id="d6e9bbdfd1fdd0672a9b22dc91abf647" category="paragraph"><block ref="b7ca3bb28daa2c50bbe6e73853da99bb" prefix="" category="inline-code"></block></block>
+  <block id="6714ad5ee542e0e273b4648f39a1d3eb" category="list-text"><block ref="80eec318a13ef13c13e489b6b09462cd" prefix=" " category="inline-code"></block> 值是 <block ref="da456ebfdb87aa0422fa8f40c550835d" prefix=" " category="inline-code"></block> 文件的路径。</block>
+  <block id="1c7019ec7226d6b42b24c4d1b8e9b498" category="list-text"><block ref="9ae8234d8b9b531c084eefec58e3f9b6" prefix=" " category="inline-code"></block> 是<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>文件中的密钥路径，即<block ref="c648fd44a08bf7204571b21b362d1b5b" prefix=" " category="inline-code"></block>。</block>
+  <block id="8b8cdeb1126557a15dfce94099cd2130" category="list-text"><block ref="295f5667864643d817199e63c98ccbf6" prefix=" " category="inline-code"></block> 值是<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block>文件的路径。</block>
+  <block id="8737e0e09e0ad91f9b0f08436f5d9c70" category="list-text">将所有 <block ref="c9625f1e43d5d6ec06c65483eba6fad4" prefix=" " category="inline-code"></block> 文件替换为第三方证书。</block>
+  <block id="3cecfb9e6f37e19d5c11148e604542c1" category="list-text">从<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>和<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>证书创建证书链：</block>
+  <block id="b3ce9007661ed042561cc7c955a1d8de" category="paragraph"><block ref="76a7213342d2bf793b8f1b279683ec0f" prefix="" category="inline-code"></block></block>
+  <block id="8ef01d3d1d2e952cc3e2ca6ba338f5a6" category="section-title">步骤 4：（可选）为第三方证书使用其他路径或名称</block>
+  <block id="1e9de302ab14768a09b778a5fcd99b37" category="paragraph">您可以使用名称不同于<block ref="92ce94a27a4f217c948197cd04250986" prefix=" " category="inline-code"></block>的第三方证书，或者将第三方证书存储在其他位置。</block>
+  <block id="745d7ec3b43958196d3a63e737310729" category="list-text">配置<block ref="27a6b24601b63526ffca2fd1c5f9a5c4" prefix=" " category="inline-code"></block> 文件以覆盖<block ref="5b85df10091f3a4731397680ace5150b" prefix=" " category="inline-code"></block> 文件中的默认变量值。</block>
+  <block id="dc45c049c75f00dce36ea121804fc675" category="paragraph">如果您从 PKI 机构获取了<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>，并将其私钥<block ref="af1e9ae0e498fd55e57eee6b13df7e90" prefix=" " category="inline-code"></block>存储在位置<block ref="d1310db41b53a4ee6e7ef6b2111028ed" prefix=" " category="inline-code"></block>，则<block ref="e69236eb2aa5b1455dc0f88753a8a1a2" prefix=" " category="inline-code"></block>文件应如下所示：</block>
+  <block id="760042a6666db7aa603c1759de3c17f8" category="admonition">如果您使用<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>签署了<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>证书，则会生成<block ref="41799a9f1cb27f52842c90e3f9f9efdf" prefix=" " category="inline-code"></block>文件。有关详细信息，请参见<block ref="176f27458d3e2a3c3a9ec02498de4a9f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="7450bf402d187a456299363bc5c7bb24" category="list-text">如果您使用的证书结构中，<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block> 证书提供了一个 <block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block> 证书来签署 <block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block> 证书，请从 <block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block> 和 <block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block> 证书创建证书链：</block>
+  <block id="a2a05dc741ed6dd746d7ee82a123267c" category="admonition">您应该在此过程的早期从 PKI 机构获取了<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>和<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>证书。</block>
+  <block id="f5c77d84b5e3aa2e280ecc145b9c442b" category="list-text">在配置文件中更新证书时重新启动 ONTAP Mediator：</block>
+  <block id="c7faa766b1010320504eaee59d04d490" category="list-text"><block ref="8521272c5e36e1911c5d65be9dd77b78" prefix=" " category="inline-code"></block> 值是<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>文件中的键路径，即<block ref="c648fd44a08bf7204571b21b362d1b5b" prefix=" " category="inline-code"></block>。</block>
+  <block id="b17bc8319d8420404947a9e6ce0bfd3e" category="admonition">对于 SnapMirror 业务连续性（SM-BC）集群，必须将 <block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block> 和 <block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block> 证书添加到 ONTAP 集群。请参阅 <block ref="969d110dc2acd5c775ecdf40865c816b" category="inline-link-macro-rx"></block>。</block>
+  <block id="e581f49db842b173da229dfa389d04f3" category="paragraph">您可以使用名称不同于<block ref="c9625f1e43d5d6ec06c65483eba6fad4" prefix=" " category="inline-code"></block>的第三方证书，也可以将第三方证书存储在其他位置。</block>
+  <block id="b227ac4c177690f1337f51db2dca7369" category="paragraph">如果您从 PKI 机构获取了<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>，并将其私钥<block ref="006bb7652a42584eed616d6cab6b5942" prefix=" " category="inline-code"></block>存储在位置<block ref="d1310db41b53a4ee6e7ef6b2111028ed" prefix=" " category="inline-code"></block>，则<block ref="e69236eb2aa5b1455dc0f88753a8a1a2" prefix=" " category="inline-code"></block>文件应如下例所示：</block>
+  <block id="757d497aac644c5208241004b9c07c58" category="admonition">如果您使用<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>对<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>证书进行了签名，则会生成<block ref="6d9cf61db5ec1375b2846eaf8102c57d" prefix=" " category="inline-code"></block>文件。有关详细信息，请参见<block ref="4f20cf3f9f80bb54f26eaac3d64146c4" category="inline-xref-macro-rx"></block>。</block>
+  <block id="7a51a601ead73ab7d3228537295b9cda" category="list-text">如果您使用的证书结构中，<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block> 证书提供了一个<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block> 证书来签署<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block> 证书，请从<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block> 和<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block> 证书创建证书链：</block>
+  <block id="f9e6d688a8a27c940763126695c2660f" category="admonition">您应该在此过程的早期从 PKI 机构获得了<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>和<block ref="4d389575bb215bbefa0d6232cd02d8f9" prefix=" " category="inline-code"></block>证书。</block>
+  <block id="7cf80fa79f251c77bc9b3f9550a9a81a" category="admonition">对于 SnapMirror 业务连续性（SM-BC）集群，必须将<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>和<block ref="f93035d1d7d45fa37bc8cf1cd447ea1b" prefix=" " category="inline-code"></block>证书添加到 ONTAP 集群。请参阅<block ref="969d110dc2acd5c775ecdf40865c816b" category="inline-link-macro-rx"></block>。</block>
+  <block id="e58764e435e48d596747db269d4b5d30" category="summary">在主机上启动或停止 ONTAP Mediator 和 SCST。</block>
+  <block id="25bfbef5696da67a2bc81fe0c0d39812" category="doc">启动和停止 ONTAP Mediator</block>
+  <block id="7add99166ebcb3cd72ed801ee22d4634" category="paragraph">需要维护主机或重新启用服务时，停止或重新启动 ONTAP Mediator 和 SCST。</block>
+  <block id="655b7872afeae68779acb74444402d9a" category="section-title">停止 ONTAP Mediator</block>
+  <block id="cea5aade9424395223b85baa1456cd09" category="paragraph">要停止 ONTAP Mediator，请执行以下步骤：</block>
+  <block id="fb85f149833e3eb7f2f1d7dcd1401d7d" category="list-text">停止 ONTAP Mediator：</block>
+  <block id="a63d7574a9973d3267f20b9ba574cae5" category="list-text">停止 SCST：</block>
+  <block id="446238b190643f093b6e98fab3a631aa" category="list-text">禁用 ONTAP 调解器和 SCST：</block>
+  <block id="aaa48dae5c5624655efe9a6801844167" category="section-title">启动 ONTAP Mediator</block>
+  <block id="f9737993deed4ea27689fb71deb7ee7e" category="paragraph">要重新启用 ONTAP Mediator，请执行以下步骤：</block>
+  <block id="1675ea84897c4b9a3be06c13d1a8e91a" category="list-text">启用 ONTAP 调解器和 SCST：</block>
+  <block id="bdf969c9539ce73d6e0e75f474c7d363" category="list-text">启动 SCST：</block>
+  <block id="18a1dd44b1efa4af080b4f3301bfa284" category="list-text">启动 ONTAP Mediator：</block>
+  <block id="f60728c80ea87603b776186896554e5c" category="summary">检查 ONTAP Mediator 证书属性以诊断证书问题。</block>
+  <block id="f64581af1fd62e056f617c9d13d87f3b" category="doc">对 ONTAP Mediator 证书相关问题进行故障诊断</block>
+  <block id="8f9526a9dae9e8db4c927b1be1d7e15a" category="paragraph">在对证书问题进行故障排除时，使用这些检查来验证证书属性。</block>
+  <block id="f716aaeccf7df02ecbff39c7de2812cb" category="section-title">验证证书过期时间</block>
+  <block id="5028989626f45c864f9868006b3cf13b" category="paragraph">使用以下命令来标识证书有效期范围。</block>
+  <block id="e55c8833c3fc3b1d8308bf5a792aacf9" category="section-title">验证 CA 认证中的 X509v3 扩展</block>
+  <block id="79f7acb74b8d1c327401d5ffb4dd1b7a" category="paragraph">使用以下命令验证 CA 认证中的 X509v3 扩展。</block>
+  <block id="98c3d634ed1554dbd7e4a767529b49c0" category="paragraph">在<block ref="b63fc2fe55e71700434cd5dded845bbe" prefix=" " category="inline-code"></block>中的<block ref="2547e27347954d3e2694ca70610f773b" prefix=" " category="inline-code"></block>内定义的属性将在<block ref="9e1f34d274d54e077ab71c2c0fe0badd" prefix=" " category="inline-code"></block>中显示为<block ref="72622591093aabcc83d5611f6d6a73ec" prefix=" " category="inline-code"></block>。</block>
+  <block id="63861c1958c4623cddd28492e3ab0bac" category="paragraph">在<block ref="b63fc2fe55e71700434cd5dded845bbe" prefix=" " category="inline-code"></block>中的<block ref="2547e27347954d3e2694ca70610f773b" prefix=" " category="inline-code"></block>内定义的属性在<block ref="017ce4f89360621e0345c257b6136b21" prefix=" " category="inline-code"></block>中显示为<block ref="72622591093aabcc83d5611f6d6a73ec" prefix=" " category="inline-code"></block>。</block>
+  <block id="76737c36b0223403b5dd102da0abf348" category="section-title">验证服务器证书和主题替代名称中的 X509v3 扩展</block>
+  <block id="403d2119dd0fe592eab5feb267706f2e" category="paragraph"><block ref="da56d4f4b52097b490f238ec04ac5103" prefix=" " category="inline-code"></block> 配置文件中定义的<block ref="496704f0208fe5c8f78493ddd36eaef6" prefix=" " category="inline-code"></block> 属性在证书中显示为<block ref="72622591093aabcc83d5611f6d6a73ec" prefix=" " category="inline-code"></block>。</block>
+  <block id="75833dbf241ae98ba86aa1753f294bb5" category="paragraph">在以下示例中，您可以通过在安装了 ONTAP Mediator 的 Linux VM 上运行命令<block ref="ea14150aa969c01b90ed08df79a8bb5f" prefix=" " category="inline-code"></block>和<block ref="980f3be04fb4e030898c599f757453e8" prefix=" " category="inline-code"></block>来获取<block ref="36e960efb69c958d7271270e171e01e0" prefix=" " category="inline-code"></block>部分中的变量。</block>
+  <block id="8f2b21a5dd1a16e566944c5899909350" category="paragraph">请与网络管理员联系以获取变量的正确值。</block>
+  <block id="d0dbbceb37ab1014abb93b8586e4b3b2" category="section-title">验证私钥是否与证书匹配</block>
+  <block id="0f8b763d21734ba835386412251d4f43" category="paragraph">您可以验证特定私钥是否与证书匹配。</block>
+  <block id="4e0b7c052b98e91db00bdcb760cdd037" category="paragraph">分别在密钥和证书上使用以下 OpenSSL 命令。</block>
+  <block id="5c6e263274a2514f6b54f071fbffc9e7" category="paragraph">如果两者的<block ref="e2e9c872aba8596f8c676cc27d22336f" prefix=" " category="inline-code"></block>属性匹配，则表明私钥和证书对是兼容的，并且可以协同工作。</block>
+  <block id="14030809a7e24dd5a0c9dcb4ee9006f7" category="section-title">确认从特定 CA 证书创建了服务器证书</block>
+  <block id="a6adedca6bea42dfb0f60ae18407567e" category="paragraph">您可以使用以下命令验证服务器证书是否是从特定 CA 证书创建的。</block>
+  <block id="bc658cbeef646d198df1c8abaf4a15f7" category="inline-link-macro">openssl-verify</block>
+  <block id="dc83f0efa46dd3ce8abc6466a0559bce" category="paragraph">如果正在使用在线证书状态协议（OCSP）验证，请使用命令 <block ref="f6654ed683b4881ae426ff6569f1e182" category="inline-link-macro-rx"></block>。</block>
+  <block id="a6bd903d786933ec96826e892860a718" category="summary">从主机中删除 ONTAP Mediator。</block>
+  <block id="d696a0ff4c5bf37a6d499263b1e72efb" category="doc">卸载 ONTAP Mediator</block>
+  <block id="6eece176f0b4a87f6d84de35351a0e4f" category="paragraph">如有必要，请在断开与 ONTAP 的连接后卸载 ONTAP Mediator。</block>
+  <block id="d94f0c0806ea596e6ab5ca6fbb186b3e" category="paragraph">必须先断开 ONTAP Mediator 与 ONTAP 的连接，然后才能将其删除。</block>
+  <block id="04e18ededf9b4f7e991de51ad7fa228d" category="paragraph"><block ref="74ac5d826adfbc116b6ea064d73cb629" prefix="" category="inline-code"></block></block>
+  <block id="d18cfc983011c66b1d3c0c56f599f1ac" category="list-text">卸载 ONTAP Mediator：</block>
+  <block id="f44f7511403227c6d86bd02c4753c706" category="summary">在安装过程中，请先升级主机操作系统，然后再升级 ONTAP Mediator。</block>
+  <block id="33ddec60e94a5b1e351c678518710bc0" category="doc">升级主机操作系统并重新安装或升级 ONTAP Mediator</block>
+  <block id="ffce34b1ff0e0f672d07e29eaf72f284" category="paragraph">要将安装了 SCST 的 ONTAP Mediator 的主机操作系统升级到更高版本，您必须卸载 ONTAP Mediator。操作系统升级后，您可以重新安装当前版本的 ONTAP Mediator 或升级到较新版本。</block>
+  <block id="fd45b30ab0fd9eb87d5946a288f08752" category="list-text">此任务适用于安装了 SCST 的 ONTAP Mediator 版本。如果您安装了仅支持 HTTPS 的 ONTAP Mediator 1.12 或更高版本，则未安装 SCST 软件包，您可以升级主机操作系统而不会影响 ONTAP Mediator。有关操作系统升级说明，请参阅主机操作系统供应商的文档。</block>
+  <block id="b554eba3d15932edfa85177eddbccb4c" category="list-text">如果您只需要将主机操作系统内核更新为受支持的版本，而无需升级到新的操作系统版本，请改为参阅 <block ref="b075934ff9d66de58a7e9f651299f048" category="inline-link-macro-rx"></block>。</block>
+  <block id="3260cd4172586a75af4bf1da43704ced" category="inline-link-macro">卸载 ONTAP Mediator</block>
+  <block id="aaba753df53928af5937fcb0c3a7ac00" category="list-text">在使用 leapp-upgrade 工具升级 ONTAP Mediator 的主机操作系统之前，<block ref="283ba49559acd27e546bb5bedd3d83b1" category="inline-link-macro-rx"></block>。该工具会检查已注册存储库中的新 RPM 版本。</block>
+  <block id="4d5a64ced52edea4ce2fcdc553fd7582" category="list-text">ONTAP Mediator 安装程序会安装 .rpm 文件，leapp-upgrade 工具会将其包含在搜索中。由于安装程序解压缩文件而不是从注册存储库下载文件，因此该工具无法找到升级。您必须使用 leapp-upgrade 工具来卸载此软件包。</block>
+  <block id="b6336eece7eb2ead85373555f6cfcbdd" category="list-text">备份日志文件：</block>
+  <block id="504c98b2a90ed39d6e9ed976902f2138" category="list-text">使用 leapp-upgrade 工具执行升级：</block>
+  <block id="f0c7ca786eeae94af6cdf1924a08fee9" category="list-text">重新安装 ONTAP Mediator：</block>
+  <block id="cb7ad262254a095be82dbb0206979b90" category="admonition">重新安装 ONTAP Mediator 后立即执行其余步骤，以防止日志文件丢失。</block>
+  <block id="68a6472fe8e21532a879138ee26953b1" category="list-text">停止 ontap_mediator：</block>
+  <block id="454f6dbfe7dcd2d66ce2fd7fa27e3ba9" category="list-text">替换日志文件：</block>
+  <block id="eb1a5fc97f872516cfa636e7cdb2de6b" category="list-text">启动 ontap_mediator：</block>
+  <block id="c5472868bc47e1d56f7ebcad78b8baf1" category="list-text">将所有 ONTAP 集群重新连接到升级后的 ONTAP 调解器：</block>
+  <block id="9606052688ba7ea8a292d061cb529730" category="open-title">MetroCluster 基于 IP</block>
+  <block id="c0b79db5f258f0c991a383cbdbf001dd" category="open-title">SnapMirror 活动同步</block>
+  <block id="076bbc36fa1cec5319e57430a8b42d91" category="paragraph">对于 SnapMirror 活动同步，您无需重新安装存储在 /opt/netapp 之外的 TLS 证书。备份和还原存储在 /opt/netapp 中的证书。</block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="list-title">相关信息</block>
+  <block id="b7081185ef66ac9a73da5ce749f082e2" category="inline-link-macro">security certificate delete</block>
+  <block id="d467323207417a6d7e0dd99c506b86e9" category="list-text"><block ref="d467323207417a6d7e0dd99c506b86e9" category="inline-link-macro-rx"></block></block>
+  <block id="a9768a1721be1abfec9928f99bc40b43" category="inline-link-macro">security certificate install</block>
+  <block id="6f4f6f44c7c7ad4e08bbe43aebddcad4" category="list-text"><block ref="6f4f6f44c7c7ad4e08bbe43aebddcad4" category="inline-link-macro-rx"></block></block>
+  <block id="d5fe3efc0a92a43a98f54ac24ef1b5dd" category="inline-link-macro">security certificate show</block>
+  <block id="922792ffe4073c0eb369aa9d94a253d1" category="list-text"><block ref="922792ffe4073c0eb369aa9d94a253d1" category="inline-link-macro-rx"></block></block>
+  <block id="47a733e59a59708c3179837a196fad15" category="inline-link-macro">snapmirror mediator add</block>
+  <block id="f320e7fc12684f536ec4a2c6bd95eed6" category="list-text"><block ref="f320e7fc12684f536ec4a2c6bd95eed6" category="inline-link-macro-rx"></block></block>
+  <block id="913e3fb6005d79d1e7e5eb2046a6fa4c" category="inline-link-macro">snapmirror mediator remove</block>
+  <block id="55394a49231c00367e205c42b064e980" category="list-text"><block ref="55394a49231c00367e205c42b064e980" category="inline-link-macro-rx"></block></block>
+  <block id="b537069c8a5aec356a63851186f912fe" category="inline-link-macro">storage iscsi-initiator show</block>
+  <block id="4865af58e3487fe0b7ed016935c64256" category="list-text"><block ref="4865af58e3487fe0b7ed016935c64256" category="inline-link-macro-rx"></block></block>
+  <block id="08a4fa0bb1e9083bfe68c6e407bbc0bc" category="summary">要升级 ONTAP Mediator 而不升级主机操作系统，请下载新版本的安装包，并在现有的 ONTAP Mediator 主机上运行安装程序。</block>
+  <block id="3be8e80430c46fc92e8eb95cc6f4a77a" category="doc">升级 ONTAP Mediator</block>
+  <block id="d7ef71a44ebd836615f83aa9c1384993" category="paragraph">要将 ONTAP Mediator 升级到较新版本而不升级主机操作系统，请下载新版本的安装包，并在已安装 ONTAP Mediator 的主机上运行安装程序。</block>
+  <block id="87f2ea870f9c143a692e27f36312166e" category="inline-link-macro">升级主机操作系统和 ONTAP Mediator</block>
+  <block id="43cd70ac79d4b9bc1ba20242c3be7e92" category="admonition">如果您需要将主机操作系统升级到新版本，并作为该过程的一部分重新安装或升级 ONTAP Mediator，请改为参见 <block ref="e001b02d7be5296dda81681793d3b6f2" category="inline-link-macro-rx"></block>。</block>
+  <block id="dfcddace895e6d15eaa29a365e239546" category="inline-link-macro">准备安装 ONTAP Mediator</block>
+  <block id="fa9221fe0f2911e14b8b07da9bc2cb8f" category="list-text">确认您的主机满足<block ref="1436d225b9f0a111f3187830b0738fb5" category="inline-link-macro-rx"></block>中所述的先决条件，包括主机、防火墙和操作系统要求。</block>
+  <block id="1a08677cb099f004665a94af3d83f5ee" category="inline-link-macro">下载 ONTAP Mediator 安装包</block>
+  <block id="5078209699cbff5e3894f83ba0a0b275" category="list-text">下载新版本的安装软件包。请参阅 <block ref="0450d1e6df4787a73f1aab9873409f04" category="inline-link-macro-rx"></block>。</block>
+  <block id="8e9334edba4acfa6425b88db3bf1cddd" category="inline-link-macro">验证 ONTAP Mediator 安装包的代码签名</block>
+  <block id="4768475f5d3ac13982d0fafcf94fd214" category="list-text">NetApp 建议验证新安装包的代码签名。请参阅 <block ref="f72391a1de200afd87792e2472bd347d" category="inline-link-macro-rx"></block>。</block>
+  <block id="1875d11cccf7bf59f58e709a1372067d" category="paragraph">在升级 ONTAP Mediator 之前，请查看下列信息。</block>
+  <block id="e91dfd200f4c86ead4c9e3dc82714b50" category="list-text">您应该将 ONTAP Mediator 升级到最新版本。旧版本仍然适用于所有 ONTAP 版本，但新版本包含第三方组件的安全补丁。</block>
+  <block id="65abc13b981890914014752e0de128f3" category="inline-link-macro">SCST 支持矩阵</block>
+  <block id="54950270731c946c6ad58aec7c871abf" category="list-text">当您升级到包含 SCST 包的新 ONTAP Mediator 版本时，安装程序会自动升级到推荐的 SCST 版本，除非有更高版本可用。有关手动安装更高 SCST 版本的说明，请参见 <block ref="b075934ff9d66de58a7e9f651299f048" category="inline-link-macro-rx"></block>。有关支持的版本，请参见 <block ref="f1b6fd3bc38ee1ac29f0f346446f7ccf" category="inline-link-macro-rx"></block>。</block>
+  <block id="2299af78b9e92aa893c910b1e801c1d9" category="list-text">如果升级失败，您可能需要尝试更新版本的 ONTAP Mediator。</block>
+  <block id="7065552dd837372222050dc693505675" category="list-text">从 2025 年 6 月 15 日起，您无法安装或升级 ONTAP Mediator 1.9 和 1.8，因为它们的代码签名证书已过期。如果升级失败，请改用 ONTAP Mediator 1.9.1 补丁版本。</block>
+  <block id="387dea544fb9740e1b468fa28075b8cf" category="list-text">当您针对现有的 ONTAP Mediator 安装运行安装程序时，它会检测到当前版本并提示您确认升级：</block>
+  <block id="0f4bc86ea28cf8ca4442347baae28ed4" category="paragraph"><block ref="863dd28b869dd7f84629121ec2bd390a" prefix="" category="inline-code"></block></block>
+  <block id="2b3a52b0be4aa7a7514d96f48f3fbc1f" category="paragraph"><block ref="d32a8283057676562814e0ccbcbac013" prefix="" category="inline-code"></block></block>
+  <block id="0d90bdca469fcd2ce8bc51d64365ba14" category="list-text">作为升级的一部分，安装程序会收集升级前配置的支持包，并在升级 ONTAP Mediator 软件之前迁移数据库。</block>
+  <block id="bc6ccd2a38c1da7dbabbd34e51736ca7" category="list-text">对于自动化用例，您可以使用<block ref="e06c57956a1db62e945519ac48ec3f4f" prefix=" " category="inline-code"></block>命令跳过安装程序提示。</block>
+  <block id="03cef594048699e8bd8a0ea4afb2125a" category="list-text">运行新版本的安装程序并根据需要响应提示：</block>
+  <block id="f1f7a8a0513234ffbeb83a09c905d204" category="paragraph">要跳过升级期间的签名检查，请使用<block ref="0909581c61d409342de86e60b8beeaa3" prefix=" " category="inline-code"></block>命令</block>
+  <block id="1dbcde616241e6573e23e89f6e275947" category="paragraph">安装程序检测到现有安装并提示您升级，然后安装所需的程序包并迁移配置。</block>
+  <block id="9ac776b366c707188480de9a0924171b" category="example-title">支持 HTTPS 和 iSCSI 的 ONTAP Mediator 升级示例（控制台输出）</block>
+  <block id="9c75661710d19b7b0d75931cb7183fce" category="example-title">仅支持 HTTPS 的 ONTAP Mediator 升级示例（控制台输出）</block>
+  <block id="b8d91021f64aedffb78e8515d8462201" category="summary">验证 ONTAP Mediator 是否健康并侦听预期端口。</block>
+  <block id="ef7c72b3bcb0e4482a7a8a51117775f7" category="doc">验证 ONTAP Mediator 运行状况</block>
+  <block id="78846e32cbf8ddadc9a01c4f496d0e63" category="paragraph">验证 ONTAP Mediator 是否正常运行。</block>
+  <block id="5ad8c9a67e1200e4dc0e940604442da0" category="section-title">验证服务状态</block>
+  <block id="07207539bc08a64df79f7473da1c8c44" category="list-text">查看 ONTAP Mediator 的状态：</block>
+  <block id="ab4a60147a1ce71fb4340f4705f9a8ef" category="list-text">查看 SCST 服务的状态：</block>
+  <block id="4336dae7781b504dd8f932dd9b477157" category="section-title">确认侦听端口</block>
+  <block id="90b3e89b1b25d880f7740c45dd015a61" category="list-text">确认 ONTAP Mediator 使用的端口：</block>
+  <block id="67736a7839fb8baf78b36886a2645cae" category="summary">在安装过程中下载 Mediator 安装包。</block>
+  <block id="e2cffea506cf854be44e5d457f072c61" category="paragraph">下载 ONTAP Mediator 安装软件包并进行安装。</block>
+  <block id="fd121ec967192205344881af8b91ff04" category="list-text">从 ONTAP Mediator 下载页面下载 ONTAP Mediator 安装包。</block>
+  <block id="b02f3046b150b191e2d899be132a42bf" category="inline-link">ONTAP Mediator 下载页面</block>
+  <block id="1c25284cbe99f20a5f633ae8ef6d7f53" category="paragraph"><block ref="1c25284cbe99f20a5f633ae8ef6d7f53" category="inline-link-rx"></block></block>
+  <block id="97408bd589697ae825126bad88423e59" category="list-text">将 Mediator 安装包放在当前工作目录中：</block>
+  <block id="737d7724211eef6e4e13309c6a617c7e" category="admonition">对于 ONTAP Mediator 1.4 及更早版本，安装程序名为<block ref="3bcf3b65a29824cd947da6753f413db8" prefix=" " category="inline-code"></block>。</block>
+  <block id="cab4082b20a9fc65c51b5e138cc4635a" category="paragraph">如果您的系统没有互联网访问权限，请确保安装程序可以访问所需的软件包。</block>
+  <block id="4fd5ef884f9472a81e7dda94df098511" category="list-text">如果需要，将 Mediator 安装包移动到安装目录。</block>
+  <block id="fd9a4169695454df166acfefce214b42" category="list-text">解压缩安装程序包：</block>
+  <block id="3f297ef15cde0668e93b35f2752fd4fd" category="paragraph-title">下一步是什么？</block>
+  <block id="1c97e594d39c50275f1dcc5794374ed5" category="inline-link-macro">验证 ONTAP Mediator 代码签名</block>
+  <block id="3aea0ced735f36e8385e7e160b98b29d" category="paragraph"><block ref="3aea0ced735f36e8385e7e160b98b29d" category="inline-link-macro-rx"></block></block>
+  <block id="d7d17752b4f3e432fdd5ca0d8ed3fde8" category="summary">启用对存储库的访问，以便 ONTAP Mediator 可以在安装过程中访问所需的包。</block>
+  <block id="5b7aa77a602ea4e2403c9e774cd03863" category="doc">为 ONTAP Mediator 安装提供存储库访问权限</block>
+  <block id="e1155388e2155ab3659320059d59e89c" category="paragraph">您应该启用对存储库的访问权限，以便 ONTAP Mediator 可以在安装过程中访问所需的软件包。</block>
+  <block id="97718d343e9a9273140cba010da7af42" category="list-text">确定必须访问的存储库，如下表所示：</block>
+  <block id="9f14218e5135dda7b7530841c740770a" category="cell">如果您的操作系统是……</block>
+  <block id="c76eda301cb02c29a872a2edc87fac66" category="cell">您必须提供对这些存储库的访问权限……</block>
+  <block id="5e626362780fb28d6a7f7c6adcd604c5" category="paragraph">Oracle Linux 10.x</block>
+  <block id="89411da6d576514b5c1d7d71eeb06263" category="list-text">ol-10-for-x86_64-baseos-rpms</block>
+  <block id="f6bd040ad793a14fdc1c3d3f2dc4a87a" category="list-text">ol-10-for-x86_64-appstream-rpms</block>
+  <block id="e4fc61fa9a616ca27d481649f48b573a" category="paragraph">Oracle Linux 9.x</block>
+  <block id="6d143f66fa04cfa6058347617afeb791" category="list-text">ol-9-for-x86_64-baseos-rpms</block>
+  <block id="9b19ec8e59bca40a4280260d9f57b34a" category="list-text">ol-9-for-x86_64-appstream-rpms</block>
+  <block id="4542a075cfbe696e680a2ad5c899bca3" category="paragraph">RHEL 10.x</block>
+  <block id="a67519effc34ff67f3e2439a5e3ff220" category="list-text">rhel-10-for-x86_64-baseos-rpms</block>
+  <block id="00602f0de8bdc71ea78136c55a6b81de" category="list-text">rhel-10-for-x86_64-appstream-rpms</block>
+  <block id="9f17458dfbe60319fd46bddd814d9474" category="paragraph">RHEL 9.x</block>
+  <block id="caf162fe8ddc7878a5a2a8ad77b61785" category="list-text">rhel-9-for-x86_64-baseos-rpms</block>
+  <block id="dc255cb9fdb2af34669e2d9d662519a2" category="list-text">rhel-9-for-x86_64-appstream-rpms</block>
+  <block id="9871c3e3eef10eb83f1020bf0f40a11c" category="paragraph">RHEL 8.x</block>
+  <block id="53edaf3b5c2db40d342cf9b501bc24c1" category="list-text">rhel-8-for-x86_64-baseos-rpms</block>
+  <block id="77e5c42f280ea35ee2926680eb9b47bd" category="list-text">rhel-8-for-x86_64-appstream-rpms</block>
+  <block id="886dab0e73d247379a1479ecce7a2e23" category="paragraph">RHEL 7.x</block>
+  <block id="3272bb50aa49abfece4d0ff5d7f2f1c9" category="list-text">rhel-7-server-optional-rpms</block>
+  <block id="66985170e641a7e20698bfec3c1d889f" category="paragraph">CentOS 7.x</block>
+  <block id="29bbf40549849d260ac98466712efae4" category="list-text">C7.6.1810 - 基本存储库</block>
+  <block id="1f27018b2bb672b8cdc3ade88964fcd2" category="paragraph">Rocky Linux 10</block>
+  <block id="1b03221d3ade110dceff09478f544299" category="list-text">appstream</block>
+  <block id="6184b2e06a868cadf56b63eb8d1cbea8" category="list-text">baseos</block>
+  <block id="cf76271f717860ca93c6825568b0690d" category="paragraph">Rocky Linux 9</block>
+  <block id="074720cb7866529cf5ec3aad61198ac4" category="paragraph">Rocky Linux 8</block>
+  <block id="865a78beb67e115b4e9a10b3e81c8aab" category="list-text">使用以下过程之一启用对上面列出的存储库的访问，以便 ONTAP Mediator 可以在安装过程中访问所需的软件包。</block>
+  <block id="664b8a6266b90423babd29810b72c716" category="admonition">如果 ONTAP Mediator 依赖于“额外”和“可选”存储库中的 Python 模块，则可能需要访问<block ref="c181687dbc647a529ee6e45873223f46" prefix=" " category="inline-code"></block>和<block ref="634852998313a5befedabe157dfb58fc" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="6bcb63da68aa5b9cea93bc40d73fa960" category="example-title">Oracle Linux 10.x 操作系统的程序</block>
+  <block id="8db530726912d26a1cfdf24172b55426" category="paragraph">如果您的操作系统是 *Oracle Linux 10.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="ebb1c48020075aff153ff6902c0e37db" category="list-text">订阅所需的存储库：</block>
+  <block id="b89b54d5af46b251354ba0599e815d76" category="paragraph">以下示例显示了此命令的执行情况：</block>
+  <block id="20274e52f6fdccab80b9a178af90c176" category="list-text">运行以下命令来列出已启用的存储库：</block>
+  <block id="3a1b4b15b3782aff48704dfaea19c4ca" category="paragraph">新订阅的存储库应显示在列表中。</block>
+  <block id="b9c2b32337090e3118b0890c6c68a226" category="example-title">Oracle Linux 9.x 操作系统的程序</block>
+  <block id="e662521f1345ffe9a125202f3f2449c3" category="paragraph">如果您的操作系统是 *Oracle Linux 9.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="2abedefa05704ea06ac8f75a9db36736" category="example-title">RHEL 10.x 操作系统的步骤</block>
+  <block id="3ff6c28e2672d10f63caadf95acf3d6c" category="paragraph">如果您的操作系统是 *RHEL 10.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="8618e857ab4b2026053ded75b2bd28c0" category="example-title">RHEL 9.x 操作系统的步骤</block>
+  <block id="43c6a34cb6f80bb403440594179b3665" category="paragraph">如果您的操作系统是 *RHEL 9.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="99e8c68b889cb147e7d7f3a766bcbc08" category="example-title">RHEL 8.x 操作系统的步骤</block>
+  <block id="02180ec4be18b377a44053f38b8e1d5e" category="paragraph">如果您的操作系统是 *RHEL 8.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="f9338b001083c1207b750f7ca56fb6ce" category="example-title">RHEL 7.x 操作系统的步骤</block>
+  <block id="b0030d1a4069dea6cacf3124ddb747e9" category="paragraph">如果您的操作系统是 *RHEL 7.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="33a9644e5d2b91efae997de819a9f828" category="paragraph">以下示例显示了此命令的执行情况。“rhel-7-server-optional-rpms”存储库应显示在列表中。</block>
+  <block id="aa3f631fc5c50fd8386f95cdb6d4a080" category="example-title">CentOS 7.x 操作系统的步骤</block>
+  <block id="aece88aac342b5c1a91bde54de980d26" category="paragraph">如果您的操作系统是 *CentOS 7.x*，请使用此过程启用对存储库的访问：</block>
+  <block id="d6d92b99d45ca9c6268cdadf83286802" category="admonition">以下示例显示了 CentOS 7.6 的存储库，可能不适用于其他 CentOS 版本。请为您的 CentOS 版本使用基础存储库。</block>
+  <block id="6cfc4b30e18a129f054edaae54e53f37" category="list-text">添加 C7.6.1810 - Base 存储库。C7.6.1810 - Base vault 存储库包含 ONTAP Mediator 所需的“kernel-devel”软件包。</block>
+  <block id="a9a0d20bc8c82736f7aca5ab3b01ecdf" category="list-text">将以下行添加到 /etc/yum.repos.d/CentOS-Vault.repo。</block>
+  <block id="3642e1097e743420376709e69c45e113" category="paragraph">以下示例显示了此命令的执行情况。CentOS-7.6.1810 - Base 存储库应显示在列表中。</block>
+  <block id="85ad6506ca7b0f3af555ca0f8912134a" category="example-title">Rocky Linux 10、9 或 8 操作系统的步骤</block>
+  <block id="29662404da20e9b15e71b8c871e41d38" category="paragraph">如果您的操作系统是 *Rocky Linux 10*、*Rocky Linux 9* 或 *Rocky Linux 8*，请使用此过程启用对存储库的访问：</block>
+  <block id="67ffe93681371d2aa9c8f6ada07b835c" category="list-text">订阅所需的存储库：</block>
+  <block id="2efdf98177e53caf53c5b72b0c2e4175" category="list-text">执行<block ref="123402c04dcfb6625f688f771a5fc05d" prefix=" " category="inline-code"></block>操作：</block>
+  <block id="cdfab7326c2af031b81a1f5ecab8d97c" category="list-text">验证存储库列表：</block>
+  <block id="c869120ace16eabfd77564c5b274c273" category="paragraph"><block ref="c869120ace16eabfd77564c5b274c273" category="inline-link-macro-rx"></block></block>
+  <block id="835e3e6fb5545ec688c50e9ad2bcda09" category="summary">要安装 ONTAP Mediator，必须获取安装包并在主机上运行安装程序。</block>
+  <block id="f7def9f508355bb00fa3a45cb1f5748c" category="doc">安装 ONTAP Mediator 安装包</block>
+  <block id="1d8727f9f9bf45d433960701874a8c5b" category="admonition">要升级现有的 ONTAP Mediator 安装，请改为参见 <block ref="f124e81a53a38f34d7f1c73c06a3602e" category="inline-link-macro-rx"></block>。</block>
+  <block id="158044eb8955c8a70d4bf0dd857c9f7d" category="list-text">在安装或升级到 ONTAP Mediator 1.12 或更高版本期间，安装程序会提示您响应以下内容：</block>
+  <block id="15afbc8f4de683d4fb1fae0933997793" category="paragraph"><block ref="de4f843df3ec4390b8f55b8342ad7f59" prefix="" category="inline-code"></block></block>
+  <block id="b58aca8487a4163da6d931d898d9e14e" category="list-text">如果您计划使用配置了 iSCSI 的 ONTAP Mediator 来监控一个或多个 MetroCluster IP 配置，请进行响应<block ref="93cba07454f06a4a960172bbd6e2a435" prefix=" " category="inline-code"></block>。</block>
+  <block id="10b2c55da479eba92cedc967836bc0c6" category="list-text">如果您计划仅使用 ONTAP Mediator 进行 SnapMirror 活动同步，或者计划使用 HTTPS 配置 ONTAP Mediator 以监控一个或多个 MetroCluster IP 配置，请响应。<block ref="bafd7322c6e97d25b6299b5d6fe8920b" prefix=" " category="inline-code"></block></block>
+  <block id="f19487721cab9d8de852c771a3184694" category="paragraph">或者，您可以在<block ref="fcd2585ca4e769848950b5d7a9a7d316" prefix=" " category="inline-code"></block> 命令中使用<block ref="57d50f027c66afa1ed46336b1408221e" prefix=" " category="inline-code"></block> 选项来仅指定 HTTPS。</block>
+  <block id="a7ba40d46b4078b475039877064f94df" category="list-text">运行安装程序并根据需要响应提示：</block>
+  <block id="9bf9d999cf1c1072afb0a174778ef513" category="paragraph">要跳过安装期间的签名检查，请使用<block ref="0909581c61d409342de86e60b8beeaa3" prefix=" " category="inline-code"></block>命令</block>
+  <block id="2dcbd5af105d1885a4c6cf9ec98331f3" category="paragraph">安装程序会创建所需的帐户并安装所需的程序包。如果已经安装了 ONTAP Mediator，安装程序会提示您升级；有关特定于升级的步骤和示例，请参见 <block ref="f124e81a53a38f34d7f1c73c06a3602e" category="inline-link-macro-rx"></block>。</block>
+  <block id="4384a2e942a15e1e210fa5de9a5a8236" category="example-title">支持 HTTPS 和 iSCSI 的 ONTAP Mediator 安装示例（控制台输出）</block>
+  <block id="344180bf5a5b07d855d14ad0da508af0" category="example-title">仅支持 HTTPS 的 ONTAP Mediator 安装示例（控制台输出）</block>
+  <block id="dc01eeb4ba6b49775c572c9b0d4a18b8" category="section-title">注册 UEFI 安全启动的安全密钥</block>
+  <block id="fca93add5a881fe7a35de6842850e75f" category="paragraph">从 ONTAP Mediator 1.4 开始，UEFI 系统上启用了安全启动机制。启用安全启动后，您必须在安装后执行额外步骤来注册安全密钥。</block>
+  <block id="32c42386416b8d4f3a3d620ca5564ac3" category="list-text">按照 README 文件中的说明对 SCST 内核模块进行签名：</block>
+  <block id="91231d29d155624bc20b6bcecf7742d2" category="list-text">找到所需的密钥：</block>
+  <block id="e6ca8604b3c2d3418d0ae833ba7c3824" category="admonition">安装后，系统输出将提供 README 文件和密钥位置。</block>
+  <block id="501e9166bba98e9bb68360bdf8ed5a9c" category="list-text">请将公钥添加到 MOK 列表：</block>
+  <block id="bce57b99a25982a803450c854fba34a1" category="paragraph">您可以将私钥保留在默认位置，也可以将其移动到安全位置。您必须将公钥保存在其现有位置，以便引导管理器可以使用它。有关详细信息，请参见 README.module-signing 文件：</block>
+  <block id="69120c39afd1d34d835cb9d659398789" category="paragraph"><block ref="f3bd3892cb4bcfbc2c37a151c028b2ba" prefix="" category="inline-code"></block></block>
+  <block id="011324e3fabf39613f729fc82fa2d15b" category="inline-link-macro">启用 UEFI 安全启动时安装 ONTAP Mediator</block>
+  <block id="4331251f2cd849cd1b6657481bf9288f" category="list-text">重启主机，并使用设备的 UEFI Boot Manager 批准新的 MOK。您需要为 <block ref="c9d0aaf4769a4f8a2886caf46cbce188" prefix=" " category="inline-code"></block> 实用程序提供的密码短语（见 <block ref="65eb211afdeb726fe9aabe64d71f12d8" category="inline-link-macro-rx"></block>）。</block>
+  <block id="4ebf137569d3cd1deab0ecbc6bee7565" category="section-title">签名 SCST 内核模块</block>
+  <block id="e9b55344e0b79ae32afe968fb64b6ff5" category="paragraph">安装 ONTAP Mediator 后，如果 systemctl status<block ref="4bdf8da8f1049dc51cf3bc06584503f2" prefix=" " category="inline-code"></block> 显示为失败（非活动），请按照以下步骤对 SCST 内核模块进行签名。</block>
+  <block id="b9421dd7def9d6cc1f5f034ba4c23583" category="list-text">在构建过程中，会在<block ref="42c92cd95a4d0bf1bdd8b9ef7721d870" prefix=" " category="inline-code"></block>目录中生成公钥/私钥对。运行以下命令来查看生成的密钥：</block>
+  <block id="1e7e5da7512b956f7214cae2c0ba8424" category="list-text">通过运行以下命令开始将公钥导入 UEFI 密钥存储库的过程：</block>
+  <block id="61a410b55f4d475c255471c93c2fb347" category="paragraph"><block ref="c9d0aaf4769a4f8a2886caf46cbce188" prefix=" " category="inline-code"></block> 实用程序将提示您输入两次密码。</block>
+  <block id="40ebc7291d47b5977dbe8a10b2e86705" category="list-text">mokutil 软件请求在导入过程中对此密钥使用临时密码。</block>
+  <block id="af9913ae428beaa564fb4840336e86d4" category="list-text">使用以下命令验证导入过程是否已启动，然后重新启动系统。引导加载程序启动 EFI MOK 管理器。</block>
+  <block id="f5d1b07f75bb02db5620a7175cae9710" category="list-text">使用屏幕上的菜单打开 SCST 内核模块密钥。启动后，运行以下命令。服务启动后，将对 SCST 内核模块进行签名。</block>
+  <block id="6fdc5a87393886ec61413b05fd302117" category="inline-link-macro">确认 ONTAP Mediator 安装状态</block>
+  <block id="9b6c041fcae2c33d9a56eed60d532b5a" category="paragraph"><block ref="9b6c041fcae2c33d9a56eed60d532b5a" category="inline-link-macro-rx"></block></block>
+  <block id="c686b28bf5db41368fef02cebddc3646" category="summary">要安装 ONTAP Mediator，您必须确保满足所有先决条件，获取安装包并在主机上运行安装程序。</block>
+  <block id="7ab3c6ae086b6384f06963b5dd385c4f" category="paragraph">要安装 ONTAP Mediator，您需要满足所有先决条件，下载安装包，并在主机上运行安装程序。</block>
+  <block id="4f523b7e971fd8cff29f3d68e70d50a4" category="list-text">要将 ONTAP Mediator 升级到新版本，请参阅 <block ref="f124e81a53a38f34d7f1c73c06a3602e" category="inline-link-macro-rx"></block>。</block>
+  <block id="884d3254536962b6e4026a77ae095676" category="list-text">如果需要升级主机操作系统，并在此过程中重新安装或升级 ONTAP Mediator，请参阅<block ref="ba68b4751a3933e4758c984972f1c341" category="inline-link-macro-rx"></block>。</block>
+  <block id="086af4a1a8e18c416fda306afd129ecc" category="section-title">安装要求</block>
+  <block id="8a4c16833b577a7d47be22e958070a82" category="paragraph">安装 ONTAP Mediator 之前，请查看以下要求。</block>
+  <block id="0ba11c88a4acd0d00058421371484eb6" category="list-text">ONTAP Mediator 1.8 及更早版本与 Red Hat Enterprise Linux （RHEL） FIPS 模式不兼容，并会导致其无法成功安装。您可以使用 <block ref="c0d465275cbc178239144c2e4ab915c9" prefix=" " category="inline-code"></block> 命令检查是否启用了 FIPS 模式。您可以使用 <block ref="de14c46ab2c93014028a73584cbb1f24" prefix=" " category="inline-code"></block> 命令禁用 FIPS 模式。禁用 FIPS 模式后重新启动，以成功安装 ONTAP Mediator 1.8 或更早版本。</block>
+  <block id="7e8539e100dbed00c00d774b9578cd64" category="list-text">如果安装失败，您可能需要尝试更新版本的 ONTAP Mediator。</block>
+  <block id="52d194593f2eee7e9a4dcebd561aee9c" category="list-text">从 2025 年 6 月 15 日起，您无法安装或升级 ONTAP Mediator 1.9 和 1.8，因为它们的代码签名证书已过期。如果安装失败，请改用 ONTAP Mediator 1.9.1 补丁版本。</block>
+  <block id="a9cbabdcb2967fdb70170c1d75468ced" category="list-text">如果安装 <block ref="964ff658eeb150fa1ca6d823c1c0c1a7" prefix=" " category="inline-code"></block> 软件包，您可以使用 <block ref="1af4b6d809a2f3d882d975f4b893400f" prefix=" " category="inline-code"></block> 命令。</block>
+  <block id="0f047d1f30452312277a8c669c7ef932" category="list-text">从 ONTAP Mediator 1.11 开始，MetroCluster IP 配置支持 IPv6。</block>
+  <block id="aee8b11880bbfda9a19f6b5c0201bb10" category="section-title">适用于 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项</block>
+  <block id="b54f912c79dc7569fd5ac2229f72b415" category="paragraph">在安装 ONTAP Mediator 之前，请查看以下信息：</block>
+  <block id="7cb7f9ad17bf22108d9e1856489069d7" category="list-text">在 ONTAP Mediator 中，SCST 包用于为 MetroCluster IP 配置中的通信提供 iSCSI。SCST 包是在安装过程中编译的内核模块。从 ONTAP 9.19.1 和 Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 监控 MetroCluster IP 配置的 ONTAP Mediator。</block>
+  <block id="fc076765cbc4aef219c970ffdd93f443" category="section-title">主机要求</block>
+  <block id="7b93a2cffc32ecafd278bfcfcff93888" category="paragraph">在安装 RHEL 或 Rocky Linux 并配置关联的存储库时，请遵循这些要求。</block>
+  <block id="c1fb3f4ec6731d321cc725c2ad2bc582" category="paragraph">如果修改安装或配置过程，则可能需要执行其他步骤。</block>
+  <block id="4197761a7c1beb184d68b153affb0111" category="list-title">Linux 发行版要求</block>
+  <block id="3f3ba3a77946edb48d0ee8ef109bc0af" category="list-text">根据 Red Hat 的最佳实践安装 RHEL 或 Rocky Linux。由于 CentOS 8.x 已结束生命周期，因此不建议使用 CentOS 8.x 的兼容版本。</block>
+  <block id="9cd0509e40e104586f0aaaf8e2759ac2" category="list-text">在安装 ONTAP Mediator 时，确保系统可以访问所需的存储库，以便安装程序可以检索并安装所有必需的软件依赖项。</block>
+  <block id="2c7060a19ab32dde13d3a753179bde24" category="list-text">要使 yum 安装程序能够在 RHEL 存储库中查找依赖软件，请在安装期间或之后使用有效的 Red Hat 订阅注册系统。</block>
+  <block id="87c0f2242d23a5ce83f92cb7ca0dd3c5" category="paragraph">有关详细信息，请参见 Red Hat Subscription Manager 文档。</block>
+  <block id="69cecc7a15b3f657e822c87c8fad2241" category="section-title">防火墙和网络要求</block>
+  <block id="671e00f956495c99ae5aae5896e8542a" category="paragraph">ONTAP Mediator 使用多个端口与特定服务进行通信。</block>
+  <block id="861ef6676813cbc81369ee701ae73269" category="list-text">如果您使用的是第三方防火墙：</block>
+  <block id="041f3a27fe8b40cc213210949eb4f036" category="list-text">必须启用 HTTPS 访问。</block>
+  <block id="8b8101ed71d5bd32d2f9d4de05e470c1" category="list-text">必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
+  <block id="cc1e6f116b4b45ffde821f0aef59e030" category="paragraph">使用默认的 Red Hat 或 CentOS 防火墙时，会在 Mediator 安装过程中自动配置防火墙。</block>
+  <block id="dc6071f53aaa5ab966ff3f6f0a3d9d7f" category="list-text">对于无法访问互联网的 Linux 主机，请确保在本地存储库中提供所需的软件包。</block>
+  <block id="6c9beeeec2dc90ee994a4f168dc8e9da" category="paragraph">如果在 Linux 环境中使用链路聚合控制协议（LACP），请配置内核并将<block ref="864926420acef5f65ce14bc4f0d5c076" prefix=" " category="inline-code"></block>设置为<block ref="c81e728d9d4c2f636f067f89cc14862c" prefix=" " category="inline-code"></block>。</block>
+  <block id="fc4f6ae944c5fa7cfc47e0574373e3e8" category="paragraph">下表列出了必须在防火墙中允许的端口：</block>
+  <block id="43119522ff803c1f1fa88bdbaffe20b7" category="list-text">仅在 MetroCluster IP 配置中需要 iSCSI 端口。</block>
+  <block id="d247a27201590148c4ea6bf493729fd1" category="list-text">正常操作不需要 22/tcp 端口，但您可以暂时启用它进行维护，并在维护会话完成后禁用它。</block>
+  <block id="0656a530ae7a166be8f852431b35de15" category="cell">端口/服务</block>
+  <block id="f31bbdd1b3e85bccd652680e16935819" category="cell">源</block>
+  <block id="02674a4ef33e11c879283629996c8ff8" category="cell">方向</block>
+  <block id="12007e1d59f4d09c87dbe2c438256244" category="cell">目标</block>
+  <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">目的</block>
+  <block id="c5df47f9068f6d11f238ec77908abf18" category="paragraph">22/tcp</block>
+  <block id="b4825fee6cf9b39c67993b031d35ecf3" category="paragraph">管理主机</block>
+  <block id="6c7e3200049198face0d2648e9d1a27d" category="paragraph">入站</block>
+  <block id="58dc7db50a2e11a9de9e6cc092c59d4d" category="paragraph">ONTAP 调解器</block>
+  <block id="f292b24c43eb81e671b7289a23216f5a" category="paragraph">（可选）SSH / ONTAP Mediator 管理</block>
+  <block id="5946d090ccc9cc4eb9c55cf3e9e8d35a" category="paragraph">31784/tcp</block>
+  <block id="5f41d8cf5282355fa3aefb7176c3f60e" category="paragraph">集群管理和节点管理 LIF</block>
+  <block id="47c5e6a166f9432ff96681fa2a62c791" category="paragraph">ONTAP Mediator Web 服务器</block>
+  <block id="8603b1d76bc78c66209db5fd2107566f" category="paragraph">（必需）REST API（HTTPS）</block>
+  <block id="5395ab3ceab5345ee4a1117e436bec89" category="paragraph">3260/tcp</block>
+  <block id="adcf0c2ac79e72965c57c716ea214337" category="paragraph">节点管理 LIF</block>
+  <block id="1c44912242a1c1688be9805f25a62dbd" category="paragraph">ONTAP Mediator iSCSI 目标</block>
+  <block id="700695ecaadfcc4bf68ce2e0aa3b9258" category="paragraph">（MetroCluster IP 配置需要）邮箱的 iSCSI 数据连接</block>
+  <block id="82e6b9db099fc82f2c99cec991e25894" category="admonition">对于使用 HTTPS 进行通信的 SnapMirror 活动同步或 MetroCluster IP ONTAP Mediator，ONTAP 不需要启用或连接端口 3260。</block>
+  <block id="6e968857b32243865ebf039c1facf6cf" category="section-title">OS 要求</block>
+  <block id="b11acfb94c15912ed0e1b57e83cbd57d" category="paragraph">您的操作系统必须满足以下要求：</block>
+  <block id="d55d8aaf12099eb46ec871f4ea80b39d" category="list-text">64 位物理安装或虚拟机</block>
+  <block id="83626eda7582435cdf0eb139d5cc8972" category="list-text">8 GB 内存</block>
+  <block id="53c00243fb0fab591fe217c9f3478ffa" category="list-text">1 GB 磁盘空间（用于应用程序安装、服务器日志和数据库）</block>
+  <block id="2f889d7364543ea941a8c61cfb8175f4" category="list-text">用户：root 访问</block>
+  <block id="46c25558cd29394f473068319854e266" category="paragraph">查看 <block ref="bb335ec2b44f2431dd9a22d89009dea6" category="inline-link-macro-rx"></block>，了解每个版本的 ONTAP Mediator 支持的操作系统。</block>
+  <block id="b97b4f6747cf1ff0db437565d0e2bfc1" category="paragraph-title">操作系统所需软件包</block>
+  <block id="be76e1094a50361f233e5ea6e4a01cbd" category="paragraph">ONTAP Mediator 需要以下软件包：</block>
+  <block id="dc8d94afeae6badcd37f8113b35891ba" category="admonition">软件包由 ONTAP Mediator 安装程序预安装或自动安装。</block>
+  <block id="f813fcc7239eff34d867d55b252023dc" category="cell">所有 RHEL/CentOS 版本</block>
+  <block id="6044eabc79b89a31f51e7a10e1128a8f" category="cell">RHEL 10.x / Rocky Linux 10 的附加软件包</block>
+  <block id="567d54d98ea999683b3e623848da4282" category="cell">RHEL 9.x / Rocky Linux 9 的附加软件包</block>
+  <block id="3e68612400fcf20c02f89d597452db1d" category="cell">RHEL 8.x / Rocky Linux 8 的附加软件包</block>
+  <block id="50955d4b2031271f8fda1764c1a66ac3" category="list-text">openssl</block>
+  <block id="bfb048701bda18c214ce545e4c956329" category="list-text">openssl-devel</block>
+  <block id="432dcaee8a851fc53af2488d5d0f4b0b" category="list-text">kernel-devel-$ (uname -r)</block>
+  <block id="e0d511356bd44120af49cc96c9dcf3b3" category="list-text">gcc</block>
+  <block id="099dafc678df7d266c25f95ccf6cde22" category="list-text">make</block>
+  <block id="d40270eef8bab470027aedc1b59294ef" category="list-text">libselinux-utils</block>
+  <block id="e5c5e6dae38b284e8cf0bd1fb0efac03" category="list-text">补丁</block>
+  <block id="03ce1ba314f367fdd09887fc8f60578b" category="list-text">bzip2</block>
+  <block id="017b459c471455ea6ffb7b32b1598286" category="list-text">perl-Data-Dumper</block>
+  <block id="6d290149925db69430ede61961477f82" category="list-text">perl-ExtUtils-MakeMaker</block>
+  <block id="b86f5cd6fe819c3343d4067073c76641" category="list-text">efibootmgr</block>
+  <block id="c9d0aaf4769a4f8a2886caf46cbce188" category="list-text">mokutil</block>
+  <block id="5ded47091038bcd836e256520c8792d0" category="list-text">python3.12</block>
+  <block id="208a718dcb634b845b4950cdbad35924" category="list-text">python3.12-devel</block>
+  <block id="6461c12b2a26dbd0adddb0db161c7020" category="list-text">elfutils-libelf-devel</block>
+  <block id="c8dff58175a7ddfedf00d77953ef42dd" category="list-text">policycoreutils-python-utils</block>
+  <block id="6e8efbe3a442748b716644025479aab5" category="list-text">python3</block>
+  <block id="6adf41d67f17b06828a3db0bbbb14b38" category="list-text">python3-devel</block>
+  <block id="d8ccd8a2339a5abdfd1aa26a18065592" category="list-text">redhat-lsb-core</block>
+  <block id="cb8bf1b2c10a632817af48cb36bd0bbe" category="list-text">python39</block>
+  <block id="5ad3764a01a8e8d4dfbed6e3f933b853" category="list-text">python39-devel</block>
+  <block id="970e1040f661445042b9cc4524e79084" category="paragraph">Mediator 安装包是一个自解压缩的压缩 tar 文件，其中包括：</block>
+  <block id="40ee7f81efc7bee0246bfd8b4313ff05" category="list-text">包含无法从受支持版本的存储库获取的所有依赖项的 RPM 文件。</block>
+  <block id="8bbf3efceb42cd45e316987343509e73" category="list-text">安装脚本。</block>
+  <block id="1eb98924c27ab3a518e1bc733049fbba" category="paragraph">建议使用有效的 SSL 证书。</block>
+  <block id="7ca10fe4adcfe26c58b56f49be56e4d0" category="list-text">内核版本必须与操作系统版本相匹配。</block>
+  <block id="11574e872b788c4c0b90d661ea7ca7e4" category="list-text">请勿将内核升级到超过您的 ONTAP Mediator 版本所支持的操作系统版本，因为经过测试的 SCST 模块可能无法正常工作。</block>
+  <block id="371f30b9be87449dd3511d3e35482aee" category="paragraph">ONTAP Mediator 可以安装在启用或未启用 UEFI 安全启动的系统上。</block>
+  <block id="5aef9fef307f5564edba042b763a9b59" category="list-text">如果不需要，或者正在排除 ONTAP Mediator 安装问题，您可以选择在安装 ONTAP Mediator 之前禁用 UEFI 安全启动。从您的计算机设置中禁用 UEFI 安全启动选项。</block>
+  <block id="9ddcf210d89fa62ee3277e8c855512dc" category="paragraph">有关禁用 UEFI 安全启动的详细说明，请参见主机操作系统的文档。</block>
+  <block id="1f854976b0b9c24d7989c479765b9365" category="paragraph">要安装启用了 UEFI 安全启动的 ONTAP Mediator，您必须先注册安全密钥，然后才能启动服务。密钥在 SCST 安装的编译步骤中生成，并保存为机器上的私钥和公钥对。使用<block ref="c9d0aaf4769a4f8a2886caf46cbce188" prefix=" " category="inline-code"></block> 实用程序将公钥作为机器所有者密钥（MOK）添加到您的 UEFI 固件中，使系统能够信任并加载已签名的模块。将<block ref="c9d0aaf4769a4f8a2886caf46cbce188" prefix=" " category="inline-code"></block> 密码短语保存在安全的位置，因为在重新启动系统以激活 MOK 时需要使用它。</block>
+  <block id="1a50ae749cf89735e80505c749b5af0d" category="list-text">[[step_1_uefi]]检查您的系统是否已启用 UEFI 安全启动：</block>
+  <block id="59c0b01533b5d338dbaf59f9472d4b65" category="paragraph">结果表明此系统是否启用了 UEFI 安全引导。</block>
+  <block id="bfa9de45095a3a90ebc55708a5ee6dd2" category="cell">条件</block>
+  <block id="ec434af0a2786fa23b468584c5622fe1" category="cell">转到……</block>
+  <block id="c910e9270eda71a22399f6123860c2a9" category="paragraph">UEFI 安全启动已启用</block>
+  <block id="c420cea00ff916034c896d77f608abb3" category="inline-xref">运行 &lt;block ref="c9d0aaf4769a4f8a2886caf46cbce188" prefix=" " category='inline-code'/&gt; 实用程序的步骤</block>
+  <block id="a5dc0bfa8a98ab1f239671ec95e2f479" category="paragraph"><block ref="3c9772e59258f22d908b63cf3ec0c288" category="inline-xref-macro-rx"></block></block>
+  <block id="83003305d7683f47acfcffa47f90a666" category="paragraph">UEFI 安全启动已禁用</block>
+  <block id="0eb3c6c685457e8032693f53bd237935" category="paragraph"><block ref="0eb3c6c685457e8032693f53bd237935" category="inline-link-macro-rx"></block></block>
+  <block id="f722828638ac4b5f00969a786f497a9a" category="list-text">系统会提示您创建一个必须存储在安全位置的密码短语。您需要此密码短语才能在 UEFI 引导管理器中启用密钥。</block>
+  <block id="849c5ead738146da1f092df848c2a718" category="list-text">ONTAP Mediator 1.2.0 及更早版本不支持此模式。</block>
+  <block id="43b25c2e0d56d4fc146f59ecc73f5495" category="list-text">[[step_2_uefi]] 如果未安装 <block ref="c9d0aaf4769a4f8a2886caf46cbce188" prefix=" " category="inline-code"></block> 实用程序，请运行以下命令：</block>
+  <block id="e4affa1757c0df8c1a5bf82c97781c6d" category="summary">在安装 Mediator 安装包之前，您应该验证 ONTAP Mediator 代码签名。</block>
+  <block id="560c233241deb90642d67353dd0aad6e" category="paragraph">NetApp 建议在安装前验证 ONTAP Mediator 代码签名。此步骤为可选步骤。</block>
+  <block id="e13794ad439ee00ab157cea16159a70a" category="paragraph">在验证 ONTAP Mediator 代码签名之前，请确保您的系统满足这些需求。</block>
+  <block id="e39f589bfe0d589e13f53fb7f5bddebd" category="list-text">从 2025 年 6 月 15 日起，您无法安装或升级到 ONTAP Mediator 1.9 和 1.8，因为代码签名验证证书已过期。相反，请安装或升级到 ONTAP Mediator 1.10 或更高版本。</block>
+  <block id="b1adbea18c0e0d4e261e15828b721e49" category="list-text">如果系统不符合以下要求，则无需执行验证流程，您可以直接前往 <block ref="7bbc278d4f7076df8bbc2b54bf8e89a2" category="inline-link-macro-rx"></block>。</block>
+  <block id="9106c3452826490ddd9d07010f2173a5" category="list-text">openssl 版本 1.0.2 至 3.0 用于基本验证</block>
+  <block id="c0fac2047cbe56c123704cb4b3da32b2" category="list-text">openssl 版本 1.1.0 或更高版本，用于时间戳管理机构（TSA）操作</block>
+  <block id="e98552aa21f6925f5574bfdba32ea161" category="list-text">用于 OCSP 验证的公共 Internet 访问</block>
+  <block id="a94572a14362fed22e33e27f5993fcad" category="paragraph">下载包包含以下文件：</block>
+  <block id="0b27918290ff5323bea1e3b78a9cf04e" category="cell">文件</block>
+  <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">问题描述</block>
+  <block id="ac187656f3be4f6002bd8c832d2a1d52" category="paragraph"><block ref="fc1d3aa2d72a65f8bdd5073680cc2c40" prefix="" category="inline-code"></block></block>
+  <block id="0c5b27f73c23e39de503a3b96e1f76a5" category="paragraph">用于验证签名的公钥</block>
+  <block id="b0826d321ab9e0500888238f5df2b3f3" category="paragraph"><block ref="70f54161b450e448d033a626bcb4f02d" prefix="" category="inline-code"></block></block>
+  <block id="141978143677358a548da31a39c1be88" category="paragraph">公共认证 CA 信任链</block>
+  <block id="d14d716769ebc25416523fef51abd9b8" category="paragraph"><block ref="363d3474e22d7db66173e78c91f91e7f" prefix="" category="inline-code"></block></block>
+  <block id="9cbdb840a113ea7b5dcb298deaa05b7e" category="paragraph">用于生成密钥的证书</block>
+  <block id="59695863d263b33f206a381bcc6ce261" category="paragraph"><block ref="0c59cbf13b1608fef86b59cc0e6967de" prefix="" category="inline-code"></block></block>
+  <block id="c4512ba85ce34c6480617c484914f747" category="paragraph">1.12 版本的产品安装可执行文件</block>
+  <block id="0c55f368e18cfaa6fe2b014acbea4986" category="paragraph"><block ref="4618732bcabe7114d848c5006bfb9ab6" prefix="" category="inline-code"></block></block>
+  <block id="2e8527e57b678d1e86dfcd907d502c93" category="paragraph">经过 SHA-256 哈希处理，然后使用 csc-prod 密钥进行 RSA 签名的安装程序签名</block>
+  <block id="b8fd0eeaf6e764870e4573b8912bf427" category="paragraph"><block ref="711633bfbf4618fe03e72b5449b8e205" prefix="" category="inline-code"></block></block>
+  <block id="1acf93481e84a4e4c609c4546137aee9" category="paragraph">OCSCP 用于安装程序签名的吊销请求</block>
+  <block id="868bb91b10f53c614e4fe4c994eb89b5" category="paragraph"><block ref="d5a2e42625d9ed2e19dc1ed5ae810d2e" prefix="" category="inline-code"></block></block>
+  <block id="5a46f8ae3f6e839360f746d5fa5e480b" category="paragraph">时间戳签名请求文件</block>
+  <block id="ea43322ff7094ad7629e24cbe40c3e9c" category="paragraph"><block ref="4e9f36f85cfdfb83b20958a929957bbf" prefix="" category="inline-code"></block></block>
+  <block id="3ff1067ef040350863cd35305c0cd651" category="paragraph">TSR 的公共证书</block>
+  <block id="f03046f86ea75e1e226102a08ecd5cbf" category="paragraph"><block ref="c3887b7a23291dac4d7a1b7efc818208" prefix="" category="inline-code"></block></block>
+  <block id="4e3deff3b9081f7fedc2007265693564" category="paragraph">TSR 的公共证书 CA 链</block>
+  <block id="341d08a2cb17f811a5caa71530ce388f" category="list-text">使用在线证书状态协议（OCSP）对<block ref="363d3474e22d7db66173e78c91f91e7f" prefix=" " category="inline-code"></block>执行吊销检查。</block>
+  <block id="08274516b7632a2f17f664632e418b9f" category="list-text">查找证书的 OCSP URL。开发人员证书可能不提供 URI：</block>
+  <block id="8bf1d39a34c4c8aba9e7682948d83d2d" category="list-text">为证书生成 OCSP 请求。</block>
+  <block id="21755208d8a4421549597f7a6e97d778" category="list-text">连接到 OCSP 管理器以发送 OCSP 请求：</block>
+  <block id="5c583e4141833d6e7db2838d568f5323" category="list-text">针对本地主机验证 CSC 的信任链和到期日期：</block>
+  <block id="c81eb6c983032e3d49e6b571c2794296" category="admonition">来自 PATH 的<block ref="50955d4b2031271f8fda1764c1a66ac3" prefix=" " category="inline-code"></block>版本必须具有有效的<block ref="691869bca85baab2f31b7f268617f791" prefix=" " category="inline-code"></block>（非自签名）。</block>
+  <block id="620bc19067c74879a4e4f7bf199ea37e" category="paragraph">如果代码签名检查证书或时间戳证书已过期或无效，则命令失败。下载较新版本的 ONTAP Mediator。</block>
+  <block id="b4e9ec58d3ef956e8fc1a9fc7b82974b" category="list-text">使用关联证书验证 <block ref="711633bfbf4618fe03e72b5449b8e205" prefix=" " category="inline-code"></block> 和 <block ref="d5a2e42625d9ed2e19dc1ed5ae810d2e" prefix=" " category="inline-code"></block> 文件：</block>
+  <block id="195bddf21d18e6684827f26df294c1eb" category="open-title">OpenSSL 3.x</block>
+  <block id="414fe320287d05243bfc22a1d19c8b98" category="open-title">OpenSSL 1.x</block>
+  <block id="2809839371385d16108fa0cee4cee699" category="admonition"><block ref="c40361447c48e9b3eaa3ba6ba4896af0" prefix="" category="inline-code"></block> 文件包含与安装程序和代码签名相关联的时间戳响应。处理确认时间戳具有 TSA 的有效签名，并且您的输入文件未更改。您的机器在本地执行验证。您无需访问 TSA 服务器。</block>
+  <block id="98007cd8efbd426b4ad5bdcb7778ca03" category="list-text">根据密钥验证签名：</block>
+  <block id="7bbc278d4f7076df8bbc2b54bf8e89a2" category="paragraph"><block ref="7bbc278d4f7076df8bbc2b54bf8e89a2" category="inline-link-macro-rx"></block></block>
+  <block id="e2d1f5937c4878355c3c739ffbb45800" category="summary">安装 ONTAP Mediator 后，应验证 ONTAP Mediator 是否正在运行。</block>
+  <block id="25a6b1d95d3277b7c1bd3f7b97307081" category="paragraph">安装 ONTAP Mediator 后，请验证其是否正在成功运行。</block>
+  <block id="253a9d448fe2c1ea3fd6968f5e1a7805" category="list-text">查看 SCST 状态：</block>
+  <block id="3483ec1cb6a837bd4464bc4c69d6cc47" category="admonition">如果您安装了仅支持 HTTPS 的 ONTAP Mediator 1.12 或更高版本，则未安装 SCST 包，您可以跳过此步骤。</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">下一步是什么？</block>
+  <block id="dcff6129bbd301d782b50aa40e1a0f79" category="paragraph">安装并验证 ONTAP Mediator 后，您可以继续执行以下安装后配置任务：</block>
+  <block id="5a762e0a3caaba57aa6e78e424dd2661" category="inline-link-macro">使用 ONTAP 调解器进行 SnapMirror 活动同步和 MetroCluster IP</block>
+  <block id="54d23f74bb1c8fdc1bf5cfe1d26cb066" category="list-text"><block ref="54d23f74bb1c8fdc1bf5cfe1d26cb066" category="inline-link-macro-rx"></block></block>
+  <block id="ae001e3f1ffe7f045dd5732a8b8d8668" category="list-text"><block ref="dcb0081a923ee4c70e4e3f6dfbd9776f" category="inline-link-macro-rx"></block> （可选）</block>
+  <block id="10e1d24f7d73ad263d36af8b1ec3544c" category="summary">NetApp 建议您使用 System Manager 设置新的集群。System Manager 为集群设置提供了一个简单易用的工作流程，包括分配节点管理 IP 地址和初始化集群。</block>
+  <block id="a512b4ce296503b2b999a8e8376418ea" category="doc">ONTAP Mediator 安装工作流程摘要</block>
+  <block id="9178449d1a9b329335d788862055c61c" category="paragraph">安装 ONTAP Mediator 包括准备安装、提供对存储库的访问、下载安装包、验证代码签名以及安装 ONTAP Mediator 包。</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">一个</block>
+  <block id="7290a497df570b86538ae98972302505" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="0bf216691155fc8de347221d4553ab8f" category="inline-link-macro-rx"></block></block>
+  <block id="5562e3b4a040a906c78e131000ad3c52" category="paragraph">要安装 ONTAP Mediator，您必须确保满足所有先决条件。</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">两个</block>
+  <block id="ae300de494eb6f048e943dc94db5193f" category="inline-link-macro">提供存储库访问</block>
+  <block id="e0922d77b9bc10da1b1f1c3e7eedd476" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="bbc4460d23041d413de577a8a9063521" category="inline-link-macro-rx"></block></block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">三</block>
+  <block id="b14a15fa83a110077ee887343b803f7c" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="c869120ace16eabfd77564c5b274c273" category="inline-link-macro-rx"></block></block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">四个</block>
+  <block id="409e0449e7e7b293fc49c94106745ae9" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="ab4c972d0f4ada73cacc7722e34e0678" category="inline-link-macro-rx"></block></block>
+  <block id="681252b161cda69fc0a8ea855f0ce4ed" category="paragraph">NetApp 建议在安装 ONTAP Mediator 安装包之前验证 ONTAP Mediator 代码签名。</block>
+  <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">五</block>
+  <block id="c01ddbfb33b9c8d797ae84faf59e4d15" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="7bbc278d4f7076df8bbc2b54bf8e89a2" category="inline-link-macro-rx"></block></block>
+  <block id="cd011d3f6c5fb4dcec84e1f7c421d22d" category="paragraph">下载安装包并在主机上运行安装程序。</block>
+  <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">六</block>
+  <block id="f2e79d36f60ee64b18f8ce31a73c86d8" category="inline-link-macro">验证 ONTAP Mediator 安装</block>
+  <block id="b7ae5153b74815ef79cdbd22f4cc2cb0" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="007404c80f3bb40ff0837ce0c5463388" category="inline-link-macro-rx"></block></block>
+  <block id="b709d6253b567b7235606deb0c2395bf" category="summary">了解 ONTAP Mediator。</block>
+  <block id="92d375ae13aef349145e8dc2877f3c76" category="doc">了解 ONTAP Mediator</block>
+  <block id="326a75b8c793efc45996057c8f51b5d4" category="paragraph">ONTAP Mediator 支持 ONTAP 功能，为高可用性（HA）元数据提供持久且隔离的存储，提供同步节点运行状况查询功能以帮助确定仲裁，并充当控制器存活状态的 ping 代理。</block>
+  <block id="76538e55d69b12bb4a71177e6f12d7af" category="inline-link-macro">SnapMirror 活动同步文档</block>
+  <block id="901813bbb11021af43dee4148c16d7d3" category="admonition">本文档指的是本地版本的 ONTAP Mediator。有关从 ONTAP 9.17.1 开始提供的 ONTAP Cloud Mediator 的信息，请参见 <block ref="4943a2316d8b919a678f5eb2aeeed318" category="inline-link-macro-rx"></block>。</block>
+  <block id="42e9ee2096bab8214f21c708db5062bd" category="section-title">ONTAP Mediator 的工作原理</block>
+  <block id="8b50bed86f101df37d16ed78d60ed284" category="paragraph">ONTAP Mediator 在第三故障域中的 Linux 主机上运行，与您的 ONTAP 集群分开，为 HA 元数据提供持久的隔离存储。ONTAP 使用此存储以及 Mediator 的节点运行状况查询和 ping 代理功能来监控 SnapMirror 活动同步关系和 MetroCluster IP 配置。</block>
+  <block id="7e8f3706222b098ad48cabe16894f827" category="list-text">ONTAP Mediator 使用节点管理 LIF 和集群管理 LIF 通过多个冗余路径与每个集群进行通信。这使得 ONTAP 能够区分整个站点故障和单个 InterSwitch 链路（ISL）故障。</block>
+  <block id="3b8c87fa9b9abce4ddce62d23eca868a" category="list-text">在 SnapMirror 活动同步中，如果集群失去与其对等节点和 ONTAP Mediator 的连接，ONTAP 会将该对等节点视为无法访问，并可以自动故障转移到幸存的副本。</block>
+  <block id="2a43a085e6d2089e75c2c18a4b8ea8af" category="list-text">在 MetroCluster IP 配置中，ONTAP 调解器通过存储有关 MetroCluster 节点的状态信息并帮助确定故障期间的适当操作过程来协助调解器辅助的自动计划外切换（MAUSO）。</block>
+  <block id="2a61fd8c8d20f7245177988f689e77e8" category="section-title">ONTAP 调解器服务</block>
+  <block id="877c7d4cc585cbd94114496e0df7fecb" category="paragraph">ONTAP Mediator 提供两项额外的 systemctl 服务：</block>
+  <block id="5a4ca2392a1b3d83aa38c7968e334573" category="list-text"><block ref="c990bfbba7825c9db39cef7f4a350cfc" prefix="*" category="inline-code"></block>*</block>
+  <block id="06e323d4373aabd0af3131b9474ab662" category="paragraph">维护 REST API 服务器以管理 ONTAP 关系。</block>
+  <block id="7cfb89286bde7b3d84c90ce91303e01c" category="list-text"><block ref="1721bbd0d59d9a230ad8b4681faefffb" prefix="*" category="inline-code"></block>*</block>
+  <block id="507695508843fb2f9cb9084a154ecda3" category="paragraph">控制 iSCSI 模块（SCST）的启动和关闭。</block>
+  <block id="a1f7f9889c07ad11a711e8b9d0c93fd7" category="section-title">为系统管理员提供的工具</block>
+  <block id="9597511ebb4a2575fad9eb1694641b3b" category="paragraph">为系统管理员提供的工具：</block>
+  <block id="bcdb3e2c0b472defbdefd1325c20b15a" category="list-text"><block ref="ba521b806beb44396f87bbc58c6fcd4d" prefix="*" category="inline-code"></block>*</block>
+  <block id="f9a957978e46df680d8a1331bce02aab" category="paragraph">提供当前 API 用户名和密码时设置新 API 密码。</block>
+  <block id="061ab59fedb35e48d8d834e130bc4c17" category="list-text"><block ref="1a45494ade6dc6e1a9790be9200aa869" prefix="*" category="inline-code"></block>*</block>
+  <block id="38d794b25e411892f39343c210971007" category="paragraph">提供当前 API 用户名和密码时设置新的 API 用户名。</block>
+  <block id="09507a13e5f8f03b22c9b72a6824779e" category="list-text"><block ref="5594a11c6e2dabb8e9beebf27dd7846b" prefix="*" category="inline-code"></block>*</block>
+  <block id="4e735f1f9d62e034c5ef9c0c7a496b19" category="paragraph">生成一个本地 tgz 文件，其中包含与 NetApp 客户支持进行通信所需的所有有用的支持信息。这包括应用程序配置、日志和一些系统信息。捆绑包在本地磁盘上生成，可以根据需要手动传输。存储位置：/opt/netapp/data/support_bundles/</block>
+  <block id="bf751df278f4ef7a015642dfa4978407" category="list-text"><block ref="74ac5d826adfbc116b6ea064d73cb629" prefix="*" category="inline-code"></block>*</block>
+  <block id="b1c9afeac2615d7d419269c18341ff95" category="paragraph">删除 ONTAP Mediator 包和 SCST 内核模块。这包括所有配置、日志和邮箱数据。</block>
+  <block id="c699ae1aabd5a8c0718f582a5085febc" category="list-text"><block ref="7174f35f333fadf99cb4247e429bcda4" prefix="*" category="inline-code"></block>*</block>
+  <block id="f274c99ca726ffb2b3a916f4e019bcfa" category="paragraph">如果达到身份验证重试限制，则解除对 API 用户帐户的锁定。此功能用于防止暴力破解密码。它会提示用户输入正确的用户名和密码。</block>
+  <block id="c15bcd72ca8abaee355754c4815267f0" category="list-text"><block ref="4e1d61591890d0d4ccfdca8463a6106c" prefix="*" category="inline-code"></block>*</block>
+  <block id="1d52b3ad050da5ff4130abb7cd105b59" category="paragraph">（仅限支持人员）用于在安装时添加 API 用户。</block>
+  <block id="d6df8af7f544a2958e6757912c0dbd0f" category="section-title">SCST 和内核更新</block>
+  <block id="2fa10ff98f1c645a56f1fdef1413d6c9" category="inline-link-macro">SCST：适用于 Linux 的通用 SCSI 目标子系统</block>
+  <block id="9e5f52fbf54a88f3546daad7843dad0a" category="paragraph">ONTAP Mediator 使用 SCST 为 MetroCluster IP 配置中的通信提供 iSCSI。SCST 包是在安装过程中编译的内核模块。更新内核后，可能需要重新安装 SCST。或者，卸载 ONTAP Mediator，然后重新安装并重新配置 ONTAP 关系。请参阅 <block ref="6c6c0b982087c71ca9a00a75bd9ab966" category="inline-link-macro-rx"></block> 以了解有关 SCST 的更多信息。</block>
+  <block id="34e5e47f5c7b2affb68fc3b25008aa3a" category="admonition">您应该在 ONTAP 维护窗口中协调对服务器操作系统内核的任何更新。</block>
+  <block id="0d99e45d04eeac38e25baf7e6e2d48b9" category="section-title">支持 HTTPS 和 iSCSI</block>
+  <block id="f90b665758a0946c798b8211c5eea691" category="paragraph">从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 或 iSCSI 监控 MetroCluster IP 配置的 ONTAP Mediator。您可以选择安装支持 iSCSI 和 HTTPS 或仅支持 HTTPS 的 ONTAP Mediator。如果安装 ONTAP Mediator 时仅支持 HTTPS，则不会安装 SCST 软件包。有关详细信息，请参见<block ref="9f4b39d31886e48b8c4dd6f78f5449d8" category="inline-link-macro-rx"></block>。</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律声明提供对版权声明、商标、专利等信息的访问。</block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版权</block>
+  <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
+  <block id="a1a9afcf552a769c282769271829889a" category="paragraph"><block ref="a1a9afcf552a769c282769271829889a" category="inline-link-macro-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商标</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NETAPP、NETAPP 标识和 NetApp 商标页面上所列的商标是 NetApp, Inc. 的商标。其他公司和产品名称可能是其各自所有者的商标。</block>
+  <block id="f99aa604031e5049799e73b5c3748a98" category="inline-link-macro"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
+  <block id="5d545fe5152641e2ebe654e336e520e5" category="paragraph"><block ref="5d545fe5152641e2ebe654e336e520e5" category="inline-link-macro-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">专利</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">当前 NetApp 拥有的专利列表可以在以下网址找到：</block>
+  <block id="88e5eabd3917048b6927c42496b98f86" category="inline-link-macro"><block ref="88e5eabd3917048b6927c42496b98f86" category="inline-link-rx"></block></block>
+  <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隐私政策</block>
+  <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
+  <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">开源</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知文件提供有关 NetApp 软件中使用的第三方版权和许可的信息。</block>
+  <block id="909f0fe6adf79c0d00245b4615d8e65d" category="section-title">用于 MetroCluster IP 和 SnapMirror 主动同步的 ONTAP 调解器</block>
+  <block id="f4a03af8341b001c2d5921087e6acdae" category="inline-link-macro">ONTAP Mediator 1.12.1 通知</block>
+  <block id="c932859452a4d21cd8b2409c4b266c64" category="list-text"><block ref="c932859452a4d21cd8b2409c4b266c64" category="inline-link-macro-rx"></block></block>
+  <block id="23e832f016b25042f077bf69d3f4c7f0" category="inline-link-macro">ONTAP Mediator 1.11 通知</block>
+  <block id="677bfcb200a25242e458dd0b6429d82f" category="list-text"><block ref="677bfcb200a25242e458dd0b6429d82f" category="inline-link-macro-rx"></block></block>
+  <block id="b36e1b8d747340ff716228fd88522c06" category="inline-link-macro">ONTAP Mediator 1.10 的通知</block>
+  <block id="5543c32a8ccc35d4c3933c375789476b" category="list-text"><block ref="5543c32a8ccc35d4c3933c375789476b" category="inline-link-macro-rx"></block></block>
+  <block id="139f1b20204848bfd0e3274f772bb733" category="inline-link-macro">ONTAP Mediator 1.9.1 通知</block>
+  <block id="f1d7ffd223ec82e15d8172ed4c13f856" category="list-text"><block ref="f1d7ffd223ec82e15d8172ed4c13f856" category="inline-link-macro-rx"></block></block>
+  <block id="8d685ddfb9d20c953bad7b1bfbae053e" category="inline-link-macro">ONTAP Mediator 1.8 注意事项</block>
+  <block id="fb745e243220ba289a5790d22d8c23a0" category="list-text"><block ref="fb745e243220ba289a5790d22d8c23a0" category="inline-link-macro-rx"></block></block>
+  <block id="97eb5e225501b9db5f932ecf16b701ed" category="inline-link-macro">ONTAP Mediator 1.7 注意事项</block>
+  <block id="e488c599aba4b5ac56806477809fa821" category="list-text"><block ref="e488c599aba4b5ac56806477809fa821" category="inline-link-macro-rx"></block></block>
+  <block id="1e0475ec995218e0382bd6976e903bb1" category="inline-link-macro">ONTAP Mediator 1.5 注意事项</block>
+  <block id="dc3228f917510c58b4a72ba2e7a91210" category="list-text"><block ref="dc3228f917510c58b4a72ba2e7a91210" category="inline-link-macro-rx"></block></block>
+  <block id="b33e0edd711cf439d3a06b2c984e1755" category="doc">ONTAP Mediator 快速入门</block>
+  <block id="ede7e8aabb49529e0f399e4890ce118f" category="paragraph">要开始使用 ONTAP Mediator，请安装该软件并将其配置为与您的 ONTAP 环境配合使用。</block>
+  <block id="b938000789ff25f73dc19bc3edcb4c8b" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> 安装 ONTAP Mediator</block>
+  <block id="305e7e49ade15c0cfc57375e188c0f62" category="inline-link-macro">安装 ONTAP Mediator</block>
+  <block id="37ce828d354958a2db78397599a4a69f" category="paragraph"><block ref="44d4e7f0bedd4ffbf3db5ac1f6a4aa7f" category="inline-link-macro-rx"></block> 在您的系统上，并确保满足所有必需的依赖项。</block>
+  <block id="4662e5c2962f44a995bdfe8230f4f317" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 验证 ONTAP Mediator 安装</block>
+  <block id="98d33dc6b8be9abc6b3e7920199167df" category="inline-link-macro">确认 ONTAP Mediator 安装成功</block>
+  <block id="dc2fd6b1c573ac483da94fda7660ccf4" category="paragraph"><block ref="38f6a5b99838e359694246e1dce469b8" category="inline-link-macro-rx"></block>通过查看服务状态并检查日志中是否有任何错误或警告。</block>
+  <block id="1f901ac22f0969ee8cd8f1117b67ea3f" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 为您的 ONTAP 环境配置 ONTAP 调解器</block>
+  <block id="e25128fcc48d6c157fb6bc6ff4d52707" category="inline-link-macro">将 ONTAP 调解器用于 MetroCluster IP、SnapMirror 主动同步或两者</block>
+  <block id="74424ec35cb22218784c442e440b71de" category="paragraph">根据您是否要<block ref="a68fef87da2c2c6f2af6eb756c624d4b" category="inline-link-macro-rx"></block>，请执行相应的配置步骤，以确保正确应用所有必需的设置。</block>
+  <block id="119be031ef4485d20c7683d291d0e9f6" category="inline-link-macro">MetroCluster 文档</block>
+  <block id="d20bb8889a94d82bf2e2779edad21bc1" category="paragraph">您现在可以使用 ONTAP Mediator 来监控 MetroCluster IP 配置、SnapMirror 活动同步配置或两者。有关详细信息，请参见<block ref="4943a2316d8b919a678f5eb2aeeed318" category="inline-link-macro-rx"></block>和<block ref="e2d897561354b5f8fa12d007008008f5" category="inline-link-macro-rx"></block>。</block>
+  <block id="95d547e645780d5c6d1082c62c90b5d2" category="summary">ONTAP Mediator 的操作系统和 SCST 支持信息。</block>
+  <block id="9aa82443628a5371ab66a68f70dd137e" category="doc">ONTAP Mediator 支持矩阵</block>
+  <block id="63b82b65fc5a63b22cb2bb0aeed9b9a7" category="paragraph">ONTAP Mediator 支持矩阵包括操作系统和 SCST 版本支持信息。</block>
+  <block id="60a1a4aab2ae24644a3954b9d2615d6b" category="paragraph">下表列出了每个版本的 ONTAP Mediator 支持的操作系统。</block>
+  <block id="6f73041b016f05fc7cdb400654b60fa6" category="cell">适用于 ONTAP Mediator 的操作系统</block>
+  <block id="5c6cf7677a346751407101ee18e6a4dd" category="cell">1.12.1</block>
+  <block id="b12cb2f95b2516af000240d2ebc65c26" category="cell">1.12</block>
+  <block id="cb9cc8981898224a2fe45ac6ff7d4244" category="cell">1.11</block>
+  <block id="bdca6efb043178ef172612dd1e173dde" category="cell">1.10</block>
+  <block id="966dc08e28d5fec45c3b38645b1a92ab" category="cell">1.9.1</block>
+  <block id="4885938bbcc8f927854e4d0307d4467c" category="cell">1.9</block>
+  <block id="f932bed2d12442d21507b51d22b88dd7" category="cell">1.8</block>
+  <block id="7fd3cdaaba74a0b0ef3d707a8545df7c" category="cell">1.7</block>
+  <block id="4341447b6ad78bf4d7eb59ebb5a53d63" category="cell">1.6</block>
+  <block id="6008647277c4454cecd97d33c069f0ca" category="cell">1.5</block>
+  <block id="9e605ce3bb6ad134bb55c54d861ceb6a" category="cell">1.4</block>
+  <block id="0b0ec9f1cc28b3c19dc6c36dcd5af7cc" category="cell">1.3</block>
+  <block id="56765472680401499c79732468ba4340" category="cell">1.2</block>
+  <block id="777d45bbbcdf50d49c42c70ad7acf5fe" category="cell">1.1</block>
+  <block id="e4c2e8edac362acab7123654b9e73432" category="cell">1.0</block>
+  <block id="6a45ab2d50d54128463e81fc0f03e79a" category="paragraph">RHEL 10.2</block>
+  <block id="93cba07454f06a4a960172bbd6e2a435" category="paragraph">是</block>
+  <block id="bafd7322c6e97d25b6299b5d6fe8920b" category="paragraph">否</block>
+  <block id="45afd4c5b0dc7b30b48f8b9aae635710" category="paragraph">RHEL 10.1</block>
+  <block id="923b5fd7dc0ac6f70f77bcc7ec3f5546" category="paragraph">兼容</block>
+  <block id="f50ad339a2fcf7aedfe431f3ae3ef107" category="paragraph">RHEL 10.0</block>
+  <block id="c61087ddd0786db46fcf8e5ee69955f4" category="paragraph">RHEL 9.8</block>
+  <block id="98a29f5bf0873759f56944b3340bbae0" category="paragraph">RHEL 9.7</block>
+  <block id="e56f72be69020404183f694aed8e176b" category="paragraph">RHEL 9.6</block>
+  <block id="92a9848c1fb5697892193dd4ff6e8f2d" category="paragraph">RHEL 9.5</block>
+  <block id="b225d9c59432e8a8fb3706648e471b89" category="paragraph">RHEL 9.4</block>
+  <block id="5a4423695d5636fb42d9142a09b58340" category="paragraph">RHEL 9.3</block>
+  <block id="c87e38c84927fcd003b4fdc775e74821" category="paragraph">RHEL 9.2</block>
+  <block id="7634c90e743798b216d4cc2f1dd7eaa0" category="paragraph">RHEL 9.1</block>
+  <block id="10589d446fc419a4e9df55b253195dd9" category="paragraph">RHEL 9.0</block>
+  <block id="c48cc40f38f8bc361e9a53b83a812d48" category="paragraph">RHEL 8.10</block>
+  <block id="9ca217a808fa091455fd04ec20df21d9" category="paragraph">RHEL 8.9</block>
+  <block id="bd5893e98d53053996565ec48fc2b6bb" category="paragraph">RHEL 8.8</block>
+  <block id="00eb07c3f424101a44a3e3143456bd52" category="paragraph">RHEL 8.7</block>
+  <block id="0f3fc83c719bd7b7276c755b6562b34c" category="paragraph">RHEL 8.6</block>
+  <block id="757de8b2f5629d9eb783b0c8f7e8b4ff" category="paragraph">RHEL 8.5</block>
+  <block id="dffb1e1e6a570b0fb14cea1bd56c79d8" category="paragraph">RHEL 8.4</block>
+  <block id="de5525e18a94a51e3609173c8c069b5e" category="paragraph">RHEL 8.3</block>
+  <block id="ec30c235d0eb792797af1aa1d11759a7" category="paragraph">已废弃</block>
+  <block id="9f99749c637e4a85a7e16a3041a8beeb" category="paragraph">RHEL 8.2</block>
+  <block id="2e3750c608ef9c088598a72e91ddb608" category="paragraph">RHEL 8.1</block>
+  <block id="d7618fc64ca0575c8bba9e58bdc253d3" category="paragraph">RHEL 8.0</block>
+  <block id="8cffde85f666d275e71d9b314565a686" category="paragraph">RHEL 和 CentOS 7.9</block>
+  <block id="71a730801af5263780cae77c91bb7982" category="paragraph">RHEL 和 CentOS 7.8</block>
+  <block id="c168e750d8241dcaed1ee9bc17e3f294" category="paragraph">RHEL 和 CentOS 7.7</block>
+  <block id="8339525fe79a8130f43fc81405e9812f" category="paragraph">RHEL 和 CentOS 7.6</block>
+  <block id="fb1dbcf8128090987e569bf651313243" category="paragraph">是（仅限 RHEL）</block>
+  <block id="574ea4c991e6ef7f20d7f1c11ae22d02" category="paragraph">CentOS 8 和 stream</block>
+  <block id="382b0f5185773fa0f67a8ed8056c7759" category="paragraph">不适用</block>
+  <block id="0929d852cfa2d35a82477186fd055160" category="paragraph">是 (10.2)</block>
+  <block id="9df743054dfbdcad631028afabd38b41" category="paragraph">是（10.0 和 10.1）</block>
+  <block id="26d40bd113f37177261b00ebc25b0a8d" category="paragraph">是 (9.8)</block>
+  <block id="e1b00cf1bcb2d955314fe2ef4af8274c" category="paragraph">是 (9.7)</block>
+  <block id="566f46b059c4de391cee99ce8136e76b" category="paragraph">是（9.6 和 9.4）</block>
+  <block id="7fca9982db840b682ff1fa91de6f4d50" category="paragraph">是 (9.5)</block>
+  <block id="fcd381c940dd826de21615b02a93e5ac" category="paragraph">是 (9.4)</block>
+  <block id="972aed38f4a8421387e44e9f84512a50" category="paragraph">是 (9.3)</block>
+  <block id="ff9810a447cf239493544dc7cacf0d8b" category="paragraph">是 (9.2)</block>
+  <block id="c2ebd4f97347c9dbfc716a9616ea4032" category="paragraph">是 (8.10)</block>
+  <block id="3ad2bf2515345e4c2c50be588ffe9d4b" category="paragraph">是 (8.9)</block>
+  <block id="33e0d04ca44c83074297dff134d10cfb" category="paragraph">是 (8.8)</block>
+  <block id="391c0ec02bf618798be411c9c8aa3445" category="paragraph">Oracle Linux 10</block>
+  <block id="5ca9c92221c0bb6df58f938c56b5e08c" category="paragraph">是 (10.1)</block>
+  <block id="226b4ec4b046f4597e56f6820be16221" category="paragraph">是 (10.0)</block>
+  <block id="4588ab094dff9b2456ca757278cf07ed" category="paragraph">Oracle Linux 9</block>
+  <block id="f12212efe7b442a1ec6f7d94dde4272e" category="paragraph">是 (9.6)</block>
+  <block id="5c5f846c7bbce41735591248a7e03ae2" category="list-text">“是”表示建议将该操作系统用于 ONTAP Mediator 安装，并且完全兼容且受支持。</block>
+  <block id="42bf268ce6824f5c15433c63f78e0e15" category="list-text">“否”表示操作系统和 ONTAP Mediator 不兼容。</block>
+  <block id="e047d5afa17bbc643bc56cef323f85b6" category="list-text">“兼容”意味着 Red Hat 不再支持这些 RHEL 版本，但仍可以在其上安装 ONTAP Mediator。</block>
+  <block id="3a750aeb7d41934423dea6e53773bd12" category="list-text">ONTAP Mediator 1.6 增加了对 Rocky Linux 9 和 8 的支持。</block>
+  <block id="a3026e4493cfd57bdc13ba786b0cae1f" category="list-text">ONTAP Mediator 1.5 是 RHEL 7.x 分支操作系统的最后一个受支持版本。</block>
+  <block id="a3030782bfe07ab8ab13c96edb732a9b" category="list-text">Centos 8 因其重新分支而从所有版本中被移除。Centos Stream 被认为不是合适的生产目标操作系统。没有计划提供支持。</block>
+  <block id="833ee63cad8709c693aa56f3f6f2f931" category="paragraph">下表显示了每个版本的 ONTAP Mediator 支持的 SCST 版本。</block>
+  <block id="c5c31e0edabd430de173af2cac963c86" category="cell">ONTAP Mediator 版本</block>
+  <block id="4107429f6766d57b694d585cfdd160f8" category="cell">支持的 SCST 版本</block>
+  <block id="1be471030891cbc39e234b1a80d41701" category="cell">ONTAP Mediator 1.2</block>
+  <block id="298ba785f6f7f916e8a8e98b883ac6e6" category="summary">ONTAP Mediator 的新功能包含在每个版本中。</block>
+  <block id="0f7c73e85014bc5dcd0067a1abb5a71c" category="doc">ONTAP Mediator 中的新增功能</block>
+  <block id="706f100d1cbe7864b3149ff92cf62d49" category="paragraph">ONTAP Mediator 的每个版本都提供了新的增强功能。</block>
+  <block id="097269d68dda9a5a6965173c16acef55" category="inline-link-macro">支持矩阵</block>
+  <block id="1f840207417dd3f3c58182bbb07f7d4d" category="admonition">有关操作系统和 SCST 版本信息，请参见 <block ref="c149c010c58bed396877e76753dfe3da" category="inline-link-macro-rx"></block>。</block>
+  <block id="c1748037d10cffabb8e95e4ccf77c613" category="cell">增强功能</block>
+  <block id="63c1378a540c130ed6526f15004717aa" category="list-text">支持 RHEL：</block>
+  <block id="e8a8a0fc3a01794e8d25d6aed862ebc4" category="list-text">兼容：10.1 和 9.7。</block>
+  <block id="60d802407741b6aa93912645b95973d3" category="list-text">推荐：10.2、10.0、9.8、9.6、9.4 和 8.10。</block>
+  <block id="1a1727a6918fd3fa55075b30a8c19c43" category="list-text">支持 Rocky Linux 10.2、9.8 和 8.10。</block>
+  <block id="37816537c169d0bac0ac457e8611211a" category="list-text">支持使用 rhck 和 uek 内核的 Oracle Linux 10.1 和 9.8。</block>
+  <block id="9a4a53cef7b15442ebf61d83809a82f4" category="list-text">从 ONTAP Mediator 1.12.1 和 ONTAP 9.19.1 开始，配置了 HTTPS 的单个 ONTAP Mediator 实例可以同时监控以下配置：</block>
+  <block id="2ef6e8f0d5d66d492a2b23a3bb0ad174" category="list-text">如果安装在具有 8 核 CPU 和至少 16GB RAM 的主机上，则最多可安装 10 个四节点或 5 个八节点 MetroCluster IP 配置。请参阅 <block ref="23c736ffefe2c88d617ae89ae44b32de" category="inline-link-macro-rx"></block>。</block>
+  <block id="17d08083fc04aacdeb93bd44277678c6" category="inline-link-macro">配置 ONTAP 调解器以进行 SnapMirror 活动同步</block>
+  <block id="9c758998783d5deea1d83f8a17b3acea" category="list-text">如果安装在具有双核 CPU 的主机上，则为 1 个四节点 MetroCluster IP 配置和 1 个 SnapMirror 活动同步对等关系。请参阅 <block ref="1e99a23f0ff254289bb966022cc5ead3" category="inline-link-macro-rx"></block>。</block>
+  <block id="defcb96c4b9d8094e49d27abc0d7ba6c" category="list-text">包括用于修复损坏的 SCST 安装的新工具。安装 ONTAP Mediator 后，您可以在<block ref="711a32ad400471be43668bfcda3244b2" prefix=" " category="inline-code"></block>找到该工具。如果升级后的操作系统需要默认 SCST 软件包中未提供的 SCST 修补程序，则可以在操作系统升级后使用该工具。</block>
+  <block id="6082f1d9d6234f1a22ac348bcaf40bfc" category="list-text">支持使用 rhck 和 uek 内核的 Oracle Linux 10.1 和 9.7。</block>
+  <block id="f891556a6688c140ff5a993b15949efd" category="inline-link-macro">详细了解 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项</block>
+  <block id="2132cc27a065b478c6073807667d8821" category="list-text">从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以在 MetroCluster IP 配置中配置使用 HTTPS 进行通信的 ONTAP Mediator。HTTPS 通过使用 SSL/TLS 加密整个会话来提高安全性。您可以选择安装仅支持 HTTPS 的 ONTAP Mediator。如果使用此安装方法，则不会安装 SCST 软件包。<block ref="c2201c8820baa97aa8e2ad6d6bbe796b" category="inline-link-macro-rx"></block>。</block>
+  <block id="098e6488f292a2a967f044215af1d052" category="list-text">支持 RHEL 10.1、10.0、9.7、9.6、9.4 和 8.10。</block>
+  <block id="cac276a9e96f3c0963f96b1a6f677ed4" category="list-text">支持 Rocky Linux 10.1、9.7 和 8.10。</block>
+  <block id="684a4237791e6b7accb3359916149a47" category="list-text">支持使用 rhck 和 uek 内核的 Oracle Linux 10.0 和 9.6。</block>
+  <block id="b157fc40cc8a93b02f24b6090bc14033" category="list-text">为 MetroCluster IP 配置添加对 IPv6 的支持。</block>
+  <block id="46837ff5597d19a05270b6ca1fa2a504" category="list-text">增加了对 fapolicyd 的支持。</block>
+  <block id="91c808163778b1252a5964a6166084bb" category="list-text">支持 RHEL 10.0、9.6、9.4 和 8.10。</block>
+  <block id="bc04dd412f2394730e2fbce62160ee42" category="list-text">支持 Rocky Linux 10.0、9.6 和 8.10。</block>
+  <block id="c8ac2fa8a1351efab1af118900283acf" category="list-text">将基础 Python 版本从 Python 3.9 升级到 Python 3.12。</block>
+  <block id="dbe5333de3a60f1c199904055a1f72b5" category="list-text">兼容：9.3、9.1、8.9、8.7、8.6、8.5 和 8.4。</block>
+  <block id="118ed9268d9cd782d2d31ba313aad13c" category="list-text">推荐：9.5、9.4、9.2、9.0、8.10 和 8.8。</block>
+  <block id="7e63e98b1c2bb4da8e19cd22fbcf38f8" category="list-text">支持 Rocky Linux 9.5 和 8.10。</block>
+  <block id="77f43b2671d5490ff8fb4ca358c08f3c" category="list-text">添加用于代码签名验证的新证书。</block>
+  <block id="427ed2152eb68669767965c6995623ff" category="list-text">添加了对使用<block ref="88e57dba5ad35a846f8226c98dea04cb" prefix=" " category="inline-code"></block>标志跳过代码签名检查的支持。</block>
+  <block id="b54bfd24b58f39cbae9ccbfeb57b4a52" category="list-text">当安装程序检测到过期的代码签名证书时，会显示警告。</block>
+  <block id="b713efaac064c3477427790c7f25c28f" category="list-text">对 RHEL 和 Rocky Linux 的 FIPS 支持。</block>
+  <block id="71de89881e6ed27948bb06179d0a8540" category="list-text">添加了性能增强功能，以实现更大的可扩展性。</block>
+  <block id="4b7aa15061a264c275e2d2a90175a52b" category="list-text">改进了文件名，以简化 PKI 签名证书的设置。</block>
+  <block id="bb6431d39782643eba51257f3e365953" category="list-text">兼容：8.7、8.6、8.5 和 8.4。</block>
+  <block id="39b35f44655044497df352f5ccf0444f" category="list-text">建议：9.4、9.3、9.2、9.1、9.0、8.10、8.9 和 8.8。</block>
+  <block id="82a2215d1b4abab41c76725fd019024e" category="list-text">支持 Rocky Linux 9.4 和 8.10。</block>
+  <block id="1eb1ab2ad3f6725a903cabc153916101" category="list-text">推荐：9.3、9.2、9.1、9.0、8.9 和 8.8。</block>
+  <block id="e403eca1fdb8b44db92d38b23a620580" category="list-text">支持 Rocky Linux 9.3 和 8.9。</block>
+  <block id="eeae80d26915b9299cd26aff120dbb9c" category="list-text">在自签名证书和第三方签名证书中支持 SAN（使用者备用名称）数据。</block>
+  <block id="78b75efa2fd35c3ed7b2557b51a12892" category="list-text">Python 3.9 更新。</block>
+  <block id="86c9bb8f93c86ceca3c2431fa7cafcd1" category="list-text">建议：9.2、9.1、9.0 和 8.8。</block>
+  <block id="11c36d7aff5a3ea3c001cba50b944d5b" category="list-text">支持 Rocky Linux 9.2 和 8.8。</block>
+  <block id="8ae02e171030d0bbaf996dab38ed5a13" category="list-text">停止支持 RHEL 7.x / CentOS 所有版本。</block>
+  <block id="e11ef0855a5adaac78857186ee735999" category="list-text">支持 RHEL 8.5、8.4、8.3、8.2、8.1、8.0、7.9、7.8、7.7 和 7.6。</block>
+  <block id="6381bdc101357fdc0df337549a01ee62" category="list-text">支持 CentOS 7.9、7.8、7.7 和 7.6。</block>
+  <block id="5f72b640707a5d07a5578ceab0322661" category="list-text">包括 RHEL 7.x / CentOS 7.x 的弃用警告。</block>
+  <block id="5d682c8af595f2350e86ed1258048f89" category="list-text">为更大规模的 SnapMirror 主动同步系统优化速度。</block>
+  <block id="914f23f08713afb7cbaacf3966247fe8" category="list-text">已将加密代码签名添加到安装程序。</block>
+  <block id="f2c672a7d3333fdd21e34b228a571fb2" category="list-text">增加了对基于 UFEI 的固件的安全启动（SB）的支持。</block>
+  <block id="5f1087bded124ec9ddcb70b9f3ecdd0d" category="list-text">支持 RHEL 8.3、8.2、8.1、8.0、7.9、7.8、7.7 和 7.6。</block>
+  <block id="268005e8c9a38b341eec12fb83a56dd7" category="list-text">支持 RHEL 8.1、8.0、7.9、7.8、7.7 和 7.6。</block>
+  <block id="4fa13e5b3e6fce6c36412aca95cef0ed" category="list-text">支持 HTTPs 邮箱。</block>
+  <block id="0cde76c281b193199202b79cd6b31c1e" category="list-text">适用于 ONTAP 9.8+ MCC-IP AUSO 和 SnapMirror active sync ZRTO。</block>
+  <block id="75b105e969b3595c96ecb38f5f6a4e3d" category="list-text">支持 RHEL 8.0 和 7.6。</block>
+  <block id="8c382fb753012ccff6bc97505d4af52b" category="list-text">支持 CentOS 7.6。</block>
+  <block id="22be24e9429ce5f9b8cce8ad8f59bac5" category="list-text">消除 Perl 依赖关系。</block>
+  <block id="aaa8ca93d68b9efbf0f45ab1bad6a50d" category="list-text">支持 iSCSI 邮箱。</block>
+  <block id="d2009039de5347ec838e5b352689b40e" category="list-text">适用于 ONTAP 9.7+ MCC-IP AUSO。</block>
+  <block id="e699fc193cfa030f26300d0bab481dde" category="list-text">支持 RHEL/CentOS 7.6。</block>
+  <block id="fadaf2b5ff146e9a96c3843dbfac450e" category="summary">了解 ONTAP Mediator 如何监控 SnapMirror 活动同步关系和 MetroCluster IP 配置，以及单个实例可以同时监控多少个此类关系和配置。</block>
+  <block id="af353eb26c9f4a289089dbb70f3e3267" category="paragraph">ONTAP Mediator 在第三故障域中的 Linux 主机上运行，与您的 ONTAP 集群分开，为高可用性（HA）元数据提供持久的隔离存储。ONTAP 使用此存储以及 Mediator 的节点健康查询和 ping 代理功能，来监控 SnapMirror 活动同步关系和 MetroCluster IP 配置。</block>
+  <block id="1011e12128ad565cd37816222d73936b" category="admonition">本文档指的是本地版本的 ONTAP Mediator。有关从 ONTAP 9.17.1 开始提供的 ONTAP Cloud Mediator 的信息，请参见 <block ref="4943a2316d8b919a678f5eb2aeeed318" category="inline-link-macro-rx"></block>。</block>
+  <block id="42992ec7640fbb21fca327b11346edc3" category="section-title">监控 SnapMirror 活动同步关系</block>
+  <block id="eabbf76b0849c0d8b0b7ff59d4e699e3" category="paragraph">SnapMirror 主动同步使用 ONTAP Mediator 作为一致性组中主副本和镜像副本的被动见证。如果发生网络分区或某个副本不可用，SnapMirror 主动同步将查询 ONTAP Mediator 以确定哪个副本继续提供 I/O 服务，并停止另一个副本上的 I/O。</block>
+  <block id="ecd88dd354ce9fc8fc63524f4951e442" category="paragraph">从 ONTAP 9.8 开始，您可以使用任何版本的 ONTAP Mediator 来监控 SnapMirror 活动同步关系。</block>
+  <block id="ba348dde3947c2f06b825aa4327cf62d" category="inline-link-macro">ONTAP SnapMirror 活动同步的对象限制</block>
+  <block id="9350a76a80ee8a2ea53f104cb8fcf184" category="admonition">有关单个 ONTAP Mediator 实例可以监视的 SnapMirror 活动同步群集对数量的限制，请参见 <block ref="8dfbc303a57231f71470fa602ad1ddc0" category="inline-link-macro-rx"></block>。</block>
+  <block id="effce48346873f15242a0410a058ada7" category="paragraph"><block ref="effce48346873f15242a0410a058ada7" category="inline-link-macro-rx"></block></block>
+  <block id="b3b5af089e0f5628ed01ae5560bd46b0" category="section-title">监控 MetroCluster IP 配置</block>
+  <block id="b2340e262d9bf143ce3553cc54d44336" category="paragraph">在 MetroCluster IP 配置中，ONTAP 调解器在邮箱 LUN 中存储有关 MetroCluster 节点的状态信息，并在发生灾难或特定故障情形时协助节点进行调解器辅助的自动计划外切换（MAUSO）。</block>
+  <block id="575844baf72ff6d7f61f0710aa0807ab" category="paragraph">从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 进行通信的 ONTAP Mediator 来监控您的 MetroCluster IP 配置。当您使用 iSCSI 协议配置 ONTAP Mediator 时，您可以使用任何版本的 ONTAP Mediator 来监控 MetroCluster IP 配置。</block>
+  <block id="5baae96b103c91b9f857c87285299132" category="admonition">有关单个 ONTAP Mediator 实例可以监控的 MetroCluster IP 配置数量的限制，请参阅 <block ref="23c736ffefe2c88d617ae89ae44b32de" category="inline-link-macro-rx"></block></block>
+  <block id="42f362146dbe8748970967efe562f3c8" category="inline-link-macro">为 MetroCluster IP 配置配置 ONTAP 调解器</block>
+  <block id="a35bcdcd4abeb9e60e10ec1ddd40fb73" category="paragraph"><block ref="a35bcdcd4abeb9e60e10ec1ddd40fb73" category="inline-link-macro-rx"></block></block>
+  <block id="6b0096a280c04de21fb5d2ef96df1cb7" category="inline-link-macro">ONTAP SnapMirror 主动同步架构</block>
+  <block id="2dfb829fe1e40af1cb9ddc839717eb0e" category="list-text"><block ref="2dfb829fe1e40af1cb9ddc839717eb0e" category="inline-link-macro-rx"></block></block>
+  <block id="48596b9855b161c0fdcfc7b5380b949d" category="inline-link-macro">了解 ONTAP Mediator 对 MetroCluster IP 配置中自动计划外切换的支持</block>
+  <block id="06d2f43e26cf7c245bd2b9fdde4f760c" category="list-text"><block ref="06d2f43e26cf7c245bd2b9fdde4f760c" category="inline-link-macro-rx"></block></block>
+  <block id="d579e2d2fbd0efbbbd9c45317b15f8a7" category="sidebar">ONTAP Mediator 支持 SnapMirror 主动同步和 MetroCluster IP，为高可用性（HA）元数据提供持久且隔离的存储，提供同步节点健康查询功能以帮助确定仲裁，并充当控制器活跃度的 ping 代理。</block>
+  <block id="bddcb25dc0af4e702a0790b39f1edab8" category="sidebar">ONTAP Mediator 文档</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">开始使用</block>
+  <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">快速入门</block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">发行说明</block>
+  <block id="109e97d9e7194e57379972a9c16df8c1" category="sidebar">安装、升级和配置</block>
+  <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
+  <block id="c09b5be4c2da04f4040eef1878f258aa" category="sidebar">ONTAP 9 文档</block>
+  <block id="8162203e3ec38c896e5f6d688115d731" category="sidebar">ONTAP REST API 参考</block>
+  <block id="37888f4436a67135b7af33cedc29e2a9" category="sidebar">ONTAP CLI 参考</block>
+  <block id="74b199dea2b5c14988081c29006ba269" category="sidebar">ONTAP Mediator 文档</block>
+  <block id="7f29812fdda9b63b5432343e48888f3e" category="sidebar">ONTAP Mediator 中的新增功能</block>
+  <block id="7ff4995c299eff1168d2cf4a88aff450" category="sidebar">安装和设置</block>
+  <block id="24f47cdbe9ddba774a7cc53e51d9032e" category="sidebar">工作流</block>
+  <block id="f76aaf3aaa7b30238e7a3e2b1a04493b" category="sidebar">准备安装</block>
+  <block id="79953e35d982730fbecf7aa03d92a762" category="sidebar">启用对存储库的访问</block>
+  <block id="5313f1fcf99dc353ee486b3dc232c221" category="sidebar">下载安装包</block>
+  <block id="e0dc7a3d7049ad7cc30fc55836cba658" category="sidebar">验证代码签名</block>
+  <block id="d6279d2e34516b777db3ee2a047ea050" category="sidebar">安装 ONTAP Mediator 软件包</block>
+  <block id="b15a013c4977a2a96afedafe316664b2" category="sidebar">验证安装</block>
+  <block id="6584e4216667df6aaf19447e73148932" category="sidebar">使用 ONTAP Mediator</block>
+  <block id="08fee060c62a97cd00596d47ec113fe1" category="sidebar">管理 ONTAP 调解器</block>
+  <block id="fdb2ff0d7d656c49f4eae4e190dfcd66" category="sidebar">启动或停止 ONTAP Mediator</block>
+  <block id="951d3fc54a28f9f46798897467d96a5b" category="sidebar">管理证书</block>
+  <block id="00cc153f515f430662efd70403c7ba56" category="sidebar">重新生成临时自签名证书</block>
+  <block id="d847c50d8e20b1cbb0c7d007c82bb436" category="sidebar">用可信证书替换自签名证书</block>
+  <block id="aa4366187e22f05be41c6094e57cf220" category="sidebar">对证书相关问题进行故障排除</block>
+  <block id="f5fc8b69026eddce9248be43141a3d30" category="sidebar">主机操作系统维护</block>
+</blocks>
