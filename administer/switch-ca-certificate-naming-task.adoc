@@ -1,0 +1,60 @@
+---
+permalink: administer/switch-ca-certificate-naming-task.html 
+sidebar: sidebar 
+keywords: mediator, certificate, CA, common name, unique identifier, generate_unique_ca_name, legacy 
+summary: 当 ONTAP Mediator 实例必须与不识别唯一 CA 标识符的 ONTAP 版本配对时，将 ONTAP Mediator 切换到旧的固定 CA 证书公用名称。 
+---
+= 将 ONTAP Mediator 切换到旧版 CA 证书公用名称
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP Mediator 1.13 开始，自签名 CA 证书的通用名称中包含每个安装的标识符。如果您的 ONTAP Mediator 实例必须与无法识别此标识符的 ONTAP 版本配对，请切换到旧的固定通用名称。
+
+默认情况下，ONTAP Mediator CA 证书在其通用名称中包含每个安装的标识符，例如 `ONTAP Mediator CA 1a2b3c4d`。这使您能够向同一 ONTAP 集群注册多个 ONTAP Mediator 实例，因为 ONTAP 拒绝安装共享使用者名称但持有不同密钥的两个 CA 证书。
+
+以下 ONTAP 版本通过准确匹配通用名称来定位 ONTAP Mediator CA，并且无法识别标识符：
+
+* ONTAP 9.11.1 及更早版本
+* 早于 9.12.1P15、9.13.1P12、9.14.1P8 和 9.15.1P2 的 ONTAP 补丁程序版本
+
+
+如果 ONTAP Mediator 实例必须与这些版本之一配对，请使用旧的固定通用名称。
+
+.关于此任务
+* 在已安装 ONTAP Mediator 的 Linux 主机上执行此任务。
+* 虽然传统通用名称有效，但每个 ONTAP 集群只能注册一个 ONTAP Mediator 实例。
+
+
+.步骤
+. 将以下行添加到  `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.user_config.yaml` 文件中。此文件在 ONTAP Mediator 升级过程中保留。
++
+`'generate_unique_ca_name': false`
+
+. 重新生成证书：
++
+[source, cli]
+----
+[root@localhost ~]# cd /opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/; ./make_self_signed_certs.sh overwrite
+----
+. 重新启动服务：
++
+[source, cli]
+----
+[root@localhost ~]# sudo systemctl restart ontap_mediator
+----
+. 在使用自签名 CA 证书的每个配对的 ONTAP 群集上，执行以下操作：
++
+.. 移除 ONTAP Mediator。
+.. 删除先前安装的 CA 证书。
+.. 安装重新生成的 `root_ca.crt`和 `intermediate.crt`证书。
+.. 再次添加 ONTAP Mediator。
++
+
+CAUTION: 重新生成始终会生成新密钥，因此必须先删除旧的 CA 证书。如果将其保留，ONTAP 会保留一个不再对服务器证书进行签名的 CA。较新的 ONTAP 版本也会拒绝安装替换 CA 证书，因为新旧证书共享相同的使用者名称。
+
+
+
+

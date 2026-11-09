@@ -65,6 +65,8 @@ sidebar:
         url: "/administer/regenerate-self-signed-certificate-task.html"
       - title: 用可信证书替换自签名证书
         url: "/administer/replace-self-signed-certificates-task.html"
+      - title: 切换到旧版 CA 证书公用名
+        url: "/administer/switch-ca-certificate-naming-task.html"
       - title: 对证书相关问题进行故障排除
         url: "/administer/troubleshoot-certificate-issues-task.html"
     - title: 主机操作系统维护

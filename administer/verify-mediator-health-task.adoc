@@ -83,6 +83,10 @@ systemctl status mediator-scst
 
 . 确认 ONTAP Mediator 使用的端口：
 +
+
+NOTE: 对于仅限 HTTPS 的安装，预计仅有 31784 端口。以下示例中的端口 3260 侦听器在安装 SCST 时适用。
+
++
 [source, cli]
 ----
 netstat -anlt | grep -E '3260|31784'

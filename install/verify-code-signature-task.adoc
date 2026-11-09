@@ -59,28 +59,28 @@ NetApp 建议在安装前验证 ONTAP Mediator 代码签名。此步骤为可选
 
 
  a| 
-`ontap-mediator-1.12.1`
+`ontap-mediator-1.13.0`
  a| 
-1.12 版本的产品安装可执行文件
+1.13 版本的产品安装可执行文件
 
 
 
  a| 
-`ontap-mediator-1.12.1.sig`
+`ontap-mediator-1.13.0.sig`
  a| 
 经过 SHA-256 哈希处理，然后使用 csc-prod 密钥进行 RSA 签名的安装程序签名
 
 
 
  a| 
-`ontap-mediator-1.12.1.sig.tsr`
+`ontap-mediator-1.13.0.sig.tsr`
  a| 
 OCSCP 用于安装程序签名的吊销请求
 
 
 
  a| 
-`ontap-mediator-1.12.1.tsr`
+`ontap-mediator-1.13.0.tsr`
  a| 
 时间戳签名请求文件
 
@@ -141,7 +141,7 @@ openssl verify -untrusted tsa-prod-chain-ONTAP-Mediator.pem -CApath ${OPENSSLDIR
 +
 如果代码签名检查证书或时间戳证书已过期或无效，则命令失败。下载较新版本的 ONTAP Mediator。
 
-. 使用关联证书验证  `ontap-mediator-1.12.1.sig.tsr` 和  `ontap-mediator-1.12.1.tsr` 文件：
+. 使用关联证书验证  `ontap-mediator-1.13.0.sig.tsr` 和  `ontap-mediator-1.13.0.tsr` 文件：
 +
 [role="tabbed-block"]
 ====
@@ -149,14 +149,14 @@ openssl verify -untrusted tsa-prod-chain-ONTAP-Mediator.pem -CApath ${OPENSSLDIR
 --
 [source, cli]
 ----
-openssl ts -verify -data ontap-mediator-1.12.1.sig -in ontap-mediator-1.12.1.sig.tsr -CAfile tsa-prod-chain-ONTAP-Mediator.pem -untrusted tsa-prod-ONTAP-Mediator.pem
+openssl ts -verify -data ontap-mediator-1.13.0.sig -in ontap-mediator-1.13.0.sig.tsr -CAfile tsa-prod-chain-ONTAP-Mediator.pem -untrusted tsa-prod-ONTAP-Mediator.pem
 ----
 --
 .OpenSSL 1.x
 --
 [source, cli]
 ----
-openssl ts -verify -data ontap-mediator-1.12.1 -in ontap-mediator-1.12.1.tsr -CAfile tsa-prod-chain-ONTAP-Mediator.pem -partial_chain
+openssl ts -verify -data ontap-mediator-1.13.0 -in ontap-mediator-1.13.0.tsr -CAfile tsa-prod-chain-ONTAP-Mediator.pem -partial_chain
 ----
 --
 ====
@@ -173,7 +173,7 @@ openssl -dgst -verify
 +
 [source, cli]
 ----
-openssl dgst -sha256 -verify ONTAP-Mediator-production.pub -signature ontap-mediator-1.12.1.sig ontap-mediator-1.12.1
+openssl dgst -sha256 -verify ONTAP-Mediator-production.pub -signature ontap-mediator-1.13.0.sig ontap-mediator-1.13.0
 ----
 
 

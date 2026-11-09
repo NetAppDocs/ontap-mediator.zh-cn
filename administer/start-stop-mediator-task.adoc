@@ -29,6 +29,10 @@ systemctl stop ontap_mediator
 ----
 . 停止 SCST：
 +
+
+NOTE: 如果您安装了仅支持 HTTPS 的 ONTAP Mediator，请跳过此步骤。
+
++
 [source, cli]
 ----
 systemctl stop mediator-scst
@@ -56,6 +60,10 @@ systemctl disable ontap_mediator mediator-scst
 systemctl enable ontap_mediator mediator-scst
 ----
 . 启动 SCST：
++
+
+NOTE: 如果您安装了仅支持 HTTPS 的 ONTAP Mediator，请跳过此步骤。
+
 +
 [source, cli]
 ----

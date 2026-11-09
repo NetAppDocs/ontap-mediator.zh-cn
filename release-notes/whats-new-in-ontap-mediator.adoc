@@ -24,15 +24,31 @@ NOTE: 有关操作系统和 SCST 版本信息，请参见 link:support-matrix.ht
 
 
  a| 
+1.13
+ a| 
+* 支持 RHEL：
++
+** 兼容：10.1、9.7 和 9.5。
+** 建议：10.3、10.2、10.0、9.9、9.8、9.6、9.4 和 8.10。
+
+
+* 支持 Rocky Linux 10.2、10.1、10.0、9.8、9.7、9.6、9.4 和 8.10。
+* 支持 Oracle Linux 10.2（rhck内核）、10.1（rhck和uek内核）、10.0（uek内核）、9.8（uek内核）、9.7（rhck和uek内核）和 9.6（rhck内核）。
+* 自签名 CA 证书现在在其通用名称中包含唯一的每安装标识符，例如 `ONTAP Mediator CA 1a2b3c4d`。这使您能够在同一个 ONTAP 集群中注册多个 ONTAP Mediator 实例。如果您的 ONTAP Mediator 必须与无法识别该标识符的 ONTAP 版本配对，您可以切换到旧的固定通用名称。link:../administer/switch-ca-certificate-naming-task.html["了解如何切换到旧版 CA 证书通用名称"]。
+
+
+
+
+ a| 
 1.12.1
  a| 
 * 支持 RHEL：
 +
-** 兼容：10.1 和 9.7。
+** 兼容：10.1、9.7 和 9.5。
 ** 推荐：10.2、10.0、9.8、9.6、9.4 和 8.10。
 
 
-* 支持 Rocky Linux 10.2、9.8 和 8.10。
+* 支持 Rocky Linux 10.2、10.1、10.0、9.8 和 8.10。
 * 支持使用 rhck 和 uek 内核的 Oracle Linux 10.1 和 9.8。
 * 从 ONTAP Mediator 1.12.1 和 ONTAP 9.19.1 开始，配置了 HTTPS 的单个 ONTAP Mediator 实例可以同时监控以下配置：
 +
@@ -50,11 +66,11 @@ NOTE: 有关操作系统和 SCST 版本信息，请参见 link:support-matrix.ht
  a| 
 * 支持 RHEL：
 +
-** 兼容：10.1 和 9.7。
+** 兼容：10.1、9.7 和 9.5。
 ** 推荐：10.2、10.0、9.8、9.6、9.4 和 8.10。
 
 
-* 支持 Rocky Linux 10.2、9.8 和 8.10。
+* 支持 Rocky Linux 10.1、10.0、9.8 和 8.10。
 * 支持使用 rhck 和 uek 内核的 Oracle Linux 10.1 和 9.7。
 * 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以在 MetroCluster IP 配置中配置使用 HTTPS 进行通信的 ONTAP Mediator。HTTPS 通过使用 SSL/TLS 加密整个会话来提高安全性。您可以选择安装仅支持 HTTPS 的 ONTAP Mediator。如果使用此安装方法，则不会安装 SCST 软件包。link:../install/prepare-install.html#https-iscsi-installation["详细了解 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项"]。
 
@@ -64,8 +80,13 @@ NOTE: 有关操作系统和 SCST 版本信息，请参见 link:support-matrix.ht
  a| 
 1.11
  a| 
-* 支持 RHEL 10.1、10.0、9.7、9.6、9.4 和 8.10。
-* 支持 Rocky Linux 10.1、9.7 和 8.10。
+* 支持 RHEL：
++
+** 兼容：9.5。
+** 推荐：10.1、10.0、9.7、9.6、9.4 和 8.10。
+
+
+* 支持 Rocky Linux 10.1、10.0、9.7 和 8.10。
 * 支持使用 rhck 和 uek 内核的 Oracle Linux 10.0 和 9.6。
 * 为 MetroCluster IP 配置添加对 IPv6 的支持。
 * 增加了对 fapolicyd 的支持。
@@ -76,8 +97,13 @@ NOTE: 有关操作系统和 SCST 版本信息，请参见 link:support-matrix.ht
  a| 
 1.10
  a| 
-* 支持 RHEL 10.0、9.6、9.4 和 8.10。
-* 支持 Rocky Linux 10.0、9.6 和 8.10。
+* 支持 RHEL：
++
+** 兼容：9.5。
+** 建议：10.0、9.6、9.4 和 8.10。
+
+
+* 支持 Rocky Linux 10.0、9.6、9.4 和 8.10。
 * 将基础 Python 版本从 Python 3.9 升级到 Python 3.12。
 
 
@@ -88,7 +114,7 @@ NOTE: 有关操作系统和 SCST 版本信息，请参见 link:support-matrix.ht
  a| 
 * 支持 RHEL：
 +
-** 兼容：9.3、9.1、8.9、8.7、8.6、8.5 和 8.4。
+** 兼容：8.9、8.7、8.6、8.5 和 8.4。
 ** 推荐：9.5、9.4、9.2、9.0、8.10 和 8.8。
 
 
@@ -105,8 +131,8 @@ NOTE: 有关操作系统和 SCST 版本信息，请参见 link:support-matrix.ht
  a| 
 * 支持 RHEL：
 +
-** 兼容：9.3、9.1、8.9、8.7、8.6、8.5 和 8.4。
-** 推荐：9.5、9.4、9.2、9.0、8.10 和 8.8。
+** 兼容：8.9、8.7、8.6、8.5 和 8.4。
+** 推荐：9.4、9.2、9.0、8.10 和 8.8。
 
 
 * 支持 Rocky Linux 9.5 和 8.10。

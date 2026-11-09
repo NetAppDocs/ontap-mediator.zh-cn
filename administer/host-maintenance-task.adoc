@@ -97,6 +97,13 @@ NOTE: 如果您安装了仅支持 HTTPS 的 ONTAP Mediator 1.12 或更高版本�
 
 
  a| 
+ONTAP Mediator 1.13
+ a| 
+scst-3.10.tar.gz
+
+
+
+ a| 
 ONTAP Mediator 1.12.1
  a| 
 scst-3.10.tar.gz

@@ -18,7 +18,7 @@ summary: 配置 ONTAP Mediator 属性，包括与证书相关的设置和主机�
 [[ontap-mediator-configurable-settings]]
 == ONTAP Mediator 可配置设置
 
-ONTAP Mediator 支持多种可配置设置。这些设置的默认值在 `low_space_threshold_mib: 10`只读文件中提供。该文件位于：
+ONTAP Mediator 支持多种可配置设置。这些设置的默认值在 `ontap_mediator.config.yaml`只读文件中提供。该文件位于：
 
 `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.user_config.yaml`
 

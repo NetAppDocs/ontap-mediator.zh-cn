@@ -57,6 +57,7 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 [[ontap-mediator-for-metrocluster-ip-and-snapmirror-active-sync]]
 == 用于 MetroCluster IP 和 SnapMirror 主动同步的 ONTAP 调解器
 
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3392667["ONTAP Mediator 1.13 注意事项"^]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3378665["ONTAP Mediator 1.12.1 通知"^]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3364866["ONTAP Mediator 1.11 通知"^]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3351664["ONTAP Mediator 1.10 的通知"^]
